@@ -1,0 +1,357 @@
+•  Services de Manipulation de Texte
+•	string — Opérations usuelles sur des chaînes
+•	re — Opérations à base d'expressions rationnelles
+•	difflib — Utilitaires pour le calcul des deltas
+•	textwrap --- Encapsulation et remplissage de texte
+•	unicodedata — Base de données Unicode
+•	stringprep — Préparation des chaines de caractères internet
+•	readline — interface pour GNU readline
+•	rlcompleter — Fonction de complétion pour GNU readline
+
+
+•  Services autour des Données Binaires
+•	struct — manipulation de données agrégées sous forme binaire comme une séquence d'octets
+•	codecs — Registre des codecs et classes de base associées
+
+
+•  Types de données
+•	datetime — Types de base pour la date et l'heure
+•	zoneinfo — Prise en charge des fuseaux horaires IANA
+•	calendar — Fonctions calendaires générales
+•	collections — Types de données de conteneurs
+•	collections.abc --- Classes de base abstraites pour les conteneurs
+•	heapq — File de priorité basée sur un tas
+•	bisect — Algorithme de bissection de listes
+•	array — Tableaux efficaces de valeurs numériques
+•	weakref --- Weak references
+•	types --- Dynamic type creation and names for built-in types
+•	copy — Opérations de copie superficielle et récursive
+•	pprint — L’affichage élégant de données
+•	reprlib --- Alternate repr() implementation
+•	enum — Énumerations
+•	graphlib --- Functionality to operate with graph-like structures
+
+
+•  Modules numériques et mathématiques
+•	numbers — Classes de base abstraites numériques
+•	Fonctions mathématiques — math
+•	Fonctions mathématiques pour nombres complexes — cmath
+•	decimal — Arithmétique décimale en virgule fixe et flottante
+•	fractions — Nombres rationnels
+•	random --- Génère des nombres pseudo-aléatoires
+•	statistics — Fonctions mathématiques pour les statistiques
+
+
+•  Modules de programmation fonctionnelle
+•	itertools — Fonctions créant des itérateurs pour boucler efficacement
++	functools — Fonctions d'ordre supérieur et opérations sur des objets appelables
+•	operator — Opérateurs standards en tant que fonctions
+
+
+•  Accès aux Fichiers et aux Dossiers
+•	pathlib — Chemins de système de fichiers orientés objet
+•	os.path — manipulation courante des chemins
+•	fileinput --- Iterate over lines from multiple input streams
+•	stat --- Interpreting stat() results
+•	filecmp – Comparaisons de fichiers et de répertoires
+•	tempfile — Génération de fichiers et répertoires temporaires
+•	glob --- Recherche de chemins de style Unix selon certains motifs
+•	fnmatch — Filtrage par motif des noms de fichiers Unix
+•	linecache — Accès direct aux lignes d'un texte
+•	shutil --- Opérations de haut niveau sur les fichiers
+
+
+•  Persistance des données
+•	pickle --- Module de sérialisation d'objets Python
+•	copyreg — Enregistre les fonctions support de pickle
+•	shelve — Objet Python persistant
+•	marshal — Sérialisation interne des objets Python
+•	dbm --- Interfaces to Unix "databases"
+•	sqlite3 — Interface DB-API 2.0 pour bases de données SQLite
+
+
+•  Compression de donnée et archivage
+•	zlib — Compression compatible avec gzip
+•	gzip — Support pour les fichiers gzip
+•	bz2 — Prise en charge de la compression bzip2
+•	lzma — Compression via l'algorithme LZMA
+•	zipfile — Travailler avec des archives ZIP
+•	tarfile — Lecture et écriture de fichiers d'archives tar
+
+
+•  Formats de fichiers
+•	csv — Lecture et écriture de fichiers CSV
+•	configparser --- Configuration file parser
+•	netrc — traitement de fichier netrc
+•	xdrlib --- Encode and decode XDR data
+•	plistlib --- Generate and parse Apple .plist files
+
+
+•  Service de cryptographie
+•	hashlib --- Algorithmes de hachage sécurisés et synthèse de messages
+•	hmac — Authentification de messages par hachage en combinaison avec une clé secrète
+•	secrets — Générer des nombres aléatoires de façon sécurisée pour la gestion des secrets
+
+
+•  Services génériques du système d'exploitation
+•	os — Diverses interfaces pour le système d'exploitation
+•	io --- Core tools for working with streams
+•	time — Accès au temps et conversions
+•	argparse -- Parseur d'arguments, d'options, et de sous-commandes de ligne de commande
+•	getopt – Analyseur de style C pour les options de ligne de commande
+•	logging — Fonctionnalités de journalisation pour Python
+•	logging.config --- Logging configuration
+•	logging.handlers — Gestionnaires de journalisation
+•	Saisie de mot de passe portable
+•	curses --- Terminal handling for character-cell displays
+•	curses.textpad --- Text input widget for curses programs
+•	curses.ascii --- Utilities for ASCII characters
+•	curses.panel --- A panel stack extension for curses
+•	platform --- Access to underlying platform's identifying data
+•	errno — Symboles du système errno standard
+•	ctypes — Bibliothèque Python d'appels à des fonctions externes
+
+
+•  Exécution concourante
+•	threading — Parallélisme basé sur les fils d’exécution (threads)
+•	multiprocessing — Parallélisme par processus
+•	multiprocessing.shared_memory — Mémoire partagée en accès direct depuis plusieurs processus
+•	Le paquet concurrent
+•	concurrent.futures --- Launching parallel tasks
+•	subprocess — Gestion de sous-processus
+•	sched --- Event scheduler
+•	queue — File synchronisée
+•	contextvars --- Context Variables
+•	_thread — API bas niveau de gestion de fils d'exécution
+
+
+•  Réseau et communication entre processus
+•	asyncio — Entrées/Sorties asynchrones
+•	socket — Gestion réseau de bas niveau
+•	ssl — Emballage TLS/SSL pour les objets connecteurs
+•	select --- Waiting for I/O completion
+•	selectors --- High-level I/O multiplexing
+•	asyncore — Gestionnaire de socket asynchrone
+•	asynchat --- Gestionnaire d'interfaces de connexion (socket) commande/réponse asynchrones
+•	signal --- Set handlers for asynchronous events
+•	mmap --- Memory-mapped file support
+
+
+•  Traitement des données provenant d'Internet
+•	email — Un paquet de gestion des e-mails et MIME
+•	json — Encodage et décodage JSON
+•	mailcap — Manipulation de fichiers Mailcap
+•	mailbox — Manipuler les boîtes de courriels dans différents formats
+•	mimetypes --- Map filenames to MIME types
+•	base64 — Encodages base16, base32, base64 et base85
+•	binhex — Encode et décode les fichiers binhex4
+•	binascii --- Conversion entre binaire et ASCII
+•	quopri — Encode et décode des données MIME quoted-printable
+•	uu — Encode et décode les fichiers uuencode
+
+
+•  Outils de traitement de balises structurées
+•	html — Support du HyperText Markup Language
+•	html.parser --- Simple HTML and XHTML parser
+•	html.entities — Définitions des entités HTML générales
+•	Modules de traitement XML
+•	xml.etree.ElementTree --- The ElementTree XML API
+•	xml.dom — L'API Document Object Model
+•	xml.dom.minidom --- Minimal DOM implementation
+•	xml.dom.pulldom --- Support for building partial DOM trees
+•	xml.sax — Prise en charge des analyseurs SAX2
+•	xml.sax.handler --- Base classes for SAX handlers
+•	xml.sax.saxutils — Utilitaires SAX
+•	xml.sax.xmlreader --- Interface for XML parsers
+•	xml.parsers.expat --- Fast XML parsing using Expat
+
+
+•  Gestion des protocoles internet
+•	webbrowser --- Convenient Web-browser controller
+•	cgi --- Common Gateway Interface support
+•	cgitb — Gestionnaire d'exceptions pour les scripts CGI
+•	wsgiref — Outils et implémentation de référence de WSGI
+•	urllib — Modules de gestion des URLs
+•	urllib.request --- Extensible library for opening URLs
+•	urllib.response --- Response classes used by urllib
+•	urllib.parse --- Parse URLs into components
+•	urllib.error --- Classes d'exceptions levées par urllib.request
+•	urllib.robotparser — Analyseur de fichiers robots.txt
+•	http — modules HTTP
+•	http.client --- HTTP protocol client
+•	ftplib --- FTP protocol client
+•	poplib --- POP3 protocol client
+•	imaplib --- IMAP4 protocol client
+•	nntplib --- NNTP protocol client
+•	smtplib --- SMTP protocol client
+•	smtpd --- SMTP Server
+•	telnetlib --- Telnet client
+•	uuid — Objets UUID d'après la RFC 4122
+•	socketserver --- A framework for network servers
+•	http.server --- HTTP servers
+•	http.cookies — gestion d'état pour HTTP
+•	http.cookiejar --- Cookie handling for HTTP clients
+•	xmlrpc — Modules Serveur et Client XMLRPC
+•	xmlrpc.client --- XML-RPC client access
+•	xmlrpc.server --- Basic XML-RPC servers
+•	ipaddress --- IPv4/IPv6 manipulation library
+
+
+•  Services multimédia
+•	audioloop — Manipulation de données audio brutes
+•	aifc — Lis et écrit dans les fichiers AIFF et AIFC
+•	sunau --- Read and write Sun AU files
+•	wave --- Lecture et écriture des fichiers WAV
+•	chunk --- Read IFF chunked data
+•	colorsys — Conversions entre les systèmes de couleurs
+•	imghdr --- Determine the type of an image
+•	sndhdr — Détermine le type d'un fichier audio
+•	ossaudiodev --- Access to OSS-compatible audio devices
+
+
+•  Internationalisation
+•	gettext — Services d'internationalisation multilingue
+•	locale --- Internationalization services
+
+
+•  Cadriciels d'applications
+•	turtle — Tortue graphique
+•	cmd — Interpréteurs en ligne de commande.
+•	shlex --- Simple lexical analysis
+
+
+•  Interfaces Utilisateur Graphiques avec Tk
+•	tkinter — Interface Python pour Tcl/Tk
+•	tkinter.colorchooser --- Color choosing dialog
+•	tkinter.font --- Tkinter font wrapper
+•	Tkinter Dialogs
+•	tkinter.messagebox --- Tkinter message prompts
+•	tkinter.scrolledtext — Gadget texte avec barre de défilement
+•	tkinter.dnd --- Drag and drop support
+•	tkinter.ttk --- Tk themed widgets
+•	tkinter.tix --- Extension widgets for Tk
+•	IDLE
+•	Autres paquets d'interface graphique utilisateur
+
+
+•  Outils de développement
+•	typing — Prise en charge des annotations de type
+•	pydoc — Générateur de documentation et système d’aide en ligne
+•	Python Development Mode
+•	Effects of the Python Development Mode
+•	ResourceWarning Example
+•	Bad file descriptor error example
+•	doctest --- Test interactive Python examples
+•	unittest — Framework de tests unitaires
+•	unittest.mock — Bibliothèque d'objets simulacres
+•	unittest.mock --- getting started
+•	2to3 — Traduction automatique de code en Python 2 vers Python 3
+•	test --- Regression tests package for Python
+•	test.support --- Utilities for the Python test suite
+•	test.support.socket_helper --- Utilities for socket tests
+•	test.support.script_helper --- Utilities for the Python execution tests
+•	test.support.bytecode_helper --- Support tools for testing correct bytecode generation
+
+
+•  Débogueur et instrumentation
+•	Table des évènements d'audit
+•	bdb — Framework de débogage
+•	faulthandler --- Dump the Python traceback
+•	pdb — Le débogueur Python
+•	The Python Profilers
+•	timeit — Mesurer le temps d'exécution de fragments de code
+•	trace --- Trace or track Python statement execution
+•	tracemalloc --- Trace memory allocations
+
+
+•  Paquets et distribution de paquets logiciels
+•	distutils — Création et installation des modules Python
+•	ensurepip --- Bootstrapping the pip installer
+•	venv — Création d'environnements virtuels
+•	zipapp — Gestion des archives zip exécutables Python
+
+
+•  Environnement d'exécution Python
+•	sys — Paramètres et fonctions propres à des systèmes
+•	sysconfig --- Provide access to Python's configuration information
+•	builtins — Objets natifs
+•	__main__ — Point d'entrée des scripts
+•	warnings --- Contrôle des alertes
+•	dataclasses — Classes de Données
+•	contextlib — Utilitaires pour les contextes s'appuyant sur l'instruction with
+•	abc — Classes de Base Abstraites
+•	atexit — Gestionnaire de fin de programme
+•	traceback --- Print or retrieve a stack traceback
+•	__future__ — Définitions des futurs
+•	gc --- Garbage Collector interface
+•	inspect --- Inspect live objects
+•	site --- Site-specific configuration hook
+
+
+•  Interpréteurs Python personnalisés
+•	code --- Interpreter base classes
+•	codeop — Compilation de code Python
+
+
+•  Importer des modules
+•	zipimport — Importer des modules à partir d'archives Zip
+•	pkgutil --- Package extension utility
+•	modulefinder — Identifie les modules utilisés par un script
+•	runpy --- Locating and executing Python modules
+•	importlib --- The implementation of import
+•	Using importlib.metadata
+
+
+•  Services du Langage Python
+•	parser — Accès aux arbres syntaxiques
+•	ast — Arbres Syntaxiques Abstraits
+•	symtable --- Access to the compiler's symbol tables
+•	symbol — Constantes utilisées dans les Arbres Syntaxiques
+•	token --- Constantes utilisées avec les arbres d'analyse Python (parse trees)
+•	keyword — Tester si des chaînes sont des mot-clés Python
+•	tokenize — Analyseur lexical de Python
+•	tabnanny — Détection d'indentation ambiguë
+•	pyclbr --- Python module browser support
+•	py_compile --- Compile Python source files
+•	compileall --- Byte-compile Python libraries
+•	dis – Désassembleur pour le code intermédiaire de Python
+•	pickletools --- Tools for pickle developers
+
+
+•  Services divers
+•	formatter --- Generic output formatting
+
+
+•  Services spécifiques à MS Windows
+•	msilib --- Read and write Microsoft Installer files
+•	msvcrt --- Useful routines from the MS VC++ runtime
+•	winreg --- Windows registry access
+•	winsound --- Sound-playing interface for Windows
+
+
+•  Services spécifiques à Unix
+•	posix — Les appels système POSIX les plus courants
+•	pwd --- The password database
+•	spwd — La base de données de mots de passe shadow
+•	grp --- The group database
+•	crypt --- Function to check Unix passwords
+•	termios — Le style POSIX le contrôle TTY
+•	tty — Fonctions de gestion du terminal
+•	pty — Outils de manipulation de pseudo-terminaux
+•	fcntl --- The fcntl and ioctl system calls
+•	pipes — Interface au pipelines shell
+•	resource --- Resource usage information
+•	nis — Interface à Sun's NIS (pages jaunes)
+•	syslog --- Unix syslog library routines
+
+
+•  Modules remplacés
+•	optparse --- Parser for command line options
+•	imp --- Access the import internals
+
+
+•  Modules non Documentés
+•	Modules spécifiques à une plateforme
+
+
+functools

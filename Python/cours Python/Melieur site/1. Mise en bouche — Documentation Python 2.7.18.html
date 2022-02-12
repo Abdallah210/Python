@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>1. Mise en bouche — Documentation Python 2.7.18</title>
+    <link rel="stylesheet" href="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/classic.css" type="text/css">
+    <link rel="stylesheet" href="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/pygments.css" type="text/css">
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/documentation_options.js"></script>
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/language_data.js"></script>
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/translations.js"></script>
+    
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="Recherchez dans Documentation Python 2.7.18" href="https://docs.python.org/fr/2/_static/opensearch.xml">
+    <link rel="author" title="À propos de ces documents" href="https://docs.python.org/fr/2/about.html">
+    <link rel="index" title="Index" href="https://docs.python.org/fr/2/genindex.html">
+    <link rel="search" title="Recherche" href="https://docs.python.org/fr/2/search.html">
+    <link rel="copyright" title="Copyright" href="https://docs.python.org/fr/2/copyright.html">
+    <link rel="next" title="2. Mode d’emploi de l’interpréteur Python" href="https://docs.python.org/fr/2/tutorial/interpreter.html">
+    <link rel="prev" title="Le tutoriel Python" href="https://docs.python.org/fr/2/tutorial/index.html">
+    <link rel="shortcut icon" type="image/png" href="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/py.png">
+    <link rel="canonical" href="https://docs.python.org/2/tutorial/appetite.html">
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/copybutton.js"></script>
+    
+ 
+    
+
+  </head><body>
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is <a href="https://devguide.python.org/devcycle/#end-of-life-branches">no longer supported</a>.
+    You should upgrade and read the 
+    <a href="https://docs.python.org/fr/3/tutorial/appetite.html"> Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.python.org/fr/2/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/py-modindex.html" title="Index des modules Python">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/interpreter.html" title="2. Mode d’emploi de l’interpréteur Python" accesskey="N">suivant</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/index.html" title="Le tutoriel Python" accesskey="P">précédent</a> |</li>
+        <li><img src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+        <li><a href="https://www.python.org/">Python</a> »</li>
+        <li><span class="language_switcher_placeholder"><select><option value="en">English</option><option value="fr" selected="selected">French</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="pt-br">Brazilian Portuguese</option><option value="zh-cn">Simplified Chinese</option><option value="zh-tw">Traditional Chinese</option></select></span> <span class="version_switcher_placeholder"><select><option value="3.10">dev (3.10)</option><option value="3.9">pre (3.9)</option><option value="3.8">3.8</option><option value="3.7">3.7</option><option value="3.6">3.6</option><option value="3.5">3.5</option><option value="2.7" selected="selected">2.7.18</option></select></span> <a href="https://docs.python.org/fr/2/index.html">Documentation</a> »</li>
+
+          <li class="nav-item nav-item-1"><a href="https://docs.python.org/fr/2/tutorial/index.html" accesskey="U">Le tutoriel Python</a> »</li> 
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="whetting-your-appetite">
+<span id="tut-intro"></span><h1><span class="section-number">1. </span>Mise en bouche<a class="headerlink" href="#whetting-your-appetite" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Lorsqu’on travaille beaucoup sur ordinateur, on finit souvent par 
+vouloir automatiser certaines tâches : par exemple, effectuer une 
+recherche et un remplacement sur un grand nombre de fichiers de texte ; 
+ou renommer et réorganiser des photos d’une manière un peu compliquée. 
+Pour vous, ce peut être créer une petite base de données, une 
+application graphique ou un simple jeu.</p>
+<p>Quand on est un développeur professionnel, le besoin peut se faire 
+sentir de travailler avec des bibliothèques C/C++/Java, mais on trouve 
+que le cycle habituel écriture/compilation/test/compilation est trop 
+lourd. Vous écrivez peut-être une suite de tests pour une telle 
+bibliothèque et vous trouvez que l’écriture du code de test est pénible.
+ Ou bien vous avez écrit un logiciel qui a besoin d’être extensible 
+grâce à un langage de script, mais vous ne voulez pas concevoir ni 
+implémenter un nouveau langage pour votre application.</p>
+<p>Python est le langage parfait pour vous.</p>
+<p>Vous pouvez écrire un script shell Unix ou des fichiers batch Windows
+ pour certaines de ces tâches. Les scripts shell sont appropriés pour 
+déplacer des fichiers et modifier des données textuelles, mais pas pour 
+une application ayant une interface graphique ni pour des jeux. Vous 
+pouvez écrire un programme en C/C++/Java, mais cela peut prendre 
+beaucoup de temps, ne serait-ce que pour avoir une première maquette. 
+Python est plus facile à utiliser et il vous aidera à terminer plus 
+rapidement votre travail, que ce soit sous Windows, Mac OS X ou Unix.</p>
+<p>Python reste facile à utiliser, mais c’est un vrai langage de 
+programmation : il offre une bien meilleure structure et prise en charge
+ des grands programmes que les scripts shell ou les fichiers batch. Par 
+ailleurs, Python permet de beaucoup mieux vérifier les erreurs que le 
+langage C et, en tant que <em>langage de très haut niveau</em>, il 
+possède nativement des types de données très évolués tels que les 
+tableaux de taille variable ou les dictionnaires. Grâce à ses types de 
+données plus universels, Python est utilisable pour des domaines 
+beaucoup plus variés que ne peuvent l’être Awk ou même Perl. Pourtant, 
+vous pouvez faire de nombreuses choses  au moins aussi facilement en 
+Python que dans ces langages.</p>
+<p>Python vous permet de découper votre programme en modules qui peuvent
+ être réutilisés dans d’autres programmes Python. Il est fourni avec une
+ grande variété de modules standards que vous pouvez utiliser comme base
+ de vos programmes, ou comme exemples pour apprendre à programmer. 
+Certains de ces modules donnent accès aux entrées/sorties, aux appels 
+système, aux sockets réseaux et même aux outils comme Tk pour créer des 
+interfaces graphiques.</p>
+<p>Python est un langage interprété, ce qui peut vous faire gagner un 
+temps considérable pendant le développement de vos programmes car aucune
+ compilation ni édition de liens n’est nécessaire. L’interpréteur peut 
+être utilisé de manière interactive, pour vous permettre d’expérimenter 
+les fonctionnalités du langage, d’écrire des programmes jetables ou de 
+tester des fonctions lors d’un développement incrémental. C’est aussi 
+une calculatrice de bureau bien pratique.</p>
+<p>Python permet d’écrire des programmes compacts et lisibles. Les 
+programmes écrits en Python sont généralement beaucoup plus courts que 
+leurs équivalents en C, C++ ou Java. Et ceci pour plusieurs 
+raisons&nbsp;:</p>
+<ul class="simple">
+<li><p>les types de données de haut niveau vous permettent d’exprimer des opérations complexes en une seule instruction&nbsp;;</p></li>
+<li><p>les instructions sont regroupées entre elles grâce à l’indentation, plutôt que par l’utilisation d’accolades&nbsp;;</p></li>
+<li><p>aucune déclaration de variable ou d’argument n’est nécessaire.</p></li>
+</ul>
+<p>Python est <em>extensible</em> : si vous savez écrire un programme en
+ C, une nouvelle fonction ou module peut être facilement ajouté à 
+l’interpréteur afin de l’étendre, que ce soit pour effectuer des 
+opérations critiques à vitesse maximale ou pour lier des programmes en 
+Python à des bibliothèques disponibles uniquement sous forme binaire 
+(par exemple des bibliothèques graphiques dédiées à un matériel). Une 
+fois que vous êtes à l’aise avec ces principes, vous pouvez relier 
+l’interpréteur Python à une application écrite en C et l’utiliser comme 
+un langage d’extensions ou de commandes pour cette application.</p>
+<p>Au fait, le nom du langage provient de l’émission de la BBC « Monty 
+Python’s Flying Circus » et n’a rien à voir avec les reptiles. Faire 
+référence aux sketchs des Monty Python dans la documentation n’est pas 
+seulement permis, c’est encouragé !</p>
+<p>Maintenant que vos papilles ont été chatouillées, nous allons pouvoir
+ rentrer dans le vif du sujet Python. Et comme la meilleure façon 
+d’apprendre un langage est de l’utiliser, ce tutoriel vous invite à 
+jouer avec l’interpréteur au fur et à mesure de votre lecture.</p>
+<p>Dans le prochain chapitre, nous expliquons l’utilisation de 
+l’interpréteur. Ce n’est pas la section la plus passionnante, mais c’est
+ un passage obligé pour que vous puissiez mettre en pratique les 
+exemples donnés plus loin.</p>
+<p>Le reste du tutoriel présente diverses fonctionnalités du langage et 
+du système Python au travers d’exemples, en commençant par les 
+expressions simples, les instructions et les types de données, jusqu’à 
+aborder des concepts avancés comme les exceptions et les classes, en 
+passant par les fonctions et modules.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="position: sticky; float: left; margin-right: 0px; width: 202px;">
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="https://docs.python.org/fr/2/tutorial/index.html" title="Chapitre précédent">Le tutoriel Python</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="https://docs.python.org/fr/2/tutorial/interpreter.html" title="Chapitre suivant"><span class="section-number">2. </span>Mode d’emploi de l’interpréteur Python</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://docs.python.org/fr/2/_sources/tutorial/appetite.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel">
+      <input type="submit" value="Go">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      <div id="sidebarbutton" title="Réduire la barre latérale" style="color: rgb(255, 255, 255); border-left: 1px solid rgb(19, 63, 82); font-size: 1.2em; cursor: pointer; height: 1261.2px; padding-top: 1px; margin-left: 218px;"><span style="display: block; margin-top: 285px;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.python.org/fr/2/genindex.html" title="Index général">index</a></li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/py-modindex.html" title="Index des modules Python">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/interpreter.html" title="2. Mode d’emploi de l’interpréteur Python">suivant</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/index.html" title="Le tutoriel Python">précédent</a> |</li>
+        <li><img src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+        <li><a href="https://www.python.org/">Python</a> »</li>
+        <li>
+          <a href="https://docs.python.org/fr/2/index.html">Documentation Python 2.7.18</a> »
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="https://docs.python.org/fr/2/tutorial/index.html">Le tutoriel Python</a> »</li> 
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="https://docs.python.org/fr/2/copyright.html">Copyright</a> 1990-2020, Python Software Foundation.
+    <br>
+    La Python Software Foundation est une organisation à but non lucratif.
+    <a href="https://www.python.org/psf/donations/">Les dons sont bienvenus.</a>
+    <br>
+    Dernière mise à jour le juin 19, 2020.
+    <a href="https://docs.python.org/fr/2/bugs.html">Vous avez trouvé un bug</a> ?
+    <br>
+    Créé via <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
+    </div>
+
+    <script type="text/javascript" src="1.%20Mise%20en%20bouche%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/switchers.js"></script>
+  
+</body></html>

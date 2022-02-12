@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>5. Structures de données — Documentation Python 2.7.18</title>
+    <link rel="stylesheet" href="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/classic.css" type="text/css">
+    <link rel="stylesheet" href="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/pygments.css" type="text/css">
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/documentation_options.js"></script>
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/language_data.js"></script>
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/translations.js"></script>
+    
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml" title="Recherchez dans Documentation Python 2.7.18" href="https://docs.python.org/fr/2/_static/opensearch.xml">
+    <link rel="author" title="À propos de ces documents" href="https://docs.python.org/fr/2/about.html">
+    <link rel="index" title="Index" href="https://docs.python.org/fr/2/genindex.html">
+    <link rel="search" title="Recherche" href="https://docs.python.org/fr/2/search.html">
+    <link rel="copyright" title="Copyright" href="https://docs.python.org/fr/2/copyright.html">
+    <link rel="next" title="6. Modules" href="https://docs.python.org/fr/2/tutorial/modules.html">
+    <link rel="prev" title="4. D’autres outils de contrôle de flux" href="https://docs.python.org/fr/2/tutorial/controlflow.html">
+    <link rel="shortcut icon" type="image/png" href="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/py.png">
+    <link rel="canonical" href="https://docs.python.org/2/tutorial/datastructures.html">
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/copybutton.js"></script>
+    
+ 
+    
+
+  </head><body>
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is <a href="https://devguide.python.org/devcycle/#end-of-life-branches">no longer supported</a>.
+    You should upgrade and read the 
+    <a href="https://docs.python.org/fr/3/tutorial/datastructures.html"> Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.python.org/fr/2/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/py-modindex.html" title="Index des modules Python">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/modules.html" title="6. Modules" accesskey="N">suivant</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/controlflow.html" title="4. D’autres outils de contrôle de flux" accesskey="P">précédent</a> |</li>
+        <li><img src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+        <li><a href="https://www.python.org/">Python</a> »</li>
+        <li><span class="language_switcher_placeholder"><select><option value="en">English</option><option value="fr" selected="selected">French</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="pt-br">Brazilian Portuguese</option><option value="zh-cn">Simplified Chinese</option><option value="zh-tw">Traditional Chinese</option></select></span> <span class="version_switcher_placeholder"><select><option value="3.10">dev (3.10)</option><option value="3.9">pre (3.9)</option><option value="3.8">3.8</option><option value="3.7">3.7</option><option value="3.6">3.6</option><option value="3.5">3.5</option><option value="2.7" selected="selected">2.7.18</option></select></span> <a href="https://docs.python.org/fr/2/index.html">Documentation</a> »</li>
+
+          <li class="nav-item nav-item-1"><a href="https://docs.python.org/fr/2/tutorial/index.html" accesskey="U">Le tutoriel Python</a> »</li> 
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-structures">
+<span id="tut-structures"></span><h1><span class="section-number">5. </span>Structures de données<a class="headerlink" href="#data-structures" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce chapitre reprend plus en détail quelques points déjà décrits précédemment et introduit également de nouvelles notions.</p>
+<div class="section" id="more-on-lists">
+<span id="tut-morelists"></span><h2><span class="section-number">5.1. </span>Compléments sur les listes<a class="headerlink" href="#more-on-lists" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Le type liste dispose de méthodes supplémentaires. Voici toutes les méthodes des objets de type liste :</p>
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span></dt>
+<dd><p>Ajoute un élément à la fin de la liste ; équivalent à <code class="docutils literal notranslate"><span class="pre">a[len(a):]</span> <span class="pre">=</span> <span class="pre">[x]</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">extend</code><span class="sig-paren">(</span><em class="sig-param">L</em><span class="sig-paren">)</span></dt>
+<dd><p>Étend la liste en y ajoutant tous les éléments de la liste fournie ; équivalent à <code class="docutils literal notranslate"><span class="pre">a[len(a):]</span> <span class="pre">=</span> <span class="pre">L</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">insert</code><span class="sig-paren">(</span><em class="sig-param">i</em>, <em class="sig-param">x</em><span class="sig-paren">)</span></dt>
+<dd><p>Insère un élément à la position indiquée. Le premier argument est
+ la position de l’élément courant avant lequel l’insertion doit 
+s’effectuer, donc <code class="docutils literal notranslate"><span class="pre">a.insert(0,</span> <span class="pre">x)</span></code> insère l’élément en tête de la liste et <code class="docutils literal notranslate"><span class="pre">a.insert(len(a),</span> <span class="pre">x)</span></code> est équivalent à <code class="docutils literal notranslate"><span class="pre">a.append(x)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span></dt>
+<dd><p>Supprime de la liste le premier élément dont la valeur est <em>x</em>. Une exception est levée s’il existe aucun élément avec cette valeur.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">pop</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">i</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p>Enlève de la liste l’élément situé à la position indiquée et le 
+renvoie en valeur de retour. Si aucune position n’est spécifiée, <code class="docutils literal notranslate"><span class="pre">a.pop()</span></code> enlève et renvoie le dernier élément de la liste (les crochets autour du <em>i</em>
+ dans la signature de la méthode indiquent que ce paramètre est 
+facultatif et non que vous devez placer des crochets dans votre code ! 
+Vous retrouverez cette notation fréquemment dans le Guide de Référence 
+de la Bibliothèque Python).</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span></dt>
+<dd><p>Retourne la position du premier élément de la liste ayant la valeur <em>x</em>. Une exception est levée s’il n’existe aucun élément avec cette valeur.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span></dt>
+<dd><p>Renvoie le nombre d’éléments ayant la valeur <em>x</em> dans la liste.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">sort</code><span class="sig-paren">(</span><em class="sig-param">cmp=None</em>, <em class="sig-param">key=None</em>, <em class="sig-param">reverse=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Classe les éléments sur place (les arguments peuvent personnaliser le classement, voir <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#sorted" title="sorted"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a> pour leur explication).</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-prename descclassname">list.</code><code class="sig-name descname">reverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Inverse l’ordre des éléments de la liste, en place.</p>
+</dd></dl>
+
+<p>L’exemple suivant utilise la plupart des méthodes des listes :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">66.25</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1234.5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">333</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mf">66.25</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="go">2 1 0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[66.25, 333, -1, 333, 1, 1234.5, 333]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[66.25, -1, 333, 1, 1234.5, 333]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[333, 1234.5, 1, 333, -1, 66.25]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[-1, 1, 66.25, 333, 333, 1234.5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="go">1234.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[-1, 1, 66.25, 333, 333]</span>
+</pre></div>
+</div>
+<p>You might have noticed that methods like <code class="docutils literal notranslate"><span class="pre">insert</span></code>, <code class="docutils literal notranslate"><span class="pre">remove</span></code> or <code class="docutils literal notranslate"><span class="pre">sort</span></code> that
+only modify the list have no return value printed – they return the default
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.  This is a design principle for all mutable data structures in
+Python.</p>
+<div class="section" id="using-lists-as-stacks">
+<span id="tut-lists-as-stacks"></span><h3><span class="section-number">5.1.1. </span>Utilisation des listes comme des piles<a class="headerlink" href="#using-lists-as-stacks" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les méthodes des listes rendent très facile leur utilisation comme 
+des piles, où le dernier élément ajouté est le premier récupéré 
+(«&nbsp;dernier entré, premier sorti&nbsp;» ou LIFO pour <em>last-in, first-out</em> en anglais). Pour ajouter un élément sur la pile, utilisez la méthode <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code>. Pour récupérer l’objet au sommet de la pile, utilisez la méthode <code class="xref py py-meth docutils literal notranslate"><span class="pre">pop()</span></code> sans indicateur de position. Par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span>
+<span class="go">[3, 4, 5, 6, 7]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="go">7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span>
+<span class="go">[3, 4, 5, 6]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stack</span>
+<span class="go">[3, 4]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-lists-as-queues">
+<span id="tut-lists-as-queues"></span><h3><span class="section-number">5.1.2. </span>Utilisation des listes comme des files<a class="headerlink" href="#using-lists-as-queues" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il est également possible d’utiliser une liste comme une file, où le 
+premier élément ajouté est le premier récupéré («&nbsp;premier entré, 
+premier sorti&nbsp;» ou FIFO pour <em>first-in, first-out</em>) ; 
+toutefois, les listes ne sont pas très efficaces pour réaliser ce type 
+de traitement. Alors que les ajouts et suppressions en fin de liste sont
+ rapides, les opérations d’insertions ou de retraits en début de liste 
+sont lentes (car tous les autres éléments doivent être décalés d’une 
+position).</p>
+<p>Pour implémenter une file, utilisez la classe <a class="reference internal" href="https://docs.python.org/fr/2/library/collections.html#collections.deque" title="collections.deque"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.deque</span></code></a> qui a été conçue pour réaliser rapidement les opérations d’ajouts et de retraits aux deux extrémités. Par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span> <span class="o">=</span> <span class="n">deque</span><span class="p">([</span><span class="s2">"Eric"</span><span class="p">,</span> <span class="s2">"John"</span><span class="p">,</span> <span class="s2">"Michael"</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Terry"</span><span class="p">)</span>           <span class="c1"># Terry arrives</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"Graham"</span><span class="p">)</span>          <span class="c1"># Graham arrives</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>                 <span class="c1"># The first to arrive now leaves</span>
+<span class="go">'Eric'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span><span class="o">.</span><span class="n">popleft</span><span class="p">()</span>                 <span class="c1"># The second to arrive now leaves</span>
+<span class="go">'John'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">queue</span>                           <span class="c1"># Remaining queue in order of arrival</span>
+<span class="go">deque(['Michael', 'Terry', 'Graham'])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functional-programming-tools">
+<span id="tut-functional"></span><h3><span class="section-number">5.1.3. </span>Outils de programmation fonctionnelle<a class="headerlink" href="#functional-programming-tools" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il existe trois fonctions primitives qui sont très utiles lorsqu’elles sont utilisées avec des listes : <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#filter" title="filter"><code class="xref py py-func docutils literal notranslate"><span class="pre">filter()</span></code></a>, <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#map" title="map"><code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code></a> et <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#reduce" title="reduce"><code class="xref py py-func docutils literal notranslate"><span class="pre">reduce()</span></code></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">filter(function,</span> <span class="pre">sequence)</span></code> retourne une séquence composée des éléments de la séquence initiale pour lesquels la fonction <code class="docutils literal notranslate"><span class="pre">function(item)</span></code> est vraie. Si <em>sequence</em> est de type <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#unicode" title="unicode"><code class="xref py py-class docutils literal notranslate"><span class="pre">unicode</span></code></a>, ou <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>, le résultat sera du même type ; sinon, il sera toujours de type <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>. Par exemple, pour construire une séquence de nombres divisibles par 2 ou 5</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">filter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="go">[3, 5, 6, 9, 10, 12, 15, 18, 20, 21, 24]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">map(function,</span> <span class="pre">sequence)</span></code> appelle <code class="docutils literal notranslate"><span class="pre">function(item)</span></code>
+ pour chaque élément de la séquence et retourne une liste contenant 
+l’ensemble des résultats. Par exemple, pour calculer des cubes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">map</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="go">[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]</span>
+</pre></div>
+</div>
+<p>Plus d’une séquence peut être passée en paramètre ; dans ce cas, la 
+fonction doit avoir autant d’arguments qu’il y a de séquences, et elle 
+sera appelée avec l’élément correspondant de chaque séquence (ou <code class="docutils literal notranslate"><span class="pre">None</span></code> si certaines séquences sont plus courtes que d’autres).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">map</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span>
+<span class="go">[0, 2, 4, 6, 8, 10, 12, 14]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">reduce(function,</span> <span class="pre">sequence)</span></code> retourne une seule valeur construire en appelant la fonction <em>function</em>
+ avec comme paramètres les deux premiers éléments de la séquence, puis 
+le premier résultat et l’élément suivant, et ainsi de suite. Par 
+exemple, pour calculer la somme des nombres de 1 à 10</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">reduce</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="go">55</span>
+</pre></div>
+</div>
+<p>S’il n’y a qu’un seul élément dans la séquence, sa valeur est retournée ; si la séquence est vide, une exception est levée.</p>
+<p>Un troisième paramètre peut être ajouté pour indiquer la valeur de 
+départ. Dans ce cas, cette valeur est retournée dans le cas d’une 
+séquence vide ; sinon, la fonction est d’abord appelée avec comme 
+paramètres cette valeur de départ et le premier élément de la séquence, 
+puis ce premier résultat et l’élément suivant, et ainsi de suite. Par 
+exemple</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">reduce</span><span class="p">(</span><span class="n">add</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="go">55</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">([])</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>N’utilisez pas la fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#sum" title="sum"><code class="xref py py-func docutils literal notranslate"><span class="pre">sum()</span></code></a> fournie dans cet exemple. Effectuer des sommes de nombres est un besoin tellement courant qu’il existe une fonction native <code class="docutils literal notranslate"><span class="pre">sum(sequence)</span></code> qui fait exactement la même chose.</p>
+</div>
+<div class="section" id="list-comprehensions">
+<span id="tut-listcomps"></span><h3><span class="section-number">5.1.4. </span>Compréhensions de listes<a class="headerlink" href="#list-comprehensions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les compréhensions de listes fournissent un moyen de construire des 
+listes de manière très concise. Une application classique est la 
+construction de nouvelles listes où chaque élément est le résultat d’une
+ opération appliquée à chaque élément d’une autre séquence ; ou de créer
+ une sous-séquence des éléments satisfaisant une condition spécifique.</p>
+<p>Par exemple, supposons que l’on veuille créer une liste de carrés, comme :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squares</span>
+<span class="go">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
+</pre></div>
+</div>
+<p>On peut obtenir le même résultat avec</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>C’est également l’équivalent de <code class="docutils literal notranslate"><span class="pre">squares</span> <span class="pre">=</span> <span class="pre">map(lambda</span> <span class="pre">x:</span> <span class="pre">x**2,</span> <span class="pre">range(10))</span></code>, mais en plus concis et plus lisible.</p>
+<p>Une compréhension de liste consiste à placer entre crochets une expression suivie par une clause <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> puis par zéro ou plus clauses <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> ou <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a>. Le résultat est une nouvelle liste résultat de l’évaluation de l’expression dans le contexte des clauses <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> et <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> qui la suivent. Par exemple, cette compréhension de liste combine les éléments de deux listes s’ils ne sont pas égaux :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">]</span>
+<span class="go">[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]</span>
+</pre></div>
+</div>
+<p>et c’est équivaent à :</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">combs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]:</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]:</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="n">combs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">combs</span>
+<span class="go">[(1, 3), (1, 4), (2, 3), (2, 1), (2, 4), (3, 1), (3, 4)]</span>
+</pre></div>
+</div>
+<p>Notez que l’ordre des instructions <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> et <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#if"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">if</span></code></a> est le même dans ces différents extraits de code.</p>
+<p>Si l’expression est un tuple (c’est-à-dire <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> dans cet exemple), elle doit être entourée par des parenthèses :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># create a new list with the values doubled</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>
+<span class="go">[-8, -4, 0, 4, 8]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># filter the list to exclude negative numbers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">]</span>
+<span class="go">[0, 2, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># apply a function to all the elements</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vec</span><span class="p">]</span>
+<span class="go">[4, 2, 0, 2, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># call a method on each element</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">freshfruit</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'  banana'</span><span class="p">,</span> <span class="s1">'  loganberry '</span><span class="p">,</span> <span class="s1">'passion fruit  '</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">weapon</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">weapon</span> <span class="ow">in</span> <span class="n">freshfruit</span><span class="p">]</span>
+<span class="go">['banana', 'loganberry', 'passion fruit']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># create a list of 2-tuples like (number, square)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="go">[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># the tuple must be parenthesized, otherwise an error is raised</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="go">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</span>
+<span class="go">    [x, x**2 for x in range(6)]</span>
+<span class="go">               ^</span>
+<span class="go">SyntaxError: invalid syntax</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># flatten a list using a listcomp with two 'for'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">num</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">vec</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">elem</span><span class="p">]</span>
+<span class="go">[1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</pre></div>
+</div>
+<p>Les compréhensions de listes peuvent contenir des expressions complexes et des fonctions imbriquées :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pi</span><span class="p">,</span> <span class="n">i</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+<span class="go">['3.1', '3.14', '3.142', '3.1416', '3.14159']</span>
+</pre></div>
+</div>
+<div class="section" id="nested-list-comprehensions">
+<h4><span class="section-number">5.1.4.1. </span>Compréhensions de listes imbriquées<a class="headerlink" href="#nested-list-comprehensions" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La première expression dans une compréhension de liste peut être 
+n’importe quelle expression, y compris une autre compréhension de liste.</p>
+<p>Voyez l’exemple suivant d’une matrice de 3 par 4, implémentée sous la forme de 3 listes de 4 éléments :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Cette compréhension de liste transpose les lignes et les colonnes :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+<span class="go">[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]</span>
+</pre></div>
+</div>
+<p>Comme nous l’avons vu dans la section précédente, la compréhension de
+ liste imbriquée est évaluée dans le contexte de l’instruction <a class="reference internal" href="https://docs.python.org/fr/2/reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> qui la suit, donc cet exemple est équivalent à :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transposed</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">transposed</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transposed</span>
+<span class="go">[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]</span>
+</pre></div>
+</div>
+<p>lequel à son tour est équivalent à :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">transposed</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="c1"># the following 3 lines implement the nested listcomp</span>
+<span class="gp">... </span>    <span class="n">transposed_row</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+<span class="gp">... </span>        <span class="n">transposed_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">... </span>    <span class="n">transposed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">transposed_row</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">transposed</span>
+<span class="go">[[1, 5, 9], [2, 6, 10], [3, 7, 11], [4, 8, 12]]</span>
+</pre></div>
+</div>
+<p>Dans des cas concrets, il est toujours préférable d’utiliser des 
+fonctions natives plutôt que des instructions de contrôle de flux 
+complexes. La fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#zip" title="zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> ferait dans ce cas un excellent travail :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">matrix</span><span class="p">)</span>
+<span class="go">[(1, 5, 9), (2, 6, 10), (3, 7, 11), (4, 8, 12)]</span>
+</pre></div>
+</div>
+<p>Voyez <a class="reference internal" href="https://docs.python.org/fr/2/tutorial/controlflow.html#tut-unpacking-arguments"><span class="std std-ref">Séparation des listes d’arguments</span></a> pour plus de détails sur l’astérisque de cette ligne.</p>
+</div>
+</div>
+</div>
+<div class="section" id="the-del-statement">
+<span id="tut-del"></span><h2><span class="section-number">5.2. </span>L’instruction <a class="reference internal" href="https://docs.python.org/fr/2/reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a><a class="headerlink" href="#the-del-statement" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe un moyen de retirer un élément d’une liste à partir de sa position au lieu de sa valeur : l’instruction <a class="reference internal" href="https://docs.python.org/fr/2/reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a>. Elle diffère de la méthode <code class="xref py py-meth docutils literal notranslate"><span class="pre">pop()</span></code> qui, elle, renvoie une valeur. L’instruction <a class="reference internal" href="https://docs.python.org/fr/2/reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a>
+ peut également être utilisée pour supprimer des tranches d’une liste ou
+ la vider complètement (ce que nous avions fait auparavant en affectant 
+une liste vide à la tranche). Par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">66.25</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mf">1234.5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[1, 66.25, 333, 333, 1234.5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[1, 66.25, 1234.5]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a</span><span class="p">[:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="https://docs.python.org/fr/2/reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> peut aussi être utilisée pour supprimer des variables :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>À partir de là, référencer le nom <code class="docutils literal notranslate"><span class="pre">a</span></code>
+ est une erreur (au moins jusqu’à ce qu’une autre valeur lui soit 
+affectée). Vous trouverez d’autres utilisations de la fonction <a class="reference internal" href="https://docs.python.org/fr/2/reference/simple_stmts.html#del"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a> plus tard.</p>
+</div>
+<div class="section" id="tuples-and-sequences">
+<span id="tut-tuples"></span><h2><span class="section-number">5.3. </span>Tuples et séquences<a class="headerlink" href="#tuples-and-sequences" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous avons vu que les listes et les chaînes de caractères ont 
+beaucoup de propriétés en commun, comme l’indexation et les opérations 
+sur des tranches. Ce sont deux exemple de <em>séquences</em> (voir <a class="reference internal" href="https://docs.python.org/fr/2/library/stdtypes.html#typesseq"><span class="std std-ref">Sequence Types — str, unicode, list, tuple, bytearray, buffer, xrange</span></a>).
+ Comme Python est un langage en constante évolution, d’autres types de 
+séquences y seront peut-être ajoutés. Il existe également un autre type 
+standard de séquence : le <em>tuple</em>.</p>
+<p>Un tuple consiste en différentes valeurs séparées par des virgules, comme par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">,</span> <span class="mi">54321</span><span class="p">,</span> <span class="s1">'hello!'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">12345</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span>
+<span class="go">(12345, 54321, 'hello!')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Tuples may be nested:</span>
+<span class="gp">... </span><span class="n">u</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">u</span>
+<span class="go">((12345, 54321, 'hello!'), (1, 2, 3, 4, 5))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Tuples are immutable:</span>
+<span class="gp">... </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">88888</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">"&lt;stdin&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">TypeError</span>: <span class="n">'tuple' object does not support item assignment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># but they can contain mutable objects:</span>
+<span class="gp">... </span><span class="n">v</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span>
+<span class="go">([1, 2, 3], [3, 2, 1])</span>
+</pre></div>
+</div>
+<p>Comme vous pouvez le voir, les tuples sont toujours affichés entre 
+parenthèses, de façon à ce que des tuples imbriqués soient interprétés 
+correctement ; ils peuvent être entrés avec ou sans parenthèses, même si
+ celles-ci sont souvent nécessaires (notamment lorsqu’un tuple fait 
+partie d’une expression plus longue). Il n’est pas possible d’affecter 
+de valeur à un élément d’un tuple ; par contre, il est possible de créer
+ des tuples contenant des objets muables, comme des listes.</p>
+<p>Si les tuples peuvent sembler similaires aux listes, ils sont souvent
+ utilisés dans des cas différents et pour des raisons différentes. Les 
+tuples sont <a class="reference internal" href="https://docs.python.org/fr/2/glossary.html#term-immutable"><span class="xref std std-term">immuable</span></a>s
+ et contiennent souvent des séquences hétérogènes d’éléments qui sont 
+accédés par «&nbsp;déballage&nbsp;» (voir plus loin) ou indexation (ou 
+même par attributs dans le cas des <a class="reference internal" href="https://docs.python.org/fr/2/library/collections.html#collections.namedtuple" title="collections.namedtuple"><code class="xref py py-func docutils literal notranslate"><span class="pre">namedtuples</span></code></a>). Les listes sont souvent <a class="reference internal" href="https://docs.python.org/fr/2/glossary.html#term-mutable"><span class="xref std std-term">muable</span></a> et contiennent des éléments homogènes qui sont accédés par itération sur la liste.</p>
+<p>Un problème spécifique est la construction de tuples ne contenant 
+aucun ou un seul élément : la syntaxe a quelques tournures spécifiques 
+pour s’en accommoder. Les tuples vides sont construits par une paire de 
+parenthèses vides ; un tuple avec un seul élément est construit en 
+faisant suivre la valeur par une virgule (il n’est pas suffisant de 
+placer cette valeur entre parenthèses). Pas très joli, mais efficace. 
+Par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">empty</span> <span class="o">=</span> <span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">singleton</span> <span class="o">=</span> <span class="s1">'hello'</span><span class="p">,</span>    <span class="c1"># &lt;-- note trailing comma</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">singleton</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">singleton</span>
+<span class="go">('hello',)</span>
+</pre></div>
+</div>
+<p>L’instruction <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">12345,</span> <span class="pre">54321,</span> <span class="pre">'hello</span> <span class="pre">!'</span></code> est un exemple d’un <em>emballage de tuple</em> : les valeurs <code class="docutils literal notranslate"><span class="pre">12345</span></code>, <code class="docutils literal notranslate"><span class="pre">54321</span></code> et <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">!</span></code> sont emballées ensemble dans un tuple. L’opération inverse est aussi possible :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>Ceci est appelé, de façon plus ou moins appropriée, un <em>déballage de séquence</em>
+ et fonctionne pour toute séquence placée à droite de l’expression. Ce 
+déballage requiert autant de variables dans la partie gauche qu’il y a 
+d’éléments dans la séquence. Notez également que cette affectation 
+multiple est juste une combinaison entre un emballage de tuple et un 
+déballage de séquence.</p>
+</div>
+<div class="section" id="sets">
+<span id="tut-sets"></span><h2><span class="section-number">5.4. </span>Ensembles<a class="headerlink" href="#sets" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Python fournit également un type de donnée pour les <em>ensembles</em>.
+ Un ensemble est une collection non ordonnée sans élément dupliqué. Des 
+utilisations basiques concernent par exemple des tests d’appartenance ou
+ des suppressions de doublons. Les ensembles savent également effectuer 
+les opérations mathématiques telles que les unions, intersections, 
+différences et différences symétriques.</p>
+<p>Des accolades ou la fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/stdtypes.html#set" title="set"><code class="xref py py-func docutils literal notranslate"><span class="pre">set()</span></code></a> peuvent être utilisés pour créer des ensembles.    Notez que pour créer un ensemble vide, <code class="docutils literal notranslate"><span class="pre">{}</span></code> ne fonctionne pas, cela crée un dictionnaire vide. Utilisez plutôt <code class="docutils literal notranslate"><span class="pre">set()</span></code>.</p>
+<p>Voici une brève démonstration :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">basket</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'pear'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fruit</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">basket</span><span class="p">)</span>               <span class="c1"># create a set without duplicates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fruit</span>
+<span class="go">set(['orange', 'pear', 'apple', 'banana'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'orange'</span> <span class="ow">in</span> <span class="n">fruit</span>                 <span class="c1"># fast membership testing</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'crabgrass'</span> <span class="ow">in</span> <span class="n">fruit</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Demonstrate set operations on unique letters from two words</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">'abracadabra'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="s1">'alacazam'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>                                  <span class="c1"># unique letters in a</span>
+<span class="go">set(['a', 'r', 'b', 'c', 'd'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span>                              <span class="c1"># letters in a but not in b</span>
+<span class="go">set(['r', 'd', 'b'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>                              <span class="c1"># letters in either a or b</span>
+<span class="go">set(['a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>                              <span class="c1"># letters in both a and b</span>
+<span class="go">set(['a', 'c'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span>                              <span class="c1"># letters in a or b but not both</span>
+<span class="go">set(['r', 'd', 'b', 'm', 'z', 'l'])</span>
+</pre></div>
+</div>
+<p>Tout comme pour les <a class="reference internal" href="#tut-listcomps"><span class="std std-ref">compréhensions de listes</span></a>, il est possible d’écrire des compréhensions d’ensembles :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">'abracadabra'</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">'abc'</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">set(['r', 'd'])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<span id="tut-dictionaries"></span><h2><span class="section-number">5.5. </span>Dictionnaires<a class="headerlink" href="#dictionaries" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un autre type de donnée très utile, natif dans Python, est le <em>dictionnaire</em> (voir <a class="reference internal" href="https://docs.python.org/fr/2/library/stdtypes.html#typesmapping"><span class="std std-ref">Les types de correspondances — dict</span></a>).
+ Ces dictionnaires sont parfois présents dans d’autres langages sous le 
+nom de «&nbsp;mémoires associatives&nbsp;» ou de «&nbsp;tableaux 
+associatifs&nbsp;». À la différence des séquences, qui sont indexées par
+ des nombres, les dictionnaires sont indexés par des <em>clés</em>, qui 
+peuvent être de n’importe quel type immuable ; les chaînes de caractères
+ et les nombres peuvent toujours être des clés. Des tuples peuvent être 
+utilisés comme clés s’ils ne contiennent que des chaînes, des nombres ou
+ des tuples ; si un tuple contient un objet muable, de façon directe ou 
+indirecte, il ne peut pas être utilisé comme une clé. Vous ne pouvez pas
+ utiliser des listes comme clés, car les listes peuvent être modifiées 
+en place en utilisant des affectations par position, par tranches ou via
+ des méthodes comme <code class="xref py py-meth docutils literal notranslate"><span class="pre">append()</span></code> ou <code class="xref py py-meth docutils literal notranslate"><span class="pre">extend()</span></code>.</p>
+<p>Le plus simple est de considérer les dictionnaires comme des ensembles non ordonnés de paires <em>clé: valeur</em>, les clés devant être uniques (au sein d’un dictionnaire). Une paire d’accolades crée un dictionnaire vide : <code class="docutils literal notranslate"><span class="pre">{}</span></code>.
+ Placer une liste de paires clé:valeur séparées par des virgules à 
+l’intérieur des accolades ajoute les valeurs correspondantes au 
+dictionnaire ; c’est également de cette façon que les dictionnaires sont
+ affichés.</p>
+<p>Les opérations classiques sur un dictionnaire consistent à stocker 
+une valeur pour une clé et à extraire la valeur correspondant à une clé.
+ Il est également possible de supprimer une paire clé:valeur avec <code class="docutils literal notranslate"><span class="pre">del</span></code>.
+ Si vous stockez une valeur pour une clé qui est déjà utilisée, 
+l’ancienne valeur associée à cette clé est perdue. Si vous tentez 
+d’extraire une valeur associée à une clé qui n’existe pas, une exception
+ est levée.</p>
+<p>La méthode <code class="xref py py-meth docutils literal notranslate"><span class="pre">keys()</span></code>
+ d’un dictionnaire retourne une liste de toutes les clés utilisées dans 
+le dictionnaire, dans un ordre arbitraire (si vous voulez qu’elle soit 
+triée, appliquez-lui la fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#sorted" title="sorted"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>). Pour tester si une clé est dans le dictionnaire, utilisez le mot-clé <a class="reference internal" href="https://docs.python.org/fr/2/reference/expressions.html#in"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">in</span></code></a>.</p>
+<p>Voici un petit exemple utilisant un dictionnaire :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'jack'</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s1">'sape'</span><span class="p">:</span> <span class="mi">4139</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span><span class="p">[</span><span class="s1">'guido'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4127</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span>
+<span class="go">{'sape': 4139, 'guido': 4127, 'jack': 4098}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span><span class="p">[</span><span class="s1">'jack'</span><span class="p">]</span>
+<span class="go">4098</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">tel</span><span class="p">[</span><span class="s1">'sape'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span><span class="p">[</span><span class="s1">'irv'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4127</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span>
+<span class="go">{'guido': 4127, 'irv': 4127, 'jack': 4098}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tel</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">['guido', 'irv', 'jack']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'guido'</span> <span class="ow">in</span> <span class="n">tel</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Le constructeur <a class="reference internal" href="https://docs.python.org/fr/2/library/stdtypes.html#dict" title="dict"><code class="xref py py-func docutils literal notranslate"><span class="pre">dict()</span></code></a> fabrique un dictionnaire directement à partir d’une liste de paires clé-valeur stockées sous la forme de tuples :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">([(</span><span class="s1">'sape'</span><span class="p">,</span> <span class="mi">4139</span><span class="p">),</span> <span class="p">(</span><span class="s1">'guido'</span><span class="p">,</span> <span class="mi">4127</span><span class="p">),</span> <span class="p">(</span><span class="s1">'jack'</span><span class="p">,</span> <span class="mi">4098</span><span class="p">)])</span>
+<span class="go">{'sape': 4139, 'jack': 4098, 'guido': 4127}</span>
+</pre></div>
+</div>
+<p>De plus, il est possible de créer des dictionnaires par compréhension depuis un jeu de clef et valeurs :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)}</span>
+<span class="go">{2: 4, 4: 16, 6: 36}</span>
+</pre></div>
+</div>
+<p>Lorsque les clés sont de simples chaînes de caractères, il est 
+parfois plus facile de spécifier les paires en utilisant des paramètres 
+nommés :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">sape</span><span class="o">=</span><span class="mi">4139</span><span class="p">,</span> <span class="n">guido</span><span class="o">=</span><span class="mi">4127</span><span class="p">,</span> <span class="n">jack</span><span class="o">=</span><span class="mi">4098</span><span class="p">)</span>
+<span class="go">{'sape': 4139, 'jack': 4098, 'guido': 4127}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="looping-techniques">
+<span id="tut-loopidioms"></span><h2><span class="section-number">5.6. </span>Techniques de boucles<a class="headerlink" href="#looping-techniques" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Lorsque vous itérez sur une séquence, la position et la valeur 
+correspondante peuvent être récupérées en même temps en utilisant la 
+fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#enumerate" title="enumerate"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a>.&nbsp;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">'tic'</span><span class="p">,</span> <span class="s1">'tac'</span><span class="p">,</span> <span class="s1">'toe'</span><span class="p">]):</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+<span class="gp">...</span>
+<span class="go">0 tic</span>
+<span class="go">1 tac</span>
+<span class="go">2 toe</span>
+</pre></div>
+</div>
+<p>Pour faire des boucles sur deux séquences ou plus en même temps, les éléments peuvent être associés par la fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#zip" title="zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">questions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'quest'</span><span class="p">,</span> <span class="s1">'favorite color'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'lancelot'</span><span class="p">,</span> <span class="s1">'the holy grail'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">questions</span><span class="p">,</span> <span class="n">answers</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="s1">'What is your </span><span class="si">{0}</span><span class="s1">?  It is </span><span class="si">{1}</span><span class="s1">.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">What is your name?  It is lancelot.</span>
+<span class="go">What is your quest?  It is the holy grail.</span>
+<span class="go">What is your favorite color?  It is blue.</span>
+</pre></div>
+</div>
+<p>Pour faire une boucle en sens inverse sur une séquence, commencez par
+ spécifier la séquence dans son ordre normal, puis appliquez la fonction
+ <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#reversed" title="reversed"><code class="xref py py-func docutils literal notranslate"><span class="pre">reversed()</span></code></a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">i</span>
+<span class="gp">...</span>
+<span class="go">9</span>
+<span class="go">7</span>
+<span class="go">5</span>
+<span class="go">3</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>Pour faire une boucle selon un certain classement sur une séquence, utilisez la fonction <a class="reference internal" href="https://docs.python.org/fr/2/library/functions.html#sorted" title="sorted"><code class="xref py py-func docutils literal notranslate"><span class="pre">sorted()</span></code></a>, elle renvoie une nouvelle liste classée sans altérer la source :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">basket</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'pear'</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">basket</span><span class="p">)):</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">f</span>
+<span class="gp">...</span>
+<span class="go">apple</span>
+<span class="go">banana</span>
+<span class="go">orange</span>
+<span class="go">pear</span>
+</pre></div>
+</div>
+<p>Lorsque vous faites une boucle sur un dictionnaire, les clés et leurs
+ valeurs peuvent être récupérées en même temps en utilisant la méthode <code class="xref py py-meth docutils literal notranslate"><span class="pre">iteritems()</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">knights</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'gallahad'</span><span class="p">:</span> <span class="s1">'the pure'</span><span class="p">,</span> <span class="s1">'robin'</span><span class="p">:</span> <span class="s1">'the brave'</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">knights</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
+<span class="gp">...</span>
+<span class="go">gallahad the pure</span>
+<span class="go">robin the brave</span>
+</pre></div>
+</div>
+<p>Il est parfois tentant de modifier une liste pendant son itération. 
+Cependant, c’est souvent plus simple et plus sûr de créer une nouvelle 
+liste à la place.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raw_data</span> <span class="o">=</span> <span class="p">[</span><span class="mf">56.2</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'NaN'</span><span class="p">),</span> <span class="mf">51.7</span><span class="p">,</span> <span class="mf">55.3</span><span class="p">,</span> <span class="mf">52.5</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s1">'NaN'</span><span class="p">),</span> <span class="mf">47.8</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">raw_data</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">math</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">filtered_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filtered_data</span>
+<span class="go">[56.2, 51.7, 55.3, 52.5, 47.8]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-on-conditions">
+<span id="tut-conditions"></span><h2><span class="section-number">5.7. </span>Plus d’informations sur les conditions<a class="headerlink" href="#more-on-conditions" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les conditions utilisées dans une instruction <code class="docutils literal notranslate"><span class="pre">while</span></code> ou <code class="docutils literal notranslate"><span class="pre">if</span></code> peuvent contenir n’importe quel opérateur, pas seulement des comparaisons.</p>
+<p>Les opérateurs de comparaison <code class="docutils literal notranslate"><span class="pre">in</span></code> et <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code> testent si une valeur est présente ou non dans une séquence. Les opérateurs <code class="docutils literal notranslate"><span class="pre">is</span></code> et <code class="docutils literal notranslate"><span class="pre">is</span> <span class="pre">not</span></code>
+ testent si deux objets sont vraiment le même objet ; ceci n’est 
+important que pour des objets muables comme des listes. Tous les 
+opérateurs de comparaison ont la même priorité, qui est plus faible que 
+celle des opérateurs numériques.</p>
+<p>Les comparaisons peuvent être enchaînées. Par exemple, <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span> <span class="pre">==</span> <span class="pre">c</span></code> teste si <code class="docutils literal notranslate"><span class="pre">a</span></code> est inférieur ou égal à <code class="docutils literal notranslate"><span class="pre">b</span></code> et si, de plus, <code class="docutils literal notranslate"><span class="pre">b</span></code> égale <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
+<p>Les comparaisons peuvent être combinées en utilisant les opérateurs booléens <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">or</span></code>, le résultat d’une comparaison (ou de toute expression booléenne) pouvant être inversé avec <code class="docutils literal notranslate"><span class="pre">not</span></code>. Ces opérateurs ont une priorité inférieure à celle des opérateurs de comparaison ; entre eux, <code class="docutils literal notranslate"><span class="pre">not</span></code> a la priorité la plus élevée et <code class="docutils literal notranslate"><span class="pre">or</span></code> la plus faible, de telle sorte que <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">and</span> <span class="pre">not</span> <span class="pre">B</span> <span class="pre">or</span> <span class="pre">C</span></code> est équivalent à <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">and</span> <span class="pre">(not</span> <span class="pre">B))</span> <span class="pre">or</span> <span class="pre">C</span></code>. Comme toujours, des parenthèses peuvent être utilisées pour exprimer l’instruction désirée.</p>
+<p>Les opérateurs booléens <code class="docutils literal notranslate"><span class="pre">and</span></code> et <code class="docutils literal notranslate"><span class="pre">or</span></code> sont appelés opérateurs <em>en circuit court</em>
+ : leurs arguments sont évalués de la gauche vers la droite et 
+l’évaluation s’arrête dès que le résultat est déterminé. Par exemple, si
+ <code class="docutils literal notranslate"><span class="pre">A</span></code> et <code class="docutils literal notranslate"><span class="pre">C</span></code> sont vrais et <code class="docutils literal notranslate"><span class="pre">B</span></code> est faux, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">and</span> <span class="pre">B</span> <span class="pre">and</span> <span class="pre">C</span></code> n’évalue pas l’expression <code class="docutils literal notranslate"><span class="pre">C</span></code>.
+ Lorsqu’elle est utilisée en tant que valeur et non en tant que booléen,
+ la valeur de retour d’un opérateur en circuit court est celle du 
+dernier argument évalué.</p>
+<p>Il est possible d’affecter le résultat d’une comparaison ou d’une autre expression booléenne à une variable. Par exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">string1</span><span class="p">,</span> <span class="n">string2</span><span class="p">,</span> <span class="n">string3</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'Trondheim'</span><span class="p">,</span> <span class="s1">'Hammer Dance'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">non_null</span> <span class="o">=</span> <span class="n">string1</span> <span class="ow">or</span> <span class="n">string2</span> <span class="ow">or</span> <span class="n">string3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">non_null</span>
+<span class="go">'Trondheim'</span>
+</pre></div>
+</div>
+<p>Notez qu’en Python, à la différence du C, des affectations ne peuvent
+ pas intervenir à l’intérieur d’expressions. Les programmeurs C râleront
+ peut-être après cela, mais cela évite des erreurs fréquentes que l’on 
+rencontre en C, lorsque l’on tape <code class="docutils literal notranslate"><span class="pre">=</span></code> alors que l’on voulait faire un test avec <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
+</div>
+<div class="section" id="comparing-sequences-and-other-types">
+<span id="tut-comparing"></span><h2><span class="section-number">5.8. </span>Comparer des séquences avec d’autres types<a class="headerlink" href="#comparing-sequences-and-other-types" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Des séquences peuvent être comparées avec d’autres séquences du même type. La comparaison utilise un ordre <em>lexicographique</em>
+ : les deux premiers éléments de chaque séquence sont comparés, et s’ils
+ diffèrent cela détermine le résultat de la comparaison ; s’ils sont 
+égaux, les deux éléments suivants sont comparés à leur tour, et ainsi de
+ suite jusqu’à ce que l’une des séquences soit épuisée. Si deux éléments
+ à comparer sont eux-mêmes des séquences du même type, alors la 
+comparaison lexicographique est effectuée récursivement. Si tous les 
+éléments des deux séquences sont égaux, les deux séquences sont alors 
+considérées comme égales. Si une séquence est une sous-séquence de 
+l’autre, la séquence la plus courte est celle dont la valeur est 
+inférieure. La comparaison lexicographique des chaînes de caractères 
+utilise l’ordre ASCII des caractères. Voici quelques exemples de 
+comparaisons entre séquences de même type :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>              <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>              <span class="o">&lt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="s1">'ABC'</span> <span class="o">&lt;</span> <span class="s1">'C'</span> <span class="o">&lt;</span> <span class="s1">'Pascal'</span> <span class="o">&lt;</span> <span class="s1">'Python'</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>           <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>                 <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>             <span class="o">==</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="s1">'aa'</span><span class="p">,</span> <span class="s1">'ab'</span><span class="p">))</span>   <span class="o">&lt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="s1">'abc'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La comparaison d’objets de types différents est autorisée. Le 
+résultat est déterminé mais arbitraire : les types sont ordonnés par 
+leur nom. Ainsi, une liste (type <code class="docutils literal notranslate"><span class="pre">list</span></code>) est toujours inférieure à une chaîne de caractères (type <code class="docutils literal notranslate"><span class="pre">str</span></code>), une chaîne de caractères toujours inférieure à un tuple… <a class="footnote-reference brackets" href="#id2" id="id1">1</a> Des types numériques mélangés sont comparés en fonction de leur valeur numérique, donc 0 est égal à 0.0, etc.</p>
+<p class="rubric">Notes</p>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Les règles de comparaison d’objets de types différents ne doivent
+ pas être considérées comme fiables ; elles peuvent être amenées à 
+changer dans une future version du langage.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper" style="position: sticky; float: left; margin-right: 0px; width: 202px;">
+  <h3><a href="https://docs.python.org/fr/2/contents.html">Table des matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Structures de données</a><ul>
+<li><a class="reference internal" href="#more-on-lists">5.1. Compléments sur les listes</a><ul>
+<li><a class="reference internal" href="#using-lists-as-stacks">5.1.1. Utilisation des listes comme des piles</a></li>
+<li><a class="reference internal" href="#using-lists-as-queues">5.1.2. Utilisation des listes comme des files</a></li>
+<li><a class="reference internal" href="#functional-programming-tools">5.1.3. Outils de programmation fonctionnelle</a></li>
+<li><a class="reference internal" href="#list-comprehensions">5.1.4. Compréhensions de listes</a><ul>
+<li><a class="reference internal" href="#nested-list-comprehensions">5.1.4.1. Compréhensions de listes imbriquées</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-del-statement">5.2. L’instruction <code class="xref std std-keyword docutils literal notranslate"><span class="pre">del</span></code></a></li>
+<li><a class="reference internal" href="#tuples-and-sequences">5.3. Tuples et séquences</a></li>
+<li><a class="reference internal" href="#sets">5.4. Ensembles</a></li>
+<li><a class="reference internal" href="#dictionaries">5.5. Dictionnaires</a></li>
+<li><a class="reference internal" href="#looping-techniques">5.6. Techniques de boucles</a></li>
+<li><a class="reference internal" href="#more-on-conditions">5.7. Plus d’informations sur les conditions</a></li>
+<li><a class="reference internal" href="#comparing-sequences-and-other-types">5.8. Comparer des séquences avec d’autres types</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="https://docs.python.org/fr/2/tutorial/controlflow.html" title="Chapitre précédent"><span class="section-number">4. </span>D’autres outils de contrôle de flux</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="https://docs.python.org/fr/2/tutorial/modules.html" title="Chapitre suivant"><span class="section-number">6. </span>Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://docs.python.org/fr/2/_sources/tutorial/datastructures.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel">
+      <input type="submit" value="Go">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      <div id="sidebarbutton" title="Réduire la barre latérale" style="color: rgb(255, 255, 255); border-left: 1px solid rgb(19, 63, 82); font-size: 1.2em; cursor: pointer; height: 16092.5px; padding-top: 1px; margin-left: 218px; background-color: rgb(60, 110, 131);"><span style="display: block; margin-top: 275.5px;">«</span></div></div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://docs.python.org/fr/2/genindex.html" title="Index général">index</a></li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/py-modindex.html" title="Index des modules Python">modules</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/modules.html" title="6. Modules">suivant</a> |</li>
+        <li class="right">
+          <a href="https://docs.python.org/fr/2/tutorial/controlflow.html" title="4. D’autres outils de contrôle de flux">précédent</a> |</li>
+        <li><img src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/py.png" alt="" style="vertical-align: middle; margin-top: -1px"></li>
+        <li><a href="https://www.python.org/">Python</a> »</li>
+        <li>
+          <a href="https://docs.python.org/fr/2/index.html">Documentation Python 2.7.18</a> »
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="https://docs.python.org/fr/2/tutorial/index.html">Le tutoriel Python</a> »</li> 
+      </ul>
+    </div>  
+    <div class="footer">
+    © <a href="https://docs.python.org/fr/2/copyright.html">Copyright</a> 1990-2020, Python Software Foundation.
+    <br>
+    La Python Software Foundation est une organisation à but non lucratif.
+    <a href="https://www.python.org/psf/donations/">Les dons sont bienvenus.</a>
+    <br>
+    Dernière mise à jour le juin 19, 2020.
+    <a href="https://docs.python.org/fr/2/bugs.html">Vous avez trouvé un bug</a> ?
+    <br>
+    Créé via <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.3.1.
+    </div>
+
+    <script type="text/javascript" src="5.%20Structures%20de%20donn%C3%A9es%20%E2%80%94%20Documentation%20Python%202.7.18_fichiers/switchers.js"></script>
+  
+</body></html>

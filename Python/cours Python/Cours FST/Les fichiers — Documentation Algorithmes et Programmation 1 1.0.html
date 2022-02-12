@@ -1,0 +1,1260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Les fichiers — Documentation Algorithmes et Programmation 1 1.0</title>
+    
+    <link rel="stylesheet" href="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/nature.css" type="text/css">
+    <link rel="stylesheet" href="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/pygments.css" type="text/css">
+    <link rel="stylesheet" href="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/default.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/language_data.js"></script>
+    <script type="text/javascript" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/latest.js"></script>
+    <link rel="index" title="Index" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html">
+    <link rel="search" title="Recherche" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/search.html">
+    <link rel="top" title="Documentation Algorithmes et Programmation 1 1.0" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html"> 
+  <script type="text/javascript" async="" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body role="document"><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="les-fichiers">
+<h1>Les fichiers<a class="headerlink" href="#les-fichiers" title="Lien permanent vers ce titre">¶</a></h1>
+<p>20-01-2021</p>
+<div class="topic">
+<p class="topic-title">Objectifs</p>
+<ul class="simple">
+<li>savoir parcourir en lecture tout ou partir d’un fichier texte</li>
+<li>savoir produire des fichiers textes</li>
+<li>connaître les canaux standards <code class="docutils literal notranslate"><span class="pre">stdin</span></code> et <code class="docutils literal notranslate"><span class="pre">stdout</span></code></li>
+<li>prendre conscience des dangers des données lues</li>
+<li>découvrir le traitement d’exception.</li>
+</ul>
+</div>
+<div class="section" id="pourquoi-des-fichiers">
+<h2>Pourquoi des fichiers ?<a class="headerlink" href="#pourquoi-des-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Chaque jour,  nous consultons et créons de très nombreux fichiers :</p>
+<ul class="simple">
+<li>consultation de bases de données,</li>
+<li>photographies,</li>
+<li>…</li>
+</ul>
+<p>Les fichiers sont utilisés pour assurer la <em>pesistance</em> et le <em>partage</em> des données.</p>
+<p>Lorsqu’avec votre appareil photo numérique vous prenez le portrait de
+ votre grand-mère, le signal lumineux capté est transformé en signal 
+numérique, puis sauvegardé dans un fichier, fichier que vous pouvez 
+ensuite partager avec votre entourage en l’envoyant en pièce jointe d’un
+ courrier électronique ou d’un SMS.</p>
+</div>
+<div class="section" id="differents-types-de-fichiers">
+<h2>Différents types de fichiers<a class="headerlink" href="#differents-types-de-fichiers" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On distingue deux types de fichiers :</p>
+<ul class="simple">
+<li>les fichiers textes</li>
+<li>et les fichiers binaires.</li>
+</ul>
+<p>Nous commençons par présenter ces deux types.</p>
+<div class="section" id="fichiers-textes">
+<h3>Fichiers textes<a class="headerlink" href="#fichiers-textes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les fichiers textes sont ceux contenant … du texte.</p>
+<p>Ils sont utilisés dans de très nombreux contexte dont voici quelques uns :</p>
+<ul class="simple">
+<li>fichiers textes bruts (plain text)</li>
+<li>fichiers source de programmes</li>
+<li>fichiers HTML, CSS</li>
+<li>fichiers CSV (format tableur textuel)</li>
+</ul>
+<p>La structure que partagent tous ces formats de fichiers textes est 
+celle de ligne.
+Une ligne est une chaîne de caractères terminée par un marqueur de fin 
+de ligne.
+Ce marqueur de fin de ligne peut différer d’un système d’exploitation à 
+l’autre. Dans les systèmes de type Unix (GNU-Linux et Mac OSX par 
+exemple), ce marqueur est par défaut constitué d’un caractère ASCII de 
+code 10 (0x0A) appelé <code class="docutils literal notranslate"><span class="pre">LINE</span> <span class="pre">FEED</span></code>.
+ Dans les divers systèmes MS-Windows, ce marqueur de fin de ligne est 
+constitué de deux caractères ASCII de code 13 (0x0D) appelé <code class="docutils literal notranslate"><span class="pre">CARRIAGE</span> <span class="pre">RETURN</span></code> et 10 (0x0A) dans cet ordre.</p>
+<p>Le principal outil informatique pour lire/produire un fichier texte est un <cite>éditeur de texte</cite>.</p>
+</div>
+<div class="section" id="fichiers-binaires">
+<h3>Fichiers binaires<a class="headerlink" href="#fichiers-binaires" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On déclare <cite>binaire</cite> tout fichier qui n’est pas un fichier texte.</p>
+<ul class="simple">
+<li>fichiers exécutables résultant de la compilation d’un fichier texte source</li>
+<li>fichiers archives (formats ZIP, TGZ, …)</li>
+<li>fichiers images (formats PNG, JPG, GIF, TIFF, …)</li>
+<li>fichiers sons (formats WAV, OGG, FLAC, MP3, …)</li>
+<li>fichiers videos (formats AVI, MPEG, …)</li>
+</ul>
+<p>Contrairement aux fichiers textes pour lesquels la structure de ligne
+ est une structure commune, il n’y a pas de structure commune à tous les
+ fichiers binaires.
+Les outils informatiques pour lire/produire  les fichiers binaires 
+dépendent
+évidemment du format de ces fichiers.</p>
+</div>
+</div>
+<div class="section" id="lire-ecrire-dans-des-fichiers-en-python">
+<h2>Lire, écrire dans des fichiers en Python<a class="headerlink" href="#lire-ecrire-dans-des-fichiers-en-python" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dans cette partie nous nous limitons essentiellement aux fichiers textes.</p>
+</div>
+<div class="section" id="ouverture-d-un-canal">
+<h3>Ouverture d’un canal<a class="headerlink" href="#ouverture-d-un-canal" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Avant de pouvoir lire les informations contenues dans un fichier, ou de pouvoir
+écrire des informations dans un fichier, il est nécessaire d’ouvrir un <cite>canal
+de communication</cite> entre le programme et le fichier.</p>
+<div class="figure">
+<p><img src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/tikz-bdc42c1ef0cf55a0016f7d05478c1676951fcefa.png" alt="\begin{tikzpicture}[scale = 0.5]
+\draw[dotted] (-2,-1) -- (7,-1) -- (7,10) -- (-2,10) --cycle ;
+\draw (2.5,-0.5) node {Périphérique} ;
+\draw (0,0) -- (5,0) -- (5,8) -- (1,8) -- (0,7) -- cycle ;
+\draw (0,7) -- (1,7) -- (1,8) ;
+\draw (2.5,2) node {fichier} ;
+
+\draw[dotted] (14,-1) -- (24,-1) -- (24,10) -- (14,10) --cycle ;
+\draw (19,-0.5) node {Mémoire} ;
+\draw (15,1) -- (23,1) -- (23,7) -- (15,7) -- cycle ;
+\draw (19,1.5) node {processus} ;
+
+\draw[very thick, &lt;-&gt;,&gt;=latex] (5.1,3) -- (14.9,3) node[midway,above] {Canal communication} ;
+
+\draw[dashed, -&gt;, &gt;=latex] (7.5,4) -- (13.5,4) node[midway,above] {lecture} ;
+
+\draw[dashed, -&gt;, &gt;=latex] (13.5,2) -- (7.5,2) node[midway,below] {écriture} ;
+\end{tikzpicture}"></p>
+</div><p>L’ouverture d’un canal peut se faire</p>
+<ul class="simple">
+<li>en mode lecture, et dans ce cas on ne peut que lire des informations contenues
+dans le fichier ;</li>
+<li>en mode écriture, et dans ce cas il n’est possible que d’écrire dans le fichier ;</li>
+<li>ou enfin en mode lecture et écriture, mode permettant à la fois la lecture et l’écriture d’informations dans le fichier.</li>
+</ul>
+<p>En Python, c’est la fonction <code class="docutils literal notranslate"><span class="pre">open</span></code> qui permet l’ouverture de canaux.</p>
+<div class="section" id="ouverture-en-mode-lecture">
+<h4>Ouverture en mode lecture<a class="headerlink" href="#ouverture-en-mode-lecture" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">open</span></code> prend au moins deux chaînes de caractères en paramètre :</p>
+<ul class="simple">
+<li>d’abord le nom du fichier à ouvrir ;</li>
+<li>ensuite le mode d’ouverture.</li>
+</ul>
+<p>Pour le mode d’ouverture en lecture, ce second paramètre est <code class="docutils literal notranslate"><span class="pre">'rt'</span></code> (<code class="docutils literal notranslate"><span class="pre">r</span></code> pour <cite>read</cite> et <code class="docutils literal notranslate"><span class="pre">t</span></code> pour <cite>text</cite>) ou plus simplement <code class="docutils literal notranslate"><span class="pre">'r'</span></code> (par défaut l’ouverture se fait sur des fichiers textes).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'foo.txt'</span><span class="p">,</span><span class="s1">'r'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>Si le fichier qu’on veut ouvrir n’existe pas une exception
+<code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> est déclenchée.</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'nexiste.pas'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">FileNotFoundError: [Errno 2] No such file or directory: 'nexiste.pas'</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ouverture-en-mode-ecriture">
+<h4>Ouverture en mode écriture<a class="headerlink" href="#ouverture-en-mode-ecriture" title="Lien permanent vers ce titre">¶</a></h4>
+<p>C’est la chaîne de caractères <code class="docutils literal notranslate"><span class="pre">'wt'</span></code> ou plus simplement <code class="docutils literal notranslate"><span class="pre">'w'</span></code> donnée en
+second paramètre de la fonction <code class="docutils literal notranslate"><span class="pre">open</span></code> qui permet d’ouvrir un canal de
+communication en écriture vers un fichier texte.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'nouveau.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>L’ouverture en écriture d’un canal vers un fichier existant
+entraîne la perte des données que contenait ce fichier.
+L’ouverture en mode <code class="docutils literal notranslate"><span class="pre">'w'</span></code> est donc une opération potentiellement
+dangereuse.</p>
+<p>C’est pourquoi, Python propose un mode particulier d’ouverture de canal
+en écriture, qui vérifie préalablement l’existence ou non du fichier
+qu’on veut ouvrir. C’est le mode <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>En supposant que le fichier <code class="file docutils literal notranslate"><span class="pre">existe.bien</span></code> existe bien, voici ce
+qu’on obtient par une tentative d’ouverture en mode <code class="docutils literal notranslate"><span class="pre">x</span></code> :</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'existe.bien'</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">FileExistsError: [Errno 17] File exists: 'existe.bien'</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="autres-modes-d-ouverture">
+<h4>Autres modes d’ouverture<a class="headerlink" href="#autres-modes-d-ouverture" title="Lien permanent vers ce titre">¶</a></h4>
+<p>En Python, il est possible d’ouvrir des canaux avec d’autres modes que les
+simples modes de lecture ou d’écriture :</p>
+<ul class="simple">
+<li>le mode <em>ajout</em> (<em>append</em>) qui permet d’ouvrir un canal en écriture vers
+un fichier existant afin d’ajouter de nouvelles données. Dans le cas d’un
+fichier texte toute nouvelle opération d’écriture se fait à la suite du
+texte existant avant l’ouverture. Ce mode d’ouverture est obtenu en mettant
+le caractère <code class="docutils literal notranslate"><span class="pre">'a'</span></code> en deuxième paramètre de la fonction <code class="docutils literal notranslate"><span class="pre">open</span></code>. Si on
+utilise ce mode sur un fichier non existant,  un nouveau fichier est créé.</li>
+<li>le mode <em>lecture et écriture</em> qui permet d’ouvrir un canal à la fois en
+lecture et en écriture vers un fichier existant. Dans la fonction <code class="docutils literal notranslate"><span class="pre">open</span></code>
+s’obtient en ajoutant le caractère <code class="docutils literal notranslate"><span class="pre">'+'</span></code> à la suite de l’un des caractères
+<code class="docutils literal notranslate"><span class="pre">'r'</span></code>, <code class="docutils literal notranslate"><span class="pre">'w'</span></code>, <code class="docutils literal notranslate"><span class="pre">'x'</span></code> ou <code class="docutils literal notranslate"><span class="pre">'a'</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="type-d-un-canal-ouvert-sur-un-fichier-texte">
+<h4>Type d’un canal ouvert sur un fichier texte<a class="headerlink" href="#type-d-un-canal-ouvert-sur-un-fichier-texte" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Quelque soit le mode d’ouverture d’un canal vers un fichier texte, son type
+est <code class="docutils literal notranslate"><span class="pre">_io.TextIOWrapper</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">entree</span><span class="p">)</span>
+<span class="go">&lt;class '_io.TextIOWrapper'&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fermeture">
+<h3>Fermeture<a class="headerlink" href="#fermeture" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tout canal ouvert doit être fermé lorqu’on n’en a plus besoin.</p>
+<p>Pour fermer un canal, on utilise la méthode <code class="docutils literal notranslate"><span class="pre">close</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">L’oubli de fermeture d’un canal ouvert en écriture peut
+entraîner la perte de données.</p>
+</div>
+</div>
+<div class="section" id="forme-syntaxique-with">
+<h3>Forme syntaxique <code class="docutils literal notranslate"><span class="pre">with</span></code><a class="headerlink" href="#forme-syntaxique-with" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Python offre une structure syntaxique permettant d’ommettre la commande
+explicite de fermeture d’un canal (et ainsi l’oubli de cette commande).</p>
+<p>Cette forme débute par le mot clé <code class="docutils literal notranslate"><span class="pre">with</span></code> et utilise le mot clé <code class="docutils literal notranslate"><span class="pre">as</span></code> :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># instr avant</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+   <span class="c1"># traitement sur f</span>
+<span class="c1"># instr après</span>
+</pre></div>
+</div>
+<p>L’identificateur placé après le mot-clé <code class="docutils literal notranslate"><span class="pre">as</span></code> est le nom donné au canal ouvert
+par la fonction <code class="docutils literal notranslate"><span class="pre">open</span></code>. La portée de cette variable est le bloc (indenté) qui suit le <code class="docutils literal notranslate"><span class="pre">with</span></code>. À la fin de ce bloc, le canal est automatiquement fermé, sans qu’il ne soit nécessaire d’invoquer la méthode <code class="docutils literal notranslate"><span class="pre">close</span></code>.</p>
+<p>De cette façon, les lignes précédentes sont équivalentes aux suivantes :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># instr avant</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="c1"># traitement sur f</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1"># instr après</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lecture-de-donnees">
+<h3>Lecture de données<a class="headerlink" href="#lecture-de-donnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans cette partie on s’intéresse aux méthodes de lecture à travers un canal
+ouvert.</p>
+<p>Dans les exemples illustrant ces méthodes, le fichier <code class="file docutils literal notranslate"><span class="pre">timoleon.txt</span></code>
+est supposé contenir les trois lignes suivantes (et ces trois lignes
+uniquement) :</p>
+<div class="code text highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Timoleon</span> <span class="n">est</span> <span class="n">un</span> <span class="n">homme</span> <span class="n">politique</span> <span class="n">grec</span>
+<span class="n">ayant</span> <span class="n">vécu</span> <span class="n">au</span> <span class="n">IVème</span> <span class="n">siècle</span> <span class="n">av</span><span class="o">.</span> <span class="n">JC</span><span class="o">.</span>
+<span class="n">Il</span> <span class="n">est</span> <span class="n">connu</span> <span class="n">pour</span> <span class="n">avoir</span> <span class="n">recolonisé</span> <span class="n">la</span> <span class="n">Sicile</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="section" id="lecture-d-une-ligne">
+<h4>Lecture d’une ligne<a class="headerlink" href="#lecture-d-une-ligne" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">readline</span></code> que possèdent les canaux ouverts en lecture renvoie
+la ligne sur laquelle pointe actuellement le canal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'timoleon.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">'Timoleon est un homme politique grec\n'</span>
+</pre></div>
+</div>
+<p>Sur cet exemple, la méthode <code class="docutils literal notranslate"><span class="pre">readline</span></code> renvoie la première ligne du fichier
+<code class="file docutils literal notranslate"><span class="pre">timoleon.txt</span></code>. Cette ligne est une chaîne de caractères qui contient
+le marqueur de fin de ligne.</p>
+<p>Un deuxième appel à la même méthode va nous donner la seconde ligne :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">'ayant vécu au IVème siècle av. JC.\n'</span>
+</pre></div>
+</div>
+<p>et un troisième appel donne la troisième ligne :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">'Il est connu pour avoir recolonisé la Sicile.\n'</span>
+</pre></div>
+</div>
+<p>Ces trois appels identiques produisant des résultats différents montrent qu’un canal
+possède un <em>état</em> qui change après chaque lecture.  Cet état variable indique
+en permanence à quel endroit dans le fichier la lecture est arrivée.</p>
+<p>Après ces trois lignes lues, l’état dans lequel se trouve le canal de lecture est
+la fin du fichier. Que se passe-t-il si nous invoquons encore la méthode
+<code class="docutils literal notranslate"><span class="pre">readline</span></code> ?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">readline</span> <span class="p">()</span>
+<span class="go">''</span>
+</pre></div>
+</div>
+<p>Nous constatons qu’une fois arrivé en fin de fichier, <code class="docutils literal notranslate"><span class="pre">readline</span></code> renvoie
+une chaîne de caractères vide.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>Il ne faut pas confondre la chaîne vide renvoyée par
+<code class="docutils literal notranslate"><span class="pre">readline</span></code> et une ligne vide contenue dans le fichier texte.</p>
+<p>En effet, si l’état du canal pointe vers une ligne vide du fichier,
+la méthode <code class="docutils literal notranslate"><span class="pre">readline</span></code> renvoie une chaîne de caractères contenant
+le seul marqueur de fin de ligne : <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>, chaîne qui n’est donc
+pas vide.</p>
+<p class="last">Lorsque <code class="docutils literal notranslate"><span class="pre">readline</span></code> renvoie une chaîne vide, c’est qu’on est arrivé
+à la fin du fichier. C’est une caractéristique qu’il est possible
+d’exploiter en programmation.</p>
+</div>
+<p>Fermons le canal avant de présenter la prochaine méthode.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lecture-de-toutes-les-lignes">
+<h4>Lecture de toutes les lignes<a class="headerlink" href="#lecture-de-toutes-les-lignes" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">readlines</span></code> donne la liste de toutes les lignes restant à lire.
+Si le canal vient d’être ouvert, cela revient à lire toutes les lignes du
+fichier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'timoleon.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="go">['Timoleon est un homme politique grec\n',</span>
+<span class="go"> 'ayant vécu au IVème siècle av. JC.\n',</span>
+<span class="go"> 'Il est connu pour avoir recolonisé la Sicile.\n']</span>
+</pre></div>
+</div>
+<p>On obtient la liste de toutes les lignes contenues dans le fichier
+<code class="file docutils literal notranslate"><span class="pre">timoleon.txt</span></code>. L’état du canal pointe alors vers la fin du fichier.</p>
+<p>Fermons le canal avant de présenter la dernière méthode de lecture.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-methode-read">
+<h4>La méthode <code class="docutils literal notranslate"><span class="pre">read</span></code><a class="headerlink" href="#la-methode-read" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Terminons par une troisième méthode de lecture qui ne respecte pas la structure
+en lignes des fichiers textes.
+Cette méthode, nommée <code class="docutils literal notranslate"><span class="pre">read</span></code>, peut s’employer avec ou sans paramètre.</p>
+<p>Avec paramètre, il faut lui donner le nombre de caractères qu’on désire lire
+dans le fichier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'timoleon.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">'Tim'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="go">'oleon est un homme p'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="go">'olitique grec\nayant vécu au IV'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">''</span>
+</pre></div>
+</div>
+<p>Sans paramètre, la chaîne de caractères renvoyée par <code class="docutils literal notranslate"><span class="pre">read</span></code> est constituée
+de la totalité des caractères contenus dans le fichier depuis l’état courant
+du canal.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">'ème siècle av. JC.\nIl est connu pour avoir recolonisé la Sicile.\n'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="impossible-de-lire">
+<h4>Impossible de lire<a class="headerlink" href="#impossible-de-lire" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il est impossible de lire (quelle que soit la méthode) dans un fichier ouvert
+en écriture.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'nouveau.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">UnsupportedOperation: not readable</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ecriture-de-donnees">
+<h3>Écriture de données<a class="headerlink" href="#ecriture-de-donnees" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans cette partie on s’intéresse aux méthodes d’écriture dans un fichier texte.</p>
+<div class="section" id="ecrire-des-chaines-de-caracteres">
+<h4>Écrire des chaînes de caractères<a class="headerlink" href="#ecrire-des-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Avec la méthode <code class="docutils literal notranslate"><span class="pre">write</span></code>, on peut écrire n’importe quelle chaîne de caractères
+dans un fichier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'nouveau.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Timoleon est un homme politique'</span><span class="p">)</span>
+<span class="go">21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">' grec</span><span class="se">\n</span><span class="s1">'</span> <span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Comme cet exemple le montre, la méthode <code class="docutils literal notranslate"><span class="pre">write</span></code> renvoie le nombre de caractères écrits.</p>
+</div>
+<div class="section" id="ecrire-des-lignes">
+<h4>Écrire des lignes<a class="headerlink" href="#ecrire-des-lignes" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">writelines</span></code> est une méthode analogue à <code class="docutils literal notranslate"><span class="pre">readlines</span></code> : elle permet d’écrire
+dans un fichier une liste de chaînes de caractères.
+Si chacune de ces chaînes se termine par un marqueur de fin de ligne,  le nombre de lignes
+écrites dans le fichier est égal à la longueur de la liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'nouveau.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s1">'Timoleon est un homme politique grec</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span>
+<span class="go">                       'ayant vécu au IVème siècle av. JC.\n',</span>
+<span class="go">                                   'Il est connu pour avoir recolonisé la Sicile.\n'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortie</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="impossible-d-ecrire">
+<h4>Impossible d’écrire<a class="headerlink" href="#impossible-d-ecrire" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Il est impossible d’écrire (quelque soit la méthode) dans un fichier ouvert
+en lecture.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'timoleon.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">entree</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">UnsupportedOperation: not writable</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exemples">
+<h2>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Parcours complet d’un fichier texte (ici <code class="file docutils literal notranslate"><span class="pre">cigale.txt</span></code>) et impression
+de chacune des lignes sur la sortie standard.</p>
+<p>En voici une première version, avec lecture intégrale du fichier (méthode
+<code class="docutils literal notranslate"><span class="pre">readlines</span></code> puis parcours de la liste de lignes obtenue :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale.txt'</span><span class="p">,</span><span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+   <span class="n">lignes_lues</span> <span class="o">=</span> <span class="n">entree</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lignes_lues</span><span class="p">:</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cette version est envisageable pour des textes de taille n’excédant pas les
+capacités de mémoire de la machine sur laquelle elle est exécutée.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">On utilise ici le paramètre nommé <code class="docutils literal notranslate"><span class="pre">end</span></code> de la fonction
+<code class="docutils literal notranslate"><span class="pre">print</span></code> auquel on donne la chaîne vide comme valeur, pour empêcher
+la fonction <code class="docutils literal notranslate"><span class="pre">print</span></code> de faire un passage à la ligne. En effet, il
+faut se souvenir que toute ligne lue dans un fichier texte (par l’une
+ou l’autre des méthodes <code class="docutils literal notranslate"><span class="pre">readline</span></code> ou <code class="docutils literal notranslate"><span class="pre">readlines</span></code>) contient le
+marqueur de fin de ligne (<code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p>
+</div>
+<p>Voici une seconde version, qui procède par traitement immédiat d’une ligne
+qui vient d’être lue :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+   <span class="n">ligne</span> <span class="o">=</span> <span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+       <span class="k">while</span> <span class="n">ligne</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">:</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+           <span class="n">ligne</span> <span class="o">=</span> <span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Voici une troisième version, variante de la précédente, qui s’appuie
+sur le fait que les canaux vers des fichiers ouverts en lecture sont
+itérables :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+   <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">entree</span><span class="p">:</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Recopie d’un fichier texte dans un autre.</p>
+<p>Première version en faisant une lecture intégrale du fichier avec la méthode
+<code class="docutils literal notranslate"><span class="pre">read</span></code>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+    <span class="n">tout_lu</span> <span class="o">=</span> <span class="n">entree</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">'cigale2.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">sortie</span><span class="p">:</span>
+    <span class="n">sortie</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tout_lu</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Deuxième version en faisant une lecture intégrale du fichier à copier
+avec la méthode <code class="docutils literal notranslate"><span class="pre">readlines</span></code>, et une recopie avec la méthode <code class="docutils literal notranslate"><span class="pre">writelines</span></code>.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+    <span class="n">les_lignes</span> <span class="o">=</span> <span class="n">entree</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="s1">'cigale2.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">sortie</span><span class="p">:</span>
+    <span class="n">sortie</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">les_lignes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Troisième version, en recopiant chaque ligne immédiatement après leur
+lecture.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'cigale2.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">sortie</span><span class="p">:</span>
+            <span class="n">ligne</span> <span class="o">=</span> <span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+            <span class="n">sortie</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Dans cette troisième version on aurait pu remplacer les deux dernières
+lignes par la seule ligne :</p>
+<div class="code python last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sortie</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">entree</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="codage-des-fichiers-textes">
+<h2>Codage des fichiers textes<a class="headerlink" href="#codage-des-fichiers-textes" title="Lien permanent vers ce titre">¶</a></h2>
+<a class="reference internal image-reference" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/_images/martine-ecrit-en-utf8.jpg" id="martine"><img alt="_images/martine-ecrit-en-utf8.jpg" class="align-right" id="martine" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/martine-ecrit-en-utf8.jpg" style="width: 200px;"></a>
+<p>Les chaînes de caractères de Python3 sont des chaînes
+<a class="reference external" href="https://fr.wikipedia.org/wiki/Unicode">Unicode</a>. Lorsqu’elles sont écrites dans un fichier,
+elles sont <cite>encodées</cite>. Et lorsqu’elles sont lues depuis un fichier, elles sont <cite>décodées</cite>.</p>
+<p>Il existe plusieurs codages des caractères. Citons-en trois :</p>
+<ul class="simple">
+<li>l”<a class="reference external" href="https://fr.wikipedia.org/wiki/ISO/CEI_8859-15">ISO-8859-15</a>, parfois appelé aussi LATIN9,
+encodage couramment employé en Europe occidentale dans les années 1980-2000, mais qui ne permet
+pas de coder tous les caractères Unicode ;</li>
+<li>le <code class="docutils literal notranslate"><span class="pre">cp1252</span> <span class="pre">&lt;https://fr.wikipedia.org/wiki/Windows-1252&gt;`_</span> <span class="pre">ou</span> <span class="pre">``Windows-1252</span></code>, encodage utilisé par
+défaut sur le système d’exploitation Windows, qui étant une variante mineure de l’ISO-8859 ne
+permet pas non plus de coder tous les caractères Unicode ;</li>
+<li>l”<a class="reference external" href="https://fr.wikipedia.org/wiki/UTF-8">UTF-8</a>, encodage développé dans les années 1990,
+très utilisé actuellement, qui permet de coder tous les caractères Unicode.</li>
+</ul>
+<p>Si on ne le précise pas, le codage employé par la fonction <code class="docutils literal notranslate"><span class="pre">open</span></code> est celui par défaut de la
+plateforme sur laquelle le programme s’exécute :</p>
+<ul class="simple">
+<li>aujourd’hui, avec les systèmes GNU-Linux : UTF-8 ;</li>
+<li>avec les systèmes Windows : cp1252.</li>
+</ul>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">open</span></code> possède un paramètre optionnel nommé <code class="docutils literal notranslate"><span class="pre">encoding</span></code> qui permet de préciser le codage voulu.</p>
+<div class="section" id="exemple">
+<h3>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Considérons une même chaîne de caractères (dont l’auteur est <a class="reference external" href="https://fr.wikipedia.org/wiki/Pangramme#Avec_les_lettres_accentu.C3.A9es">Gilles Esposito-Farèse</a>) écrites dans deux fichiers texte, mais avec des codages différents :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">texte</span> <span class="o">=</span> <span class="s2">"Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d'exquis rôtis de bœuf au kir à l'aÿ d'âge mûr &amp; cætera !"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_utf8.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf_8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">sortie</span><span class="p">:</span>
+<span class="go">        sortie.write(texte + '\n')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_iso8859_15.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'iso8859_15'</span><span class="p">)</span> <span class="k">as</span> <span class="n">sortie</span><span class="p">:</span>
+<span class="go">        sortie.write(texte + '\n')</span>
+</pre></div>
+</div>
+<p>Maintenant lisons cette chaîne dans chacun des deux fichiers en employant le bon décodeur.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_utf8.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf_8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+<span class="go">        lu1 = entree.readline()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lu1</span><span class="p">)</span>
+<span class="go">Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d'exquis rôtis de bœuf au kir à l'aÿ d'âge mûr &amp; cætera !</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_iso8859_15.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'iso8859_15'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+<span class="go">        lu2 = entree.readline()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lu2</span><span class="p">)</span>
+<span class="go">Dès Noël où un zéphyr haï me vêt de glaçons würmiens je dîne d'exquis rôtis de bœuf au kir à l'aÿ d'âge mûr &amp; cætera !</span>
+
+<span class="go">&gt;&gt; lu1 == lu2</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Tout va bien ! Mais si nous employons le mauvais décodeur, on peut obtenir des
+caractères bizarres :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_utf8.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'iso8859_15'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+<span class="go">        lu3 = entree.readline ()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lu3</span><span class="p">)</span>
+<span class="go">DÃšs NoÃ«l oÃ¹ un zÃ©phyr haÃ¯ me vÃªt de glaÃ§ons wÃŒrmiens je dÃ®ne d'exquis rÃŽtis de bÅuf au kir Ã&nbsp; l'aÃ¿ d'Ã¢ge mÃ»r &amp; cÃŠtera !</span>
+</pre></div>
+</div>
+<p>ou même obtenir un déclenchement d’exception dû à une impossibilité de décoder :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_iso8859_15.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf_8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+<span class="go">        lu4 = entree.readline ()</span>
+
+<span class="gp">...</span>
+
+<span class="go">UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe8 in position 1: invalid continuation byte</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="l-attribut-encoding">
+<h3>L’attribut <code class="docutils literal notranslate"><span class="pre">encoding</span></code><a class="headerlink" href="#l-attribut-encoding" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’attribut <code class="docutils literal notranslate"><span class="pre">encoding</span></code> donne le codage/décodage utilisé par un canal ouvert
+vers un fichier texte.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_utf8.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf_8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+<span class="go">       print(entree.encoding)</span>
+<span class="go">utf_8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'texte_utf8.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'iso8859_15'</span><span class="p">)</span> <span class="k">as</span> <span class="n">entree</span><span class="p">:</span>
+<span class="go">       print(entree.encoding)</span>
+<span class="go">iso8859_15</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="les-canaux-standards">
+<h2>Les canaux standards<a class="headerlink" href="#les-canaux-standards" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Il existe trois canaux dits <em>standards</em> prédéfinis :</p>
+<ul class="simple">
+<li>le canal standard de lecture : <code class="docutils literal notranslate"><span class="pre">stdin</span></code> ;</li>
+<li>le canal standard d’écriture : <code class="docutils literal notranslate"><span class="pre">stdout</span></code> ;</li>
+<li>et le canal standard d’erreur : <code class="docutils literal notranslate"><span class="pre">stderr</span></code>.</li>
+</ul>
+<p>En Python, ces canaux sont des variables définies dans le module <code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code>.</p>
+<p>Nous ne dirons quelques mots que pour les deux premiers.</p>
+<div class="section" id="canal-standard-de-lecture">
+<h3>Canal standard de lecture<a class="headerlink" href="#canal-standard-de-lecture" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">stdin</span></code> du module <code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code> représente un canal de lecture en mode texte.
+L’encodage par défaut dépend du système sur lequel on l’utilise.
+Ce canal est ouvert, la commande <code class="docutils literal notranslate"><span class="pre">open</span></code> est donc inutile.</p>
+<p>Voici ce que nous apprend l’interpréteur Python lorsqu’on l’interroge sur ce canal <a class="footnote-reference" href="#id2" id="id1">[1]</a> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span>
+<span class="go">&lt;_io.TextIOWrapper name='&lt;stdin&gt;' mode='r' encoding='UTF-8'&gt;</span>
+</pre></div>
+</div>
+<p>Depuis quel fichier les opérations de lecture via ce canal seront-elles effectuées ?
+La réponse sur un ordinateur classique est (par défaut) le clavier.</p>
+<p>Avec la méthode <code class="docutils literal notranslate"><span class="pre">readline</span></code>, une fois la commande exécutée, l’interpréteur attend (patiemment)
+qu’une ligne de texte soit tapée au clavier avec bien entendu son marqueur de fin de ligne
+qui, au clavier, est la touche <code class="docutils literal notranslate"><span class="pre">Entrée</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">Une ligne de texte</span>
+<span class="go">'Une ligne de texte\n'</span>
+</pre></div>
+</div>
+<p>Dans ce qui précède, la commande <code class="docutils literal notranslate"><span class="pre">sys.stdin.readline()</span></code> attend de l’utilisateur qu’il tape une
+ligne (ici <code class="docutils literal notranslate"><span class="pre">Une</span> <span class="pre">ligne</span> <span class="pre">de</span> <span class="pre">texte</span></code>). Une fois cette ligne terminée, la commande renvoie la
+chaîne de caractères lue au clavier, accompagnée de son marqueur de fin de ligne.</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">readlines</span></code> quant à elle est en mesure de lire un nombre quelconque de lignes.
+Seule la fin de fichier marque la fin de la lecture. Comment est marquée la fin de fichier pour une
+lecture de données au clavier ? Cela dépend du système sur lequel on travaille :</p>
+<ul class="simple">
+<li>dans un système du type Unix : <kbd class="kbd docutils literal notranslate">Ctrl + D</kbd></li>
+<li>dans un système Windows : <kbd class="kbd docutils literal notranslate">Ctrl + Z</kbd>.</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="go">une ligne</span>
+<span class="go">une autre ligne</span>
+<span class="go">et encore une autre.</span>
+<span class="go">['une ligne\n', 'une autre ligne\n', 'et encore une autre.\n']</span>
+</pre></div>
+</div>
+<p>C’est la même chose pour la méthode <code class="docutils literal notranslate"><span class="pre">read</span></code> sauf qu’elle renvoie une chaîne de caractères au lieu
+d’une liste de chaînes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">une ligne</span>
+<span class="go">une autre ligne</span>
+<span class="go">et encore une autre.</span>
+<span class="go">'une ligne\nune autre ligne\net encore une autre.\n'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="canal-standard-d-ecriture">
+<h3>Canal standard d’écriture<a class="headerlink" href="#canal-standard-d-ecriture" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La variable <code class="docutils literal notranslate"><span class="pre">stdout</span></code> du module <code class="xref py py-mod docutils literal notranslate"><span class="pre">sys</span></code> représente un canal d’écriture en mode texte
+qu’il est inutile d’ouvrir.</p>
+<p>Voici ce que nous apprend l’interpréteur Python lorsqu’on l’interroge sur ce canal :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+<span class="go">&lt;_io.TextIOWrapper name='&lt;stdout&gt;' mode='w' encoding='UTF-8'&gt;</span>
+</pre></div>
+</div>
+<p>Sur un ordinateur classique, les opérations d’écriture se font (par défaut) sur l’écran.</p>
+<p>Les méthodes <code class="docutils literal notranslate"><span class="pre">write</span></code> et <code class="docutils literal notranslate"><span class="pre">writelines</span></code> permettent donc d’effectuer des opérations d’écriture de chaînes ou de listes de chaînes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'Timoleon est un homme politique'</span><span class="p">)</span>
+<span class="go">Timoleon est un homme politique21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span> <span class="p">(</span><span class="s1">'Timoleon est un homme politique</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="go">Timoleon est un homme politique</span>
+<span class="go">21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s1">'Timoleon'</span><span class="p">,</span> <span class="s1">' est</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="s1">' un'</span><span class="p">,</span> <span class="s1">' homme'</span><span class="p">,</span> <span class="s1">' politique</span><span class="se">\n</span><span class="s1">'</span><span class="p">])</span>
+<span class="go">Timoleon est</span>
+<span class="go"> un homme politique</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="la-fonction-input">
+<h3>La fonction <code class="docutils literal notranslate"><span class="pre">input</span></code><a class="headerlink" href="#la-fonction-input" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">input</span></code> prédéfinie en Python permet de lire une chaîne de caractères tapée au clavier.
+Elle peut événtuellement être utilisée avec une chaîne de caractères passée en paramètre qui
+pourra jouer le rôle d’une invite à la saisie.</p>
+<p>Voici comment on peut envisager de la programmer avec les deux canaux <code class="docutils literal notranslate"><span class="pre">stdin</span></code> et <code class="docutils literal notranslate"><span class="pre">stdout</span></code> :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_input</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>En principe cette fonction contient tout ce qu’il faut pour jouer le même rôle que la fonction
+<code class="docutils literal notranslate"><span class="pre">input</span></code> : elle imprime le prompt sur la sortie standard, puis elle renvoie la ligne tapée par
+l’utilisateur.</p>
+<p>Malheureusement, à l’usage un phénomène troublant apparaît :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_input</span><span class="p">(</span><span class="s1">'Votre nom ? '</span><span class="p">)</span>
+<span class="go">Timoleon</span>
+<span class="go">Votre nom ? 'Timoleon\n'</span>
+</pre></div>
+</div>
+<p>Le prompt n’est imprimé seulement qu’après l’entrée de son nom par l’utilisateur !</p>
+<p>Cela est dû au fait que le système n’effectue pas toujours immédiatement les opérations d’écritures :
+il les temporise (<em>buffer</em>).
+Si on veut forcer une opération d’écriture temporisée, on peut utiliser la méthode <code class="docutils literal notranslate"><span class="pre">flush</span></code>.</p>
+<p>Voici donc une nouvelle version de la fonction <code class="docutils literal notranslate"><span class="pre">my_input</span></code> qui remédie au défaut constaté :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_input</span><span class="p">(</span><span class="n">prompt</span><span class="o">=</span><span class="s1">''</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    :param prompt: (str) [optionnel, valeur par défaut: chaine vide] chaîne à imprimer avant lecture</span>
+<span class="sd">    :return: (str) chaîne lue depuis l'entrée standard</span>
+<span class="sd">    :effet de bord: interrompt le flux d'exécution pour lire une chaîne </span>
+<span class="sd">              de caractères depuis l'entrée standard.</span>
+<span class="sd">    """</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="c1"># sys.stdout.flush()</span>
+    <span class="k">return</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_input</span> <span class="p">(</span><span class="s1">'Votre nom ? '</span><span class="p">)</span>
+<span class="go">Votre nom ? Timoleon</span>
+<span class="go">'Timoleon'</span>
+</pre></div>
+</div>
+<div class="topic">
+<p class="topic-title">Remarque</p>
+<p>Notez l’utilisation de la méthode <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> qui supprime d’une chaîne de caractères le caractère
+passé en paramètre situé à droite. Ici c’est le marqueur de fin de ligne située à la fin, de la
+chaîne renvoyée par <code class="docutils literal notranslate"><span class="pre">readline</span></code> qui est supprimé.</p>
+</div>
+</div>
+</div>
+<div class="section" id="traitement-des-donnees-lues">
+<h2>Traitement des données lues<a class="headerlink" href="#traitement-des-donnees-lues" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Si les opérations d’écriture ne posent en général pas trop de problèmes, il n’en va pas de
+même pour les opérations de lecture.</p>
+<p>Lorsque dans un programme des données sont lues, c’est pour qu’elles soient l’objet d’un certain
+traitement. Quelle certitude pouvons nous avoir sur la conformité ou validité de ces données,
+surtout lorsqu’elles proviennent d’une saisie par un opérateur humain ?</p>
+<div class="section" id="retour-sur-les-exceptions">
+<h3>Retour sur les exceptions<a class="headerlink" href="#retour-sur-les-exceptions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Certaines instructions, bien que syntaxiquement correctes, peuvent déclencher pendant leur exécution
+des erreurs, erreurs qui interrompent cette exécution en déclenchant ce qu’en programmation on nomme
+<em>exception</em>.</p>
+<p>En voici un petit panorama :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">//</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">IndexError</span>: <span class="n">list index out of range</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span> <span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'timoleon'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'x ne peut pas être nul'</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">AssertionError</span>: <span class="n">x ne peut pas être nul</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="le-loup-entre-dans-la-bergerie">
+<h3>Le loup entre dans la bergerie<a class="headerlink" href="#le-loup-entre-dans-la-bergerie" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Prenons pour exemple, le cas de la saisie au clavier d’une date.
+Concevons donc une fonction sans paramètre dont le travail consiste à lire une date
+dans un format <code class="docutils literal notranslate"><span class="pre">j/m/a</span></code>, composé de trois nombres désignant le jour, le mois et l’année,
+séparés par des <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>La fonction qui suit donne une réalisation possible d’une telle fonction. Elle consiste</p>
+<ul class="simple">
+<li>à saisir les données à l’aide de la fonction <code class="docutils literal notranslate"><span class="pre">input</span></code> ;</li>
+<li>à découper la réponse à l’aide de la méthode <code class="docutils literal notranslate"><span class="pre">split</span></code> ;</li>
+<li>et enfin à construire un triplet d’entiers avec les trois composantes de la réponse (qui
+sont des chaînes de caractères).</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lire_date1</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    :return: (tuple) une date sous la forme d'un triplet </span>
+<span class="sd">             (j, m, a) de nombres entiers </span>
+<span class="sd">    :effet de bord: lecture d'une donnée sur l'entrée standard</span>
+<span class="sd">    :CU: validité des données lues</span>
+<span class="sd">    """</span>
+    <span class="n">reponse</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'j/m/a ? '</span><span class="p">)</span>
+    <span class="n">reponse</span> <span class="o">=</span> <span class="n">reponse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">date</span>
+</pre></div>
+</div>
+<p>Cette fonction convient bien pour des données correctement saisies :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date1</span><span class="p">()</span>
+<span class="go">j/m/a ? 22/2/2016</span>
+<span class="go">(22, 2, 2016)</span>
+</pre></div>
+</div>
+<p>Mais, elle accepte des données incorrectes comme</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date1</span><span class="p">()</span>
+<span class="go">j/m/a ? 2/22/2016</span>
+<span class="go">(2, 22, 2016)</span>
+</pre></div>
+</div>
+<p>et déclenche des exceptions pour des données au format incorrect</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date1</span><span class="p">()</span>
+<span class="go">j/m/a ? 22/fevrier/2016</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'fevrier'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date1</span><span class="p">()</span>
+<span class="go">j/m/a ? 22-2-2016</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: '22-2-2016'</span>
+</pre></div>
+</div>
+<p>Le loup est entré dans la bergerie !</p>
+<p>Le loup est l’utilisateur du programme. Le programmeur ne le connaît le plus souvent pas.
+Et cet utilisateur est très certainement un être humain qui peut commettre des erreurs comme
+celles mentionnées ci-dessus.</p>
+</div>
+<div class="section" id="l-instruction-try-except-ou-comment-repousser-le-loup">
+<h3>L’instruction <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span></code> ou comment repousser le loup ?<a class="headerlink" href="#l-instruction-try-except-ou-comment-repousser-le-loup" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’instruction <code class="docutils literal notranslate"><span class="pre">try:</span> <span class="pre">...</span> <span class="pre">except...</span></code> permet au programmeur de programmer des situations
+<em>normales</em> (partie <code class="docutils literal notranslate"><span class="pre">try</span></code>) et prévoir des situations anormales ou <em>exceptionnelles</em> (partie
+<code class="docutils literal notranslate"><span class="pre">except</span></code>).</p>
+<p>Une telle forme d’instruction est appelée <em>traitement d’exceptions</em>. En Python elle s’écrit toujours :</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+   <span class="c1"># instructions du traitement normal</span>
+<span class="k">except</span> <span class="o">&lt;</span><span class="n">exception</span><span class="o">&gt;</span> <span class="p">:</span>
+   <span class="c1"># instructions du traitement exceptionnel</span>
+</pre></div>
+</div>
+<p>Elle commence par le mot-clé <code class="docutils literal notranslate"><span class="pre">try</span></code> suivi des deux points (<code class="docutils literal notranslate"><span class="pre">:</span></code>), suivie d’un bloc (indenté)
+d’instructions à exécuter dans le cas où aucune exception n’est déclenchée. Elle est suivie par une
+(ou plusieurs) partie(s) débutant par le mot-clé <code class="docutils literal notranslate"><span class="pre">except</span></code> définissant les actions à réaliser dans
+le cas où l’exception précisée à la suite du mot-clé <code class="docutils literal notranslate"><span class="pre">except</span></code> est déclenchée.</p>
+<p>En voici un exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">//</span> <span class="mi">0</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">'Tentative de division par zéro'</span><span class="p">)</span>
+
+<span class="go">Tentative de division par zéro</span>
+</pre></div>
+</div>
+<p>Comme on le constate, la partie <em>normale</em> déclenche l’exception <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>,
+exception qui est traitée dans la partie qui suit par l’exécution d’une simple instruction
+<code class="docutils literal notranslate"><span class="pre">print</span></code>. La variable <code class="docutils literal notranslate"><span class="pre">x</span></code> n’a pas pu être modifiée.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<p>Considérons ce second exemple :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">//</span> <span class="nb">int</span><span class="p">(</span><span class="s1">'zero'</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">'Tentative de division par zéro'</span><span class="p">)</span>
+
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'zero'</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">int</span></code> est appliquée à une chaîne de caractères qui ne correspond pas à l’écriture
+décimale d’un nombre entier : elle déclenche donc une exception <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. Celle-ci n’est
+pas traitée puisque seule <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> l’est. Voici donc un traitement de deux exceptions :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">//</span> <span class="nb">int</span> <span class="p">(</span><span class="s1">'zero'</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">'Tentative de division par zéro'</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">'Écriture du nombre incorrecte'</span><span class="p">)</span>
+
+<span class="go">Écriture du nombre incorrecte</span>
+</pre></div>
+</div>
+<p>On peut si on veut rassembler les deux exceptions un seul cas :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">//</span> <span class="nb">int</span><span class="p">(</span><span class="s1">'zero'</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">'Situation anormale'</span><span class="p">)</span>
+
+<span class="go">Situation anormale</span>
+</pre></div>
+</div>
+<p>mais cela n’est pas toujours une très bonne idée, puisque le traitement à effectuer dans
+une situation anormale dépend souvent de l’exception déclenchée.</p>
+</div>
+<div class="section" id="vers-une-meilleure-version-de-la-fonction-lire-date">
+<h3>Vers une meilleure version de la fonction <code class="docutils literal notranslate"><span class="pre">lire_date</span></code><a class="headerlink" href="#vers-une-meilleure-version-de-la-fonction-lire-date" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La version <code class="docutils literal notranslate"><span class="pre">lire_date2</span></code> contrôle la saisie en refusant toute saisie ne comportant
+pas deux caractères <code class="docutils literal notranslate"><span class="pre">/</span></code> séparant les trois nombres. Une boucle infinie (<code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>)
+répète inlassablement la saisie tant qu’elle ne contient pas les deux séparateurs requis.
+On sort de cette boucle infinie via l’instruction <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lire_date2</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    :return: (tuple) une date sous la forme d'un triplet </span>
+<span class="sd">             (j, m, a) de nombres entiers </span>
+<span class="sd">    :effet de bord: lecture d'une donnée sur l'entrée standard</span>
+<span class="sd">    :CU: validité des données lues</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">reponse</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'j/m/a ? '</span><span class="p">)</span>
+        <span class="n">reponse</span> <span class="o">=</span> <span class="n">reponse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reponse</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'il faut 2 /'</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">date</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'il faut 2 / '</span><span class="p">)</span>       
+</pre></div>
+</div>
+<p>Voici un appel à cette fonction dans lequel il faut trois tentatives à l’utilisateur pour
+fournir une saisie avec deux <code class="docutils literal notranslate"><span class="pre">/</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date2</span><span class="p">()</span>
+<span class="go">j/m/a ? 29-2-2016</span>
+<span class="go">j/m/a ? 29/2-2016</span>
+<span class="go">j/m/a ? 29/2/2016</span>
+<span class="go">(29, 2, 2016)</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">int</span></code> étant assez souple avec les espaces entourant les nombres,
+la saisie qui suit se passe très bien :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date2</span><span class="p">()</span>
+<span class="go">j/m/a ?   29   /  2    / 2016</span>
+<span class="go">(29, 2, 2016)</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">lire_date2</span></code> assure que la saisie des informations de l’utilisateur comprend bien
+deux séparateurs <code class="docutils literal notranslate"><span class="pre">/</span></code>. Mais elle ne contrôle absolument pas le contenu des trois champs séparés
+qui pourraient très bien ne pas contenir de représentation de nombres entiers :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date2</span><span class="p">()</span>
+<span class="go">j/m/a ? a/b/c</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid literal for int() with base 10: 'a'</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">lire_date3</span></code> récupère l’exeption <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lire_date3</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    :return: (tuple) une date sous la forme d'un triplet </span>
+<span class="sd">             (j, m, a) de nombres entiers </span>
+<span class="sd">    :effet de bord: lecture d'une donnée sur l'entrée standard</span>
+<span class="sd">    :CU: validité des données lues</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">reponse</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'j/m/a ? '</span><span class="p">)</span>
+        <span class="n">reponse</span> <span class="o">=</span> <span class="n">reponse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reponse</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'il faut 2 /'</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="k">return</span> <span class="n">date</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'il faut 2 /'</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Date exprimée avec trois nombres svp !'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date3</span><span class="p">()</span>
+<span class="go">j/m/a ? 29 2 2016</span>
+<span class="go">il faut 2 /</span>
+<span class="go">j/m/a ? 29 / fevrier / 2016</span>
+<span class="go">Date exprimée avec trois nombres svp !</span>
+<span class="go">j/m/a ? 29 / 2 / 2016</span>
+<span class="go">(29, 2, 2016)</span>
+</pre></div>
+</div>
+<p>Cette fonction ne contrôle pas la validité de la date saisie :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date3</span><span class="p">()</span>
+<span class="go">j/m/a ? 290/20/2016</span>
+<span class="go">(290, 20, 2016)</span>
+</pre></div>
+</div>
+<p>Voici une quatrième version de la fonction <code class="docutils literal notranslate"><span class="pre">lire_date</span></code>. Elle suppose défini un prédicat
+<code class="docutils literal notranslate"><span class="pre">date_valide</span></code> qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> ou <code class="docutils literal notranslate"><span class="pre">False</span></code> en fonction de la validité du triplet
+d’entiers passé en paramètre pour représenter une date.</p>
+<p>À noter que l’exception <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> peut être déclenchée par deux instructions <code class="docutils literal notranslate"><span class="pre">Assert</span></code>,
+et qu’il n’y a qu’une seule clause de traitement de cette exception. Le message imprimé à
+destination de l’utilisateur est mis dans une variable <code class="docutils literal notranslate"><span class="pre">err</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lire_date4</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    :return: (tuple) une date sous la forme d'un triplet </span>
+<span class="sd">             (j, m, a) de nombres entiers </span>
+<span class="sd">    :effet de bord: lecture d'une donnée sur l'entrée standard</span>
+<span class="sd">    :CU: validité des données lues</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">reponse</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'j/m/a ? '</span><span class="p">)</span>
+        <span class="n">reponse</span> <span class="o">=</span> <span class="n">reponse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reponse</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'il faut 2 /'</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="k">assert</span> <span class="n">date_valide</span><span class="p">(</span><span class="n">date</span><span class="p">),</span> <span class="s1">'date non valide'</span>
+            <span class="k">return</span> <span class="n">date</span>
+        <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>      
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Date exprimée avec trois nombres svp !'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lire_date4</span><span class="p">()</span>
+<span class="go">j/m/a ? 290 20 2016</span>
+<span class="go">il faut 2 /</span>
+<span class="go">j/m/a ? 290/20/2016</span>
+<span class="go">date non valide</span>
+<span class="go">j/m/a ? 29/2/2016</span>
+<span class="go">(29, 2, 2016)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>La version ci-dessous de la fonction <code class="docutils literal notranslate"><span class="pre">lire_date</span></code> est un exemple à ne pas suivre
+parce que</p>
+<ul class="simple">
+<li>elle ne distingue aucune exception (ligne <code class="docutils literal notranslate"><span class="pre">except:</span></code> non accompagnée du nom de l’exception)</li>
+<li>elle inclut trop de code dans le traitement (lecture et découpage inclus dans le <code class="docutils literal notranslate"><span class="pre">try:</span></code>).</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lire_date5</span><span class="p">():</span>
+    <span class="sd">"""</span>
+<span class="sd">    :return: (tuple) une date sous la forme d'un triplet </span>
+<span class="sd">             (j, m, a) de nombres entiers </span>
+<span class="sd">    :effet de bord: lecture d'une donnée sur l'entrée standard</span>
+<span class="sd">    :CU: validité des données lues</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">reponse</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'j/m/a ? '</span><span class="p">)</span>
+            <span class="n">reponse</span> <span class="o">=</span> <span class="n">reponse</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">reponse</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">reponse</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+            <span class="k">assert</span> <span class="n">date_valide</span><span class="p">(</span><span class="n">date</span><span class="p">),</span> <span class="s1">'date non valide'</span>
+            <span class="k">return</span> <span class="n">date</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Date au format j/m/a svp !'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="last">Une conséquence de l’absence de distinction des exceptions pouvant être déclenchées, fait que,
+une fois appelée, la fonction <code class="docutils literal notranslate"><span class="pre">lire_date5</span></code> attend patiemment qu’une date valide soit tapée
+par l’utilisateur. Celui-ci ne peut pas interrompre l’exécution de cette fonction par la
+combinaison de touches Ctrl+C (exception <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code>), ni par le marqueur de fin de
+fichier Ctrl+D (exception <code class="docutils literal notranslate"><span class="pre">EOFError</span></code>), car chacune de ces exceptions est récupérée par la
+partie <code class="docutils literal notranslate"><span class="pre">except:</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Lien permanent vers ce titre">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first">La réponse de Python sur la valeur de la variable <code class="docutils literal notranslate"><span class="pre">sys.stdin</span></code> dépend non seulement
+de la plateforme sur laquelle on travaille, mais aussi du logiciel utilisé. Ainsi
+la réponse mentionnée dans ce texte suppose qu’on utilise un simple interpréteur Python
+(<code class="docutils literal notranslate"><span class="pre">python3</span></code> ou <code class="docutils literal notranslate"><span class="pre">ipython3</span></code>). Mais si on travaille avec <code class="docutils literal notranslate"><span class="pre">Idle</span></code>, on obtient la réponse :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span>
+<span class="go">&lt;idlelib.PyShell.PseudoInputFile object at 0x7f90ed9d3630&gt;</span>
+</pre></div>
+</div>
+<p class="last">(Le nombre en hexa <code class="docutils literal notranslate"><span class="pre">0x...</span></code> peut aussi ne pas être celui ci-dessus.)</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://www.fil.univ-lille1.fr/"> <!-- <a href="index.html"> -->
+              <img class="logo" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/UL-FST-informatique-rvb.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Les fichiers</a><ul>
+<li><a class="reference internal" href="#pourquoi-des-fichiers">Pourquoi des fichiers ?</a></li>
+<li><a class="reference internal" href="#differents-types-de-fichiers">Différents types de fichiers</a><ul>
+<li><a class="reference internal" href="#fichiers-textes">Fichiers textes</a></li>
+<li><a class="reference internal" href="#fichiers-binaires">Fichiers binaires</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lire-ecrire-dans-des-fichiers-en-python">Lire, écrire dans des fichiers en Python</a><ul>
+<li><a class="reference internal" href="#ouverture-d-un-canal">Ouverture d’un canal</a><ul>
+<li><a class="reference internal" href="#ouverture-en-mode-lecture">Ouverture en mode lecture</a></li>
+<li><a class="reference internal" href="#ouverture-en-mode-ecriture">Ouverture en mode écriture</a></li>
+<li><a class="reference internal" href="#autres-modes-d-ouverture">Autres modes d’ouverture</a></li>
+<li><a class="reference internal" href="#type-d-un-canal-ouvert-sur-un-fichier-texte">Type d’un canal ouvert sur un fichier texte</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fermeture">Fermeture</a></li>
+<li><a class="reference internal" href="#forme-syntaxique-with">Forme syntaxique <code class="docutils literal notranslate"><span class="pre">with</span></code></a></li>
+<li><a class="reference internal" href="#lecture-de-donnees">Lecture de données</a><ul>
+<li><a class="reference internal" href="#lecture-d-une-ligne">Lecture d’une ligne</a></li>
+<li><a class="reference internal" href="#lecture-de-toutes-les-lignes">Lecture de toutes les lignes</a></li>
+<li><a class="reference internal" href="#la-methode-read">La méthode <code class="docutils literal notranslate"><span class="pre">read</span></code></a></li>
+<li><a class="reference internal" href="#impossible-de-lire">Impossible de lire</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ecriture-de-donnees">Écriture de données</a><ul>
+<li><a class="reference internal" href="#ecrire-des-chaines-de-caracteres">Écrire des chaînes de caractères</a></li>
+<li><a class="reference internal" href="#ecrire-des-lignes">Écrire des lignes</a></li>
+<li><a class="reference internal" href="#impossible-d-ecrire">Impossible d’écrire</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exemples">Exemples</a></li>
+<li><a class="reference internal" href="#codage-des-fichiers-textes">Codage des fichiers textes</a><ul>
+<li><a class="reference internal" href="#exemple">Exemple</a></li>
+<li><a class="reference internal" href="#l-attribut-encoding">L’attribut <code class="docutils literal notranslate"><span class="pre">encoding</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#les-canaux-standards">Les canaux standards</a><ul>
+<li><a class="reference internal" href="#canal-standard-de-lecture">Canal standard de lecture</a></li>
+<li><a class="reference internal" href="#canal-standard-d-ecriture">Canal standard d’écriture</a></li>
+<li><a class="reference internal" href="#la-fonction-input">La fonction <code class="docutils literal notranslate"><span class="pre">input</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#traitement-des-donnees-lues">Traitement des données lues</a><ul>
+<li><a class="reference internal" href="#retour-sur-les-exceptions">Retour sur les exceptions</a></li>
+<li><a class="reference internal" href="#le-loup-entre-dans-la-bergerie">Le loup entre dans la bergerie</a></li>
+<li><a class="reference internal" href="#l-instruction-try-except-ou-comment-repousser-le-loup">L’instruction <code class="docutils literal notranslate"><span class="pre">try</span> <span class="pre">...</span> <span class="pre">except</span></code> ou comment repousser le loup ?</a></li>
+<li><a class="reference internal" href="#vers-une-meilleure-version-de-la-fonction-lire-date">Vers une meilleure version de la fonction <code class="docutils literal notranslate"><span class="pre">lire_date</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/_sources/fichiers.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="Les%20fichiers%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/88x31.png"></a>. <a href="http://www.fil.univ-lille1.fr/">2016-2020, Léopold Weinberg, Éric Wegrzynowski, FIL - FST - Univ. Lille</a>.
+      Mis à jour le 20/01/2021.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+</body></html>

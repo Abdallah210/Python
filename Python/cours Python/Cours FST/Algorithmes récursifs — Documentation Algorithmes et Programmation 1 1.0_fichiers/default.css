@@ -1,0 +1,8 @@
+body {
+    counter-reset: question;
+    }
+
+div.question>p.topic-title::before {
+  counter-increment: question;                /* On incrémente le compteur question */
+  content: "Question " counter(question) " : "; /* On affiche le compteur */
+}

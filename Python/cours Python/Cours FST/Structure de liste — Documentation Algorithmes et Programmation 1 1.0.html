@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Structure de liste — Documentation Algorithmes et Programmation 1 1.0</title>
+    
+    <link rel="stylesheet" href="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/nature.css" type="text/css">
+    <link rel="stylesheet" href="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/pygments.css" type="text/css">
+    <link rel="stylesheet" href="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/default.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/language_data.js"></script>
+    <script type="text/javascript" async="" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/MathJax.js"></script>
+    <link rel="index" title="Index" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html">
+    <link rel="search" title="Recherche" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/search.html">
+    <link rel="top" title="Documentation Algorithmes et Programmation 1 1.0" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html"> 
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.7') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.7') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.7') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.7') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.7') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.7') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.7') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.7') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.7') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.7') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body role="document"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="structure-de-liste">
+<h1>Structure de liste<a class="headerlink" href="#structure-de-liste" title="Lien permanent vers ce titre">¶</a></h1>
+<p>12-04-2021</p>
+<div class="topic">
+<p class="topic-title">Objectifs</p>
+<ul class="simple">
+<li><p>connaître la structure de données <em>liste</em></p></li>
+<li><p>une première structure de données récursive</p></li>
+<li><p>listes non mutables ou mutables</p></li>
+<li><p>savoir en donner une implantation</p></li>
+<li><p>savoir l’utiliser</p></li>
+</ul>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Structure de données importante en informatique :</p>
+<ul class="simple">
+<li><p>les listes sont partout</p></li>
+</ul>
+<div class="topic">
+<p class="topic-title">Remarque</p>
+<p>Les listes existent déjà dans Python. Alors pourquoi les étudier et
+en donner des implantations ?</p>
+<p>Voici quelques éléments de réponse :</p>
+<ol class="arabic">
+<li><p>Les listes en Python permettent un accès direct (du moins en apparence,
+car il faudrait voir ce qu’il en est réellement) à leurs éléments à l’aide
+d’indices. Ce qui fait que les listes de Python peuvent être utilisées comme
+ce que dans d’autres langages de programmation on appelle <em>tableau</em> (ou <em>array</em>).</p>
+<p>Les tableaux sont des structures de données <em>statiques</em>,
+c’est-à-dire dont l’occupation mémoire est fixé une fois pour
+toute. Un tableau à <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 0.697em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.579em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.583em, 1000.56em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.682em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">n</script></span> éléments est une zone mémoire de
+taille <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-4" style="width: 2.665em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.199em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.457em, 1002.17em, 2.442em, -1000em); top: -2.257em; left: 0em;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-7" style="font-family: MathJax_Main; padding-left: 0.222em;">×</span><span class="mi" id="MathJax-Span-8" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.222em;">t</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.903em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>×</mo><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">n\times t</script></span> octets consécutifs, <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-9" style="width: 0.466em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.347em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.399em, 1000.32em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-10"><span class="mi" id="MathJax-Span-11" style="font-family: MathJax_Math; font-style: italic;">t</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.903em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-3">t</script></span> étant la
+taille (en octets) d’un élément de chacun des éléments du
+tableau. De cette façon si on connaît l’adresse en mémoire
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-12" style="width: 1.855em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.505em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.331em, 1001.48em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-13"><span class="mi" id="MathJax-Span-14" style="font-family: MathJax_Math; font-style: italic;">a</span><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math; font-style: italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math; font-style: italic;">r</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.985em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi><mi>d</mi><mi>r</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">adr</script></span> du premier élément du tableau, celui d’indice 0,
+alors l’élément d’indice <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-17" style="width: 0.466em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.347em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.364em, 1000.3em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-18"><span class="mi" id="MathJax-Span-19" style="font-family: MathJax_Math; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.945em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></span></span><script type="math/tex" id="MathJax-Element-5">i</script></span> se trouve à l’adresse
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;#x00D7;&lt;/mo&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-20" style="width: 5.558em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.63em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.389em, 1004.6em, 2.513em, -1000em); top: -2.257em; left: 0em;"><span class="mrow" id="MathJax-Span-21"><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math; font-style: italic;">a</span><span class="mi" id="MathJax-Span-23" style="font-family: MathJax_Math; font-style: italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-24" style="font-family: MathJax_Math; font-style: italic;">r</span><span class="mo" id="MathJax-Span-25" style="font-family: MathJax_Main; padding-left: 0.222em;">+</span><span class="mi" id="MathJax-Span-26" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.222em;">i</span><span class="mo" id="MathJax-Span-27" style="font-family: MathJax_Main; padding-left: 0.222em;">×</span><span class="mi" id="MathJax-Span-28" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.222em;">t</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.168em; border-left: 0px solid; width: 0px; height: 1.07em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi><mi>d</mi><mi>r</mi><mo>+</mo><mi>i</mi><mo>×</mo><mi>t</mi></math></span></span><script type="math/tex" id="MathJax-Element-6">adr + i\times t</script></span>. C’est ce simple calcul qui explique la
+facilité d’accès à n’importe quel élément d’un tableau.</p>
+</li>
+<li><p>Les listes ne sont a priori pas des structures de données statiques, mais plutôt des
+structures de données <em>dynamiques</em>. Rien ne détermine a priori le nombre d’éléments
+que peut contenir une liste.</p>
+<p>Il est intéressant de comprendre comment on peut gérer le caractère dynamique d’une
+structure de données.</p>
+</li>
+<li><p>Vous êtes là pour apprendre !</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="qu-est-ce-qu-une-liste">
+<h2>Qu’est ce qu’une liste ?<a class="headerlink" href="#qu-est-ce-qu-une-liste" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Nous savons tous intuitivement ce qu’est une liste. Une liste est une collection finie
+d’éléments qui se suivent. C’est donc une structure de données <em>séquentielle</em> ou <em>linéaire</em>.</p>
+<p>Une liste peut contenir un nombre quelconque d’éléments y compris nul (la liste vide).</p>
+<p>Nous allons essayer de dégager une définition plus formalisée de ce qu’est une liste afin
+d’en dégager les opérations primitives et une structure essentielle qui nous permettra
+d’en donner des implantations.</p>
+<p>Prenons une liste comme par exemple <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-29" style="width: 6.195em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.15em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.275em, 1005.03em, 2.623em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-30"><span class="msubsup" id="MathJax-Span-31"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-32" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-33" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span><span class="mo" id="MathJax-Span-34" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mo" id="MathJax-Span-35" style="font-family: MathJax_Main; padding-left: 0.278em;">[</span><span class="mn" id="MathJax-Span-36" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-37" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-38" style="font-family: MathJax_Main; padding-left: 0.167em;">1</span><span class="mo" id="MathJax-Span-39" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-40" style="font-family: MathJax_Main; padding-left: 0.167em;">4</span><span class="mo" id="MathJax-Span-41" style="font-family: MathJax_Main;">]</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">[</mo><mn>3</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-7">\ell_1 = [3, 1, 4]</script></span>.  C’est
+une liste à trois éléments (ou de longueur trois) dont le premier est
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-42" style="width: 0.639em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.521em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.36em, 1000.48em, 2.395em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-43"><span class="mn" id="MathJax-Span-44" style="font-family: MathJax_Main;">3</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.096em; border-left: 0px solid; width: 0px; height: 0.963em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn></math></span></span><script type="math/tex" id="MathJax-Element-8">3</script></span>, le deuxième <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-45" style="width: 0.639em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.521em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.359em, 1000.45em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-46"><span class="mn" id="MathJax-Span-47" style="font-family: MathJax_Main;">1</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.938em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-9">1</script></span>, et le dernier <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-48" style="width: 0.639em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.521em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.348em, 1000.49em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-49"><span class="mn" id="MathJax-Span-50" style="font-family: MathJax_Main;">4</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.951em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn></math></span></span><script type="math/tex" id="MathJax-Element-10">4</script></span>.</p>
+<p>Une façon de redécrire cette liste consiste à dire que</p>
+<ul class="simple">
+<li><p>la liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-51" style="width: 1.045em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.868em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.105em, 1000.87em, 1.307em, -1000em); top: -0.984em; left: 0em;"><span class="mrow" id="MathJax-Span-52"><span class="msubsup" id="MathJax-Span-53"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-54" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-55" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 0.984em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.249em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>1</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-11">\ell_1</script></span> possède un premier élément <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-56" style="width: 0.639em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.521em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.36em, 1000.48em, 2.395em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-57"><span class="mn" id="MathJax-Span-58" style="font-family: MathJax_Main;">3</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.096em; border-left: 0px solid; width: 0px; height: 0.963em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn></math></span></span><script type="math/tex" id="MathJax-Element-12">3</script></span> qu’on nommera élément de <em>tête</em>,</p></li>
+<li><p>et que vient après cet élément de tête la liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-59" style="width: 5.038em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.167em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.275em, 1004.05em, 2.623em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-60"><span class="msubsup" id="MathJax-Span-61"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-62" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-63" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span><span class="mo" id="MathJax-Span-64" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mo" id="MathJax-Span-65" style="font-family: MathJax_Main; padding-left: 0.278em;">[</span><span class="mn" id="MathJax-Span-66" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-67" style="font-family: MathJax_Main;">,</span><span class="mn" id="MathJax-Span-68" style="font-family: MathJax_Main; padding-left: 0.167em;">4</span><span class="mo" id="MathJax-Span-69" style="font-family: MathJax_Main;">]</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>2</mn></msub><mo>=</mo><mo stretchy="false">[</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-13">\ell_2 = [1,
+4]</script></span> des éléments qui suivent, liste qu’on nommera <em>reste</em>.</p></li>
+</ul>
+<p>Ce qu’on vient de dire de la liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-70" style="width: 1.045em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.868em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.105em, 1000.87em, 1.307em, -1000em); top: -0.984em; left: 0em;"><span class="mrow" id="MathJax-Span-71"><span class="msubsup" id="MathJax-Span-72"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-73" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-74" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 0.984em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.249em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>1</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-14">\ell_1</script></span> peut être répété pour la liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-75" style="width: 1.045em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.868em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.105em, 1000.87em, 1.307em, -1000em); top: -0.984em; left: 0em;"><span class="mrow" id="MathJax-Span-76"><span class="msubsup" id="MathJax-Span-77"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-78" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-79" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 0.984em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.249em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-15">\ell_2</script></span> qui est donc constituée :</p>
+<ul class="simple">
+<li><p>d’un élément de <em>tête</em> : <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-80" style="width: 0.639em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.521em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.359em, 1000.45em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-81"><span class="mn" id="MathJax-Span-82" style="font-family: MathJax_Main;">1</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.938em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-16">1</script></span>,</p></li>
+<li><p>et d’un <em>reste</em> : <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-17-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-83" style="width: 3.938em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.241em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.275em, 1003.12em, 2.623em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-84"><span class="msubsup" id="MathJax-Span-85"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-86" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-87" style="font-size: 70.7%; font-family: MathJax_Main;">3</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span><span class="mo" id="MathJax-Span-88" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mo" id="MathJax-Span-89" style="font-family: MathJax_Main; padding-left: 0.278em;">[</span><span class="mn" id="MathJax-Span-90" style="font-family: MathJax_Main;">4</span><span class="mo" id="MathJax-Span-91" style="font-family: MathJax_Main;">]</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>3</mn></msub><mo>=</mo><mo stretchy="false">[</mo><mn>4</mn><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-17">\ell_3 = [4]</script></span>.</p></li>
+</ul>
+<p>À nouveau on peut répeter le même discours pour la liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-18-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-92" style="width: 1.045em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.868em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.105em, 1000.87em, 1.323em, -1000em); top: -0.984em; left: 0em;"><span class="mrow" id="MathJax-Span-93"><span class="msubsup" id="MathJax-Span-94"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-95" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-96" style="font-size: 70.7%; font-family: MathJax_Main;">3</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 0.984em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.268em; border-left: 0px solid; width: 0px; height: 1.184em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>3</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-18">\ell_3</script></span> qui est donc constituée :</p>
+<ul class="simple">
+<li><p>d’un élément de <em>tête</em> : <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-19-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-97" style="width: 0.639em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.521em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.348em, 1000.49em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-98"><span class="mn" id="MathJax-Span-99" style="font-family: MathJax_Main;">4</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.951em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn></math></span></span><script type="math/tex" id="MathJax-Element-19">4</script></span>,</p></li>
+<li><p>et d’un <em>reste</em> : <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-20-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-100" style="width: 3.302em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.72em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.275em, 1002.6em, 2.623em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-101"><span class="msubsup" id="MathJax-Span-102"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-103" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-104" style="font-size: 70.7%; font-family: MathJax_Main;">4</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span><span class="mo" id="MathJax-Span-105" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mo" id="MathJax-Span-106" style="font-family: MathJax_Main; padding-left: 0.278em;">[</span><span class="mo" id="MathJax-Span-107" style="font-family: MathJax_Main;">]</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>4</mn></msub><mo>=</mo><mo stretchy="false">[</mo><mo stretchy="false">]</mo></math></span></span><script type="math/tex" id="MathJax-Element-20">\ell_4 = []</script></span>.</p></li>
+</ul>
+<p>La liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-21-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-108" style="width: 1.045em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.868em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.105em, 1000.87em, 1.307em, -1000em); top: -0.984em; left: 0em;"><span class="mrow" id="MathJax-Span-109"><span class="msubsup" id="MathJax-Span-110"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-111" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-112" style="font-size: 70.7%; font-family: MathJax_Main;">4</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 0.984em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.249em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>4</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-21">\ell_4</script></span> étant vide, elle ne possède pas d’élement de
+tête, et ne peut donc pas être décomposée comme nous venons de le
+faire à trois reprises.</p>
+<p>Si on convient d’utiliser la notation <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-22-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-113" style="width: 2.665em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.199em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.333em, 1002.1em, 2.681em, -1000em); top: -2.257em; left: 0em;"><span class="mrow" id="MathJax-Span-114"><span class="mo" id="MathJax-Span-115" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-116" style="font-family: MathJax_Math; font-style: italic;">x</span><span class="mo" id="MathJax-Span-117" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-118" style="font-family: MathJax_Main; padding-left: 0.167em;">ℓ</span><span class="mo" id="MathJax-Span-119" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>ℓ</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-22">(x,\ell)</script></span> pour désigner
+le couple constitué de l’élément <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-23-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-120" style="width: 0.697em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.579em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.583em, 1000.53em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-121"><span class="mi" id="MathJax-Span-122" style="font-family: MathJax_Math; font-style: italic;">x</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.682em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></span></span><script type="math/tex" id="MathJax-Element-23">x</script></span> de tête, et du reste
+<span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-24-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-123" style="width: 0.524em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.405em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.32em, 1000.39em, 2.393em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-124"><span class="mi" id="MathJax-Span-125" style="font-family: MathJax_Main;">ℓ</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.093em; border-left: 0px solid; width: 0px; height: 1.009em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ℓ</mi></math></span></span><script type="math/tex" id="MathJax-Element-24">\ell</script></span> d’une liste, on peut alors écrire :</p>
+<div class="math notranslate nohighlight">
+<span class="MathJax_Preview" style="color: inherit;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-25-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;[&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-126" style="width: 9.552em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.928em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.275em, 1007.83em, 2.623em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-127"><span class="msubsup" id="MathJax-Span-128"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-129" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-130" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span><span class="mo" id="MathJax-Span-131" style="font-family: MathJax_Main; padding-left: 0.278em;">=</span><span class="mo" id="MathJax-Span-132" style="font-family: MathJax_Main; padding-left: 0.278em;">(</span><span class="mn" id="MathJax-Span-133" style="font-family: MathJax_Main;">3</span><span class="mo" id="MathJax-Span-134" style="font-family: MathJax_Main;">,</span><span class="mo" id="MathJax-Span-135" style="font-family: MathJax_Main; padding-left: 0.167em;">(</span><span class="mn" id="MathJax-Span-136" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-137" style="font-family: MathJax_Main;">,</span><span class="mo" id="MathJax-Span-138" style="font-family: MathJax_Main; padding-left: 0.167em;">(</span><span class="mn" id="MathJax-Span-139" style="font-family: MathJax_Main;">4</span><span class="mo" id="MathJax-Span-140" style="font-family: MathJax_Main;">,</span><span class="mo" id="MathJax-Span-141" style="font-family: MathJax_Main; padding-left: 0.167em;">[</span><span class="mo" id="MathJax-Span-142" style="font-family: MathJax_Main;">]</span><span class="mo" id="MathJax-Span-143" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-144" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-145" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><msub><mi>ℓ</mi><mn>1</mn></msub><mo>=</mo><mo stretchy="false">(</mo><mn>3</mn><mo>,</mo><mo stretchy="false">(</mo><mn>1</mn><mo>,</mo><mo stretchy="false">(</mo><mn>4</mn><mo>,</mo><mo stretchy="false">[</mo><mo stretchy="false">]</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-25">\ell_1 = (3, (1, (4, [])))</script></div>
+<p>On conçoit aisément que ce qui vient d’être fait pour notre exemple de  liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-26-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-146" style="width: 1.045em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.868em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(0.105em, 1000.87em, 1.307em, -1000em); top: -0.984em; left: 0em;"><span class="mrow" id="MathJax-Span-147"><span class="msubsup" id="MathJax-Span-148"><span style="display: inline-block; position: relative; width: 0.846em; height: 0px;"><span style="position: absolute; clip: rect(3.114em, 1000.4em, 4.187em, -1000em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-149" style="font-family: MathJax_Main;">ℓ</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span><span style="position: absolute; top: -3.843em; left: 0.417em;"><span class="mn" id="MathJax-Span-150" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 3.993em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 0.984em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.249em; border-left: 0px solid; width: 0px; height: 1.165em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ℓ</mi><mn>1</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-26">\ell_1</script></span> peut
+être reproduit pour n’importe quelle liste.</p>
+<p>On peut conclure cette approche en donnant une définition abstraite et formelle
+des listes d’éléments appartenant tous à un ensemble <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-27-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-151" style="width: 0.929em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.752em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.345em, 1000.75em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-152"><span class="mi" id="MathJax-Span-153" style="font-family: MathJax_Math; font-style: italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.026em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.955em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>E</mi></math></span></span><script type="math/tex" id="MathJax-Element-27">E</script></span>.</p>
+<div class="topic">
+<p class="topic-title">Définition</p>
+<p>Une <em>liste</em> d’éléments d’un ensemble <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-28-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-154" style="width: 0.929em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.752em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.345em, 1000.75em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-155"><span class="mi" id="MathJax-Span-156" style="font-family: MathJax_Math; font-style: italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.026em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.955em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>E</mi></math></span></span><script type="math/tex" id="MathJax-Element-28">E</script></span> est</p>
+<ul class="simple">
+<li><p>soit la liste vide</p></li>
+<li><p>soit un couple <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-29-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-157" style="width: 2.665em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.199em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.333em, 1002.1em, 2.681em, -1000em); top: -2.257em; left: 0em;"><span class="mrow" id="MathJax-Span-158"><span class="mo" id="MathJax-Span-159" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-160" style="font-family: MathJax_Math; font-style: italic;">x</span><span class="mo" id="MathJax-Span-161" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-162" style="font-family: MathJax_Main; padding-left: 0.167em;">ℓ</span><span class="mo" id="MathJax-Span-163" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>ℓ</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-29">(x,\ell)</script></span> constitué d’un élément <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-30-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;&amp;#x2208;&lt;/mo&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-164" style="width: 3.07em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.546em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.403em, 1002.55em, 2.471em, -1000em); top: -2.257em; left: 0em;"><span class="mrow" id="MathJax-Span-165"><span class="mi" id="MathJax-Span-166" style="font-family: MathJax_Math; font-style: italic;">x</span><span class="mo" id="MathJax-Span-167" style="font-family: MathJax_Main; padding-left: 0.278em;">∈</span><span class="mi" id="MathJax-Span-168" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.026em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.117em; border-left: 0px solid; width: 0px; height: 1.003em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi><mo>∈</mo><mi>E</mi></math></span></span><script type="math/tex" id="MathJax-Element-30">x\in E</script></span>
+et d’une liste <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-31-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;&amp;#x2113;&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-169" style="width: 0.524em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.405em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.32em, 1000.39em, 2.393em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-170"><span class="mi" id="MathJax-Span-171" style="font-family: MathJax_Main;">ℓ</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.093em; border-left: 0px solid; width: 0px; height: 1.009em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ℓ</mi></math></span></span><script type="math/tex" id="MathJax-Element-31">\ell</script></span> d’éléments de <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-32-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-172" style="width: 0.929em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.752em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.345em, 1000.75em, 2.373em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-173"><span class="mi" id="MathJax-Span-174" style="font-family: MathJax_Math; font-style: italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.026em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.069em; border-left: 0px solid; width: 0px; height: 0.955em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>E</mi></math></span></span><script type="math/tex" id="MathJax-Element-32">E</script></span>.</p></li>
+</ul>
+</div>
+<p>Il ressort de cette définition que les listes peuvent être vues comme des structures de données
+récursives.</p>
+</div>
+<div class="section" id="operations-primitives-sur-les-listes-non-mutables">
+<h2>Opérations primitives sur les listes (non mutables)<a class="headerlink" href="#operations-primitives-sur-les-listes-non-mutables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En nous appuyant sur la définition formelle qui vient d’être établie,
+nous sommes en mesure de dégager les opérations primitives qui
+suivent.</p>
+<div class="section" id="constructeur">
+<h3>Constructeur<a class="headerlink" href="#constructeur" title="Lien permanent vers ce titre">¶</a></h3>
+<p>D’après la définition, une liste est</p>
+<ul class="simple">
+<li><p>soit la liste vide,</p></li>
+<li><p>soit un couple constitué de l’élément de tête suivi de la liste des
+éléments qui suivent.</p></li>
+</ul>
+<p>Le constructeur de liste doit donc permettre de produire une liste
+vide et pour cela aucun argument n’est nécessaire, soit produire une
+liste à partir de deux arguments.</p>
+</div>
+<div class="section" id="selecteurs">
+<h3>Sélecteurs<a class="headerlink" href="#selecteurs" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les listes non vides possèdent une tête et un reste. Il nous faut les
+méthodes, appelées sélecteurs, pour accéder à ces deux composantes.</p>
+</div>
+<div class="section" id="predicat">
+<h3>Prédicat<a class="headerlink" href="#predicat" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Un prédicat testant la vacuité d’une liste peut s’avérer nécessaire.</p>
+</div>
+<div class="section" id="remarque">
+<h3>Remarque<a class="headerlink" href="#remarque" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Voici quelques relations qu’on peut établir à partir de ces opérations primitives.</p>
+<ul class="simple">
+<li><p>pour toute liste <code class="docutils literal notranslate"><span class="pre">l</span></code> et tout élément <code class="docutils literal notranslate"><span class="pre">x</span></code>, on a <code class="docutils literal notranslate"><span class="pre">List(x,</span> <span class="pre">l).tail()</span> <span class="pre">==</span> <span class="pre">l</span></code> et
+<code class="docutils literal notranslate"><span class="pre">List(x,</span> <span class="pre">l).head()</span> <span class="pre">==</span> <span class="pre">x</span></code>,</p></li>
+<li><p>et pour toute liste non vide, on a <code class="docutils literal notranslate"><span class="pre">List(l.head(),</span> <span class="pre">l.tail())</span> <span class="pre">==</span> <span class="pre">l</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="exemples">
+<h3>Exemples<a class="headerlink" href="#exemples" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Voici quelques exemples d’utilisation de ces opérations.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="n">List</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">List</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="n">is_empty</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="operations-primitives-specifiques-aux-listes-mutables">
+<h2>Opérations primitives spécifiques aux listes mutables<a class="headerlink" href="#operations-primitives-specifiques-aux-listes-mutables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Toutes les opérations primitives décrites ci-dessus permettent de travailler avec des listes
+non mutables, c’est-à-dire des listes dans lesquelles il est impossible</p>
+<ul class="simple">
+<li><p>de changer la valeur d’un élément d’une liste,</p></li>
+<li><p>et d’en changer la structure, en particulier sa longueur.</p></li>
+</ul>
+<p>Les listes non mutables sont fréquentes dans les langages fonctionnels comme Haskell et OCaml.</p>
+<p>Mais dans d’autres langages, les listes sont mutables. Par exemple en Python, on peut</p>
+<ul class="simple">
+<li><p>changer la valeur d’un élément d’une liste : <code class="docutils literal notranslate"><span class="pre">l[i]</span> <span class="pre">=</span> <span class="pre">x</span></code></p></li>
+<li><p>changer l’ordre de tous les éléments : <code class="docutils literal notranslate"><span class="pre">l.sort()</span></code></p></li>
+<li><p>augmenter la longueur d’une liste : <code class="docutils literal notranslate"><span class="pre">l.append(x)</span></code></p></li>
+<li><p>diminuer la longueur d’une liste : <code class="docutils literal notranslate"><span class="pre">l.pop()</span></code> …</p></li>
+</ul>
+<p>Si on veut des listes mutables, il nous faut des opérations primitives supplémentaires.</p>
+</div>
+<div class="section" id="implantation-des-listes">
+<h2>Implantation des listes<a class="headerlink" href="#implantation-des-listes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour trouver une implantation des listes, il suffit de s’en tenir à la
+définition récursive d’une liste : une liste est soit la liste vide,
+soit un couple constitué de la tête de la liste et du reste de la
+liste.</p>
+<p>Nous allons vous fournir une classe <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code> permettant de
+manipuler les listes. Vous ne connaissez pas encore les classes, mais
+vous en avez manipulées souvent (les entiers, les chaînes de
+caractères , les listes python, … sont des classes).</p>
+<p>Il n’est pas nécessaire de savoir programmer une classes pour
+effectuer les exercices de TD et de TP, seulement de l’utiliser.</p>
+<p>Nous allons quand même analyser certaines parties du code source de la
+classe.</p>
+<p>Il semble assez naturel qu’un objet de classe <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>
+soit représenté par un attribut (privé) dont la valeur est</p>
+<ul class="simple">
+<li><p>̀`None`` pour la liste vide,</p></li>
+<li><p>un couple ou un dictionnaire à deux champs pour une liste non vide.</p></li>
+</ul>
+<div class="section" id="constructeurs">
+<h3>Constructeurs<a class="headerlink" href="#constructeurs" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Nous choisissons un attribut <code class="docutils literal notranslate"><span class="pre">__content</span></code> dont la valeur est
+<code class="docutils literal notranslate"><span class="pre">()</span></code> (tuple vide) pour la liste vide, ou un couple (tuple à deux
+éléments) pour les listes non vides.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        :param args: </span>
+<span class="sd">        :type args: tuple</span>
+<span class="sd">        :build: a new empty list if args is empty, </span>
+<span class="sd">                or a list whose head is first element of args, </span>
+<span class="sd">                and tail list is second element of args.</span>
+<span class="sd">        :UC: len(args) in {0, 2} </span>
+<span class="sd">             and if len(args) == 2, is_instance(args[1], List)</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__content</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">List</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__content</span> <span class="o">=</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ListError</span><span class="p">(</span><span class="s1">'bad type for second argument'</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ListError</span><span class="p">(</span><span class="s1">'bad number of arguments'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Prédicat<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le prédicat de test de vacuité d’une liste peut s’écrire très
+simplement même sans savoir comment une liste vide est implantée.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        :return:</span>
+<span class="sd">           - True if self is empty</span>
+<span class="sd">           - False otherwise</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__content</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Sélecteurs<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les sélecteurs sont simples à écrire, mais il faut tenir compte du cas
+des listes vides par le biais d’un traitement de l’exception par
+exemple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        :return: head element of self</span>
+<span class="sd">        :raise: :class:`ListError` if self is empty</span>
+<span class="sd">        """</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ListError</span><span class="p">(</span><span class="s1">'head: empty list'</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">tail</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        :return: tail list of self</span>
+<span class="sd">        :raise: :class:`ListError` if self is empty</span>
+<span class="sd">        """</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__content</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ListError</span><span class="p">(</span><span class="s1">'tail: empty list'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exemples-d-utilisation-de-ces-operations">
+<h3>Exemples d’utilisation de ces opérations<a class="headerlink" href="#exemples-d-utilisation-de-ces-operations" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="calcul-de-la-longueur-d-une-liste">
+<h4>Calcul de la longueur d’une liste<a class="headerlink" href="#calcul-de-la-longueur-d-une-liste" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Voici une implantation possible d’une méthode donnant la longueur d’une liste.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">'''</span>
+<span class="sd">        :return: length of self</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        '''</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">List</span><span class="p">()</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">List</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">List</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">List</span><span class="p">())))</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remarque</p>
+<p>Le calcul de la longueur effectué par la fonction ci-dessus
+nécessite un parcours complet de la liste. On pourrait envisager
+une implantation des listes avec un attribut contenant la longueur
+de la liste qui permettrait à la méthode <code class="docutils literal notranslate"><span class="pre">__len__</span></code> d’avoir à
+parcourir l’intégralité de la liste.</p>
+<p>Le nom de la méthode est encadré par deux blancs soulignés. Cela permet
+d’utiliser la fonction <code class="docutils literal notranslate"><span class="pre">len</span></code> de python avec nos listes.</p>
+</div>
+</div>
+<div class="section" id="representation-sous-forme-d-une-chaine-de-caracteres">
+<h4>Représentation sous forme d’une chaîne de caractères<a class="headerlink" href="#representation-sous-forme-d-une-chaine-de-caracteres" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        :return: a string representation of list self</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        :UC: none</span>
+<span class="sd">        """</span>
+        <span class="k">def</span> <span class="nf">str_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_number</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>
+                <span class="k">return</span> <span class="s1">''</span>
+            <span class="k">elif</span> <span class="n">item_number</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s1">', ...'</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">comma</span> <span class="o">=</span> <span class="s1">''</span> <span class="k">if</span> <span class="n">item_number</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">', '</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">comma</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="p">())</span> <span class="o">+</span>
+                        <span class="n">str_content</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="p">(),</span> <span class="n">item_number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+                
+            
+        <span class="k">return</span> <span class="s1">'[</span><span class="si">{:s}</span><span class="s1">]'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">str_content</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">List</span><span class="p">())</span>
+<span class="go">'[]'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">List</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">List</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">List</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">List</span><span class="p">())))</span><span class="o">.</span><span class="fm">__len__</span><span class="p">())</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://www.fil.univ-lille1.fr/"> <!-- <a href="index.html"> -->
+              <img class="logo" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/UL-FST-informatique-rvb.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Table des matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure de liste</a><ul>
+<li><a class="reference internal" href="#motivation">Motivation</a></li>
+<li><a class="reference internal" href="#qu-est-ce-qu-une-liste">Qu’est ce qu’une liste ?</a></li>
+<li><a class="reference internal" href="#operations-primitives-sur-les-listes-non-mutables">Opérations primitives sur les listes (non mutables)</a><ul>
+<li><a class="reference internal" href="#constructeur">Constructeur</a></li>
+<li><a class="reference internal" href="#selecteurs">Sélecteurs</a></li>
+<li><a class="reference internal" href="#predicat">Prédicat</a></li>
+<li><a class="reference internal" href="#remarque">Remarque</a></li>
+<li><a class="reference internal" href="#exemples">Exemples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operations-primitives-specifiques-aux-listes-mutables">Opérations primitives spécifiques aux listes mutables</a></li>
+<li><a class="reference internal" href="#implantation-des-listes">Implantation des listes</a><ul>
+<li><a class="reference internal" href="#constructeurs">Constructeurs</a></li>
+<li><a class="reference internal" href="#id1">Prédicat</a></li>
+<li><a class="reference internal" href="#id2">Sélecteurs</a></li>
+<li><a class="reference internal" href="#exemples-d-utilisation-de-ces-operations">Exemples d’utilisation de ces opérations</a><ul>
+<li><a class="reference internal" href="#calcul-de-la-longueur-d-une-liste">Calcul de la longueur d’une liste</a></li>
+<li><a class="reference internal" href="#representation-sous-forme-d-une-chaine-de-caracteres">Représentation sous forme d’une chaîne de caractères</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/_sources/listes.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="" role="search">
+  <h3 id="searchlabel">Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel">
+      <input type="submit" value="Go">
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="Structure%20de%20liste%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/88x31.png"></a>. <a href="http://www.fil.univ-lille1.fr/">2016-2020, Léopold Weinberg, Éric Wegrzynowski, FIL - FST - Univ. Lille</a>.
+      Mis à jour le 12/04/2021.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Main, sans-serif;"></div></div></body></html>

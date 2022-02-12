@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Ensembles et dictionnaires — Documentation Algorithmes et Programmation 1 1.0</title>
+    
+    <link rel="stylesheet" href="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/nature.css" type="text/css">
+    <link rel="stylesheet" href="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/pygments.css" type="text/css">
+    <link rel="stylesheet" href="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/default.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/language_data.js"></script>
+    <script type="text/javascript" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/latest.js"></script>
+    <link rel="index" title="Index" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html">
+    <link rel="search" title="Recherche" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/search.html">
+    <link rel="top" title="Documentation Algorithmes et Programmation 1 1.0" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html"> 
+  <script type="text/javascript" async="" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body role="document"><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ensembles-et-dictionnaires">
+<h1>Ensembles et dictionnaires<a class="headerlink" href="#ensembles-et-dictionnaires" title="Lien permanent vers ce titre">¶</a></h1>
+<p>20-01-2021</p>
+<p class="rubric">Objectifs</p>
+<ul class="simple">
+<li>Découvrir deux nouvelles structures de données : ensembles et dictionnaires.</li>
+</ul>
+<div class="section" id="structures-iterables">
+<h2>Structures itérables<a class="headerlink" href="#structures-iterables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En Python, une structure de données <code class="docutils literal notranslate"><span class="pre">struct</span></code> est dite <em>itérable</em> si on peut écrire une instruction
+de la forme</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">struct</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>Toutes les structures séquentielles sont itérables. Mais il existe des structures itérables qui ne
+sont pas séquentielles. Nous allons déécouvrir deux telles structures qu’offre le langage Python :</p>
+<ul class="simple">
+<li>les <em>ensembles</em></li>
+<li>et les <em>dictionnaires</em>.</li>
+</ul>
+</div>
+<div class="section" id="ensembles">
+<h2>Ensembles<a class="headerlink" href="#ensembles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Comme les listes, les <em>ensembles</em> sont des structures de données permettant de regrouper plusieurs
+valeurs en une seule. Mais à la différence des listes,</p>
+<ul class="simple">
+<li>les ensembles ne peuvent pas avoir plusieurs occurrences d’une même valeur,</li>
+<li>les éléments d’un ensemble ne sont pas rangés dans un ordre déterminé permettant l’usage d’indices.</li>
+</ul>
+<div class="section" id="constructions">
+<h3>Constructions<a class="headerlink" href="#constructions" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="construction-litterale">
+<h4>Construction littérale<a class="headerlink" href="#construction-litterale" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La plus simple des constructions d’un ensemble consiste à placer entre deux accolades l’énumération de ses éléments</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s2">"timoleon"</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">}</span>
+<span class="go">{1, 2.5, 'timoleon'}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">}</span>
+<span class="go">{1}</span>
+</pre></div>
+</div>
+<p>Comme le montre le second exemple ci-dessus, les ensembles 
+n’acceptent pas la répétition d’un même élément. Et le premier exemple 
+montre  que l’ordre des éléments dans une énumération ne se retrouve pas
+ dans la réponse fournie par l’interpréteur.</p>
+</div>
+<div class="section" id="construction-avec-set">
+<h4>Construction avec <code class="docutils literal notranslate"><span class="pre">set</span></code><a class="headerlink" href="#construction-avec-set" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Le type des ensembles se nomme <cite>set</cite>. La fonction <cite>set</cite> permet la construction d’un ensemble à partir de n’importe quelle valeur itérable. En voici quelques exemples :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="go">{'e', 'i', 'l', 'm', 'n', 'o', 't'}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="go">{1, 2, 3, 4, 5, 9}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="go">{1, 3, 5, 7, 9}</span>
+</pre></div>
+</div>
+<p>L’ensemble vide se construit avec la fonction <code class="docutils literal notranslate"><span class="pre">set</span></code> sans argument</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">()</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>À la différence des chaînes, tuples et listes,
+l’ensemble vide ne peut pas être écrit littéralement par l’expression <code class="docutils literal notranslate"><span class="pre">{}</span></code> car
+on obtient un dictionnaire (voir plus bas) et non un ensemble :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">faux_ensemble</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">faux_ensemble</span><span class="p">)</span>
+<span class="go">&lt;class 'dict'&gt;</span>
+</pre></div>
+</div>
+<p>Il faut impérativement utiliser la fonction <code class="docutils literal notranslate"><span class="pre">set</span></code> pour construire un ensemble vide :</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vrai_ensemble</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">vrai_ensemble</span><span class="p">)</span>
+<span class="go">&lt;class 'set'&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="construction-en-comprehension">
+<h4>Construction en compréhension<a class="headerlink" href="#construction-en-comprehension" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Enfin, comme pour les listes, il est possible de définir un ensemble en <em>compréhension</em>. Voici par exemple l’ensemble des carrés des entiers compris entre -2 et 5.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">set</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="go">{0, 1, 4, 9, 16, 25}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="remarque-sur-le-contenu-des-ensembles">
+<h4>Remarque sur le contenu des ensembles<a class="headerlink" href="#remarque-sur-le-contenu-des-ensembles" title="Lien permanent vers ce titre">¶</a></h4>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>À la différence des listes, un ensemble ne peut pas contenir tout type de données.</p>
+<p>Comme le montre l’exemple ci-dessous, on ne peut pas mettre une liste dans un ensemble.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<span class="gp">...</span>
+<span class="go">TypeError: unhashable type: 'list'</span>
+</pre></div>
+</div>
+<p>De même on ne peut pas mettre d’ensemble dans un ensemble.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}}</span>
+<span class="gp">...</span>
+<span class="go">TypeError: unhashable type: 'set'</span>
+</pre></div>
+</div>
+<p class="last">Quels sont les types de données qui peuvent figurer dans un ensemble ? Ce sont tous les types dits <em>hachables</em>.
+ Nous ne préciserons pas ce qu’est un type hachable. Nous nous 
+contenterons de dire que ce sont tous les types simples (nombres entiers
+ ou flottants, booléens) ou correspondant à des structures non mutables 
+(chaînes, intervalles, tuples).</p>
+</div>
+</div>
+</div>
+<div class="section" id="nombre-d-elements-d-un-ensemble">
+<h3>Nombre d’éléments d’un ensemble<a class="headerlink" href="#nombre-d-elements-d-un-ensemble" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le nombre d’éléments d’un ensemble est donné par la fonction <cite>len</cite>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">))</span>
+<span class="go">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parcours-des-elements-d-un-ensemble">
+<h3>Parcours des éléments d’un ensemble<a class="headerlink" href="#parcours-des-elements-d-un-ensemble" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>L’absence de contrôle de l’ordre des éléments enlève l’intérêt de la notation indicielle.</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ens</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">TypeError: 'set' object does not support indexing</span>
+</pre></div>
+</div>
+</div>
+<p>En revanche l’opérateur <code class="docutils literal notranslate"><span class="pre">in</span></code> permet de tester l’appartenance d’une valeur à un ensemble.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">in</span> <span class="n">ens</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="ow">in</span> <span class="n">ens</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Les ensembles sont des structures de données itérables.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">ens</span><span class="p">:</span>
+<span class="go">       print (c, end=', ')</span>
+<span class="go">1, 2, 3,</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="methodes-sur-les-ensembles">
+<h3>Méthodes sur les ensembles<a class="headerlink" href="#methodes-sur-les-ensembles" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les méthodes <code class="docutils literal notranslate"><span class="pre">index</span></code> et <code class="docutils literal notranslate"><span class="pre">count</span></code>
+ ne sont pas des méthodes définies pour les ensembles. La première parce
+ que la notion d’indice n’a aucun sens pour les éléments d’un ensemble. 
+La seconde parce que dans un ensemble une valeur est soit absente, soit 
+présente une seule fois, et la méthode <code class="docutils literal notranslate"><span class="pre">count</span></code> perd tout intérêt.</p>
+<ol class="arabic">
+<li><p class="first">Méthodes <code class="docutils literal notranslate"><span class="pre">add</span></code> , <code class="docutils literal notranslate"><span class="pre">remove</span></code></p>
+<p>Ces méthodes ajoutent et retirent un élément dans un ensemble. Elles modifient l’ensemble et ne renvoient aucune valeur (<code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="n">ens1</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="n">ens1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="n">ens1</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">remove</span></code> appliquée à un élément n’appartenant pas à un ensemble déclenche l’exception <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">KeyError: 4</span>
+</pre></div>
+</div>
+</div>
+<p>Retenons donc que les ensembles sont des structures de données <strong>mutables</strong>.</p>
+</li>
+<li><p class="first">Méthodes <code class="docutils literal notranslate"><span class="pre">union</span></code>, <code class="docutils literal notranslate"><span class="pre">intersection</span></code></p>
+<p>Ces méthodes renvoient la réunion et l’intersection de l’ensemble 
+passé en paramètre et de celui sur lequel elles s’appliquent, et 
+qu’elles ne modifient pas.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">})</span>
+<span class="go">{1, 2, 3, 4, 5}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span>
+<span class="go">{1, 2, 3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">intersection</span><span class="p">({</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">})</span>
+<span class="go">{3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span>
+<span class="go">{1, 2, 3}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthodes <code class="docutils literal notranslate"><span class="pre">issubset</span></code>, <code class="docutils literal notranslate"><span class="pre">isdisjoint</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">issubset</span></code> est un prédicat qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code> si l’ensemble sur lequel elle s’applique est un sous-ensemble de celui passé en paramètre, et <code class="docutils literal notranslate"><span class="pre">False</span></code> dans le cas contraire.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">isubset</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">isubset</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">})</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">isdisjoint</span></code> est aussi un prédicat pour décider si deux ensembles sont disjoints.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ens1</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">({</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">})</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthode <code class="docutils literal notranslate"><span class="pre">copy</span></code></p>
+<p>Méthode analogue à celle pour les listes, et utile puisque les ensembles sont mutables.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="les-dictionnaires">
+<h2>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les <em>dictionnaires</em> sont des structures de données permettant
+d’associer une <em>valeur</em> à une <em>clé</em>.</p>
+<p>Ainsi une liste de couples comme <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">[('banane',</span> <span class="pre">2.59),</span> <span class="pre">('pomme',1.95),</span> <span class="pre">('orange',1.95)]</span></code> qui <em>associe</em> un prix au kg à des fruits, peut être considérée comme une liste d’association dans laquelle les fruits sont les <em>clés</em> et les prix les <em>valeurs</em> associées.</p>
+<p>Dans un dictionnaire, il ne peut y avoir qu’une seule association pour
+une clé donnée. Dit autrement, dans un dictionnaire les clés sont <strong>uniques</strong>.</p>
+<div class="section" id="id1">
+<h3>Constructions<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="section" id="id2">
+<h4>Construction littérale<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les constructions littérales de dictionnaires sont obtenues par énumération explicite des associations clé-valeur sous la forme <code class="docutils literal notranslate"><span class="pre">cle</span> <span class="pre">:</span> <span class="pre">valeur</span></code>, associations séparées par des virgules, le tout entre accolades.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banane'</span><span class="p">:</span><span class="mf">2.59</span><span class="p">,</span> <span class="s1">'pomme'</span><span class="p">:</span><span class="mf">1.95</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">:</span><span class="mf">1.95</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span>
+<span class="go">{'banane': 2.59, 'orange': 1.95, 'pomme': 1.95}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">tarifs</span><span class="p">)</span>
+<span class="go">&lt;class 'dict'&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="construction-avec-la-fonction-dict">
+<h4>Construction avec la fonction <code class="docutils literal notranslate"><span class="pre">dict</span></code><a class="headerlink" href="#construction-avec-la-fonction-dict" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Une autre construction possible du même dictionnaire utilise la fonction <code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">'banane'</span><span class="p">,</span> <span class="mf">2.59</span><span class="p">),</span> <span class="p">(</span><span class="s1">'pomme'</span><span class="p">,</span><span class="mf">1.95</span><span class="p">),</span> <span class="p">(</span><span class="s1">'orange'</span><span class="p">,</span><span class="mf">1.95</span><span class="p">)])</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>toute valeur ne peut pas servir de clé. Seules les valeurs non mutables peuvent
+servir de clé dans une association.</p>
+<p>Par exemple, la construction suivante échoue car on tente de 
+construire un dictionnaire avec une association dont la clé est une 
+liste qui est une structure mutable.</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{[]</span> <span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">"&lt;pyshell#11&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="p">{[]</span> <span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="gr">TypeError</span>: <span class="n">unhashable type: 'list'</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionnaire-vide">
+<h4>Dictionnaire vide<a class="headerlink" href="#dictionnaire-vide" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Un dictionnaire qui ne contient aucune association est un dictionnaire <em>vide</em>.</p>
+<p>Pour obtenir un dictionnaire vide, on peut donner l’expression</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">{}</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+<p>ou bien</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">()</span>
+<span class="go">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="taille-d-un-dictionnaire">
+<h3>Taille d’un dictionnaire<a class="headerlink" href="#taille-d-un-dictionnaire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La taille d’un dictionnaire, c’est-à-dire le nombre d’associations qu’il contient, est donnée par la fonction <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">tarifs</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="consultation">
+<h3>Consultation<a class="headerlink" href="#consultation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme les ensembles, les dictionnaires ne sont pas des structures 
+séquentielles, et leurs éléments ne sont donc pas indexés par des 
+nombres entiers.</p>
+<p>En revanche, on accède à la valeur associée à une clé <code class="docutils literal notranslate"><span class="pre">k</span></code> dans un dictionnaire <code class="docutils literal notranslate"><span class="pre">d</span></code> grâce à l’expression <code class="docutils literal notranslate"><span class="pre">d[k]</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'banane'</span><span class="p">]</span>
+<span class="go">2.59</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'orange'</span><span class="p">]</span>
+<span class="go">1.95</span>
+</pre></div>
+</div>
+<p>Toute tentative d’accéder à la valeur associée à une clé qui n’existe pas se solde par une exception <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">"&lt;pyshell#13&gt;"</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span>
+<span class="gr">KeyError</span>: <span class="n">'fraise'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="existence-d-une-association-pour-une-cle-donnee">
+<h3>Existence d’une association pour une clé donnée<a class="headerlink" href="#existence-d-une-association-pour-une-cle-donnee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On vient de voir que l’accès à la valeur associée à une clé 
+n’existant pas déclenche une exception. Il peut donc être utile de 
+vérifier l’existence de la clé dans un dictionnaire. C’est l’opérateur <code class="docutils literal notranslate"><span class="pre">in</span></code> qui permet cette vérification.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'banane'</span> <span class="ow">in</span> <span class="n">tarifs</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'fraise'</span> <span class="ow">in</span> <span class="n">tarifs</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modification">
+<h3>Modification<a class="headerlink" href="#modification" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les dictionnaires sont des structures mutables. On peut modifier la valeur associée à une clé.</p>
+<p>Par exemple le prix des bananes baisse.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'banane'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.30</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span>
+<span class="go">{('banane', 2.3), ('orange',1.95), ('pomme',1.95)}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ajout-d-une-association">
+<h3>Ajout d’une association<a class="headerlink" href="#ajout-d-une-association" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On peut aussi modifier un dictionnaire en ajoutant une association.</p>
+<p>Les fraises arrivent (et sont cheres).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">7.5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span>
+<span class="go">{'banane': 2.3, 'orange': 1.95, 'pomme': 1.95, 'fraise': 7.5}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="suppression-d-une-association">
+<h3>Suppression d’une association<a class="headerlink" href="#suppression-d-une-association" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On peut enfin supprimer une association dans un dictionnaire. On le fait avec l’instruction <code class="docutils literal notranslate"><span class="pre">del</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tarifs</span>
+<span class="go">{'banane': 2.3, 'orange': 1.95, 'pomme': 1.95}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iteration">
+<h3>Itération<a class="headerlink" href="#iteration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tout commme les listes, les chaînes de caractères, les intervalles et
+ les ensembles, les dictionnaires sont des structures itérables.
+Il est donc très facile d’effectuer un traitement sur toutes les 
+associations
+d’un dictionnaire à l’aide d’une boucle pour.</p>
+<p>Voici une itération pour imprimer toutes les clés d’un dictionnaire :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tarifs</span><span class="p">:</span>
+<span class="go">       print(k)</span>
+
+<span class="go">banane</span>
+<span class="go">orange</span>
+<span class="go">pomme</span>
+</pre></div>
+</div>
+<p>et une autre pour imprimer toutes les valeurs associées :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tarifs</span><span class="p">:</span>
+<span class="go">       print (tarifs[k])</span>
+
+<span class="go">2.3</span>
+<span class="go">1.95</span>
+<span class="go">1.95</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p class="last">Les dictionnaires ne sont pas des structures séquentielles. Il
+n’est donc pas possible dans un traitement itératif des données contenues
+dans un dictionnaire de s’appuyer sur un quelconque ordre de ces données.</p>
+</div>
+</div>
+</div>
+<div class="section" id="quelques-applications">
+<h2>Quelques applications<a class="headerlink" href="#quelques-applications" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="representation-de-dates">
+<h3>Représentation de dates<a class="headerlink" href="#representation-de-dates" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une date peut être représentée de différentes façons. L’une d’elles 
+est la donnée de trois nombres entiers donnant le jour, le mois et 
+l’année. Ces trois nombres peuvent être rassemblés dans une liste ou un 
+tuple. Mais y a-t-il un ordre canonique dans lequel ranger ces trois 
+nombres dans une liste ou un tuple ? Et une fois cet ordre choisi 
+comment interpréter une liste ou un tuple de trois entiers ? Par 
+exemple, le tuple <code class="docutils literal notranslate"><span class="pre">(1,2,3)</span></code>
+ représente-t-il le 1er février de l’an 3, ou le 3 février de l’an 1, ou
+ encore l’une des quatre autres interprétations possibles ?</p>
+<p>L’utilisation de dictionnaire permet de nommer les valeurs avec des 
+clés significatives enlevant toute ambiguïté. Pour représenter la date 
+d’aujourd’hui, on peut construire un dictionnaire à trois associations 
+de clés <code class="docutils literal notranslate"><span class="pre">'jour'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mois'</span></code> et <code class="docutils literal notranslate"><span class="pre">'annee'</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">aujourdhui</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'jour'</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">'mois'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'annee'</span><span class="p">:</span> <span class="mi">2016</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Une fois choisie une telle représentation des dates, on peut réaliser des
+fonctions pour obtenir diverses opérations sur les dates. Par exemple une
+fonction qui calcule la date du lendemain.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lendemain</span><span class="p">(</span><span class="n">aujourdhui</span><span class="p">)</span>
+<span class="go">{'mois': 1, 'jour': 26, 'annee': 2016}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tabulation-d-une-fonction">
+<h3>Tabulation d’une fonction<a class="headerlink" href="#tabulation-d-une-fonction" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les dictionnaires peuvent être utilisés pour tabuler des fonctions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">carres</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>On peut désormais utiliser le dictionnaire <code class="docutils literal notranslate"><span class="pre">carres</span></code> pour obtenir le carré de n’importe quel nombre entier compris entre 0 et 99 inclus, sans avoir à calculer ce carré.</p>
+</div>
+<div class="section" id="compter">
+<h3>Compter<a class="headerlink" href="#compter" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Voici comment il est possible de compter le nombre d’occurrences de chacun
+des caractères contenus dans une chaîne à l’aide d’un dictionnaire.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"la gardienne du campus dessine"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+<span class="go">       if c in d:</span>
+<span class="go">          d[c] += 1</span>
+<span class="go">       else:</span>
+<span class="go">          d[c] = 1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+<span class="go">       print(c,':', d[c])</span>
+
+<span class="go">a : 3</span>
+<span class="go">i : 2</span>
+<span class="go">l : 1</span>
+<span class="go">d : 3</span>
+<span class="go">g : 1</span>
+<span class="go">c : 1</span>
+<span class="go">n : 3</span>
+<span class="go">r : 1</span>
+<span class="go">  : 4</span>
+<span class="go">s : 3</span>
+<span class="go">e : 4</span>
+<span class="go">u : 2</span>
+<span class="go">p : 1</span>
+<span class="go">m : 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://www.fil.univ-lille1.fr/"> <!-- <a href="index.html"> -->
+              <img class="logo" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/UL-FST-informatique-rvb.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Ensembles et dictionnaires</a><ul>
+<li><a class="reference internal" href="#structures-iterables">Structures itérables</a></li>
+<li><a class="reference internal" href="#ensembles">Ensembles</a><ul>
+<li><a class="reference internal" href="#constructions">Constructions</a><ul>
+<li><a class="reference internal" href="#construction-litterale">Construction littérale</a></li>
+<li><a class="reference internal" href="#construction-avec-set">Construction avec <code class="docutils literal notranslate"><span class="pre">set</span></code></a></li>
+<li><a class="reference internal" href="#construction-en-comprehension">Construction en compréhension</a></li>
+<li><a class="reference internal" href="#remarque-sur-le-contenu-des-ensembles">Remarque sur le contenu des ensembles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nombre-d-elements-d-un-ensemble">Nombre d’éléments d’un ensemble</a></li>
+<li><a class="reference internal" href="#parcours-des-elements-d-un-ensemble">Parcours des éléments d’un ensemble</a></li>
+<li><a class="reference internal" href="#methodes-sur-les-ensembles">Méthodes sur les ensembles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#les-dictionnaires">Les dictionnaires</a><ul>
+<li><a class="reference internal" href="#id1">Constructions</a><ul>
+<li><a class="reference internal" href="#id2">Construction littérale</a></li>
+<li><a class="reference internal" href="#construction-avec-la-fonction-dict">Construction avec la fonction <code class="docutils literal notranslate"><span class="pre">dict</span></code></a></li>
+<li><a class="reference internal" href="#dictionnaire-vide">Dictionnaire vide</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#taille-d-un-dictionnaire">Taille d’un dictionnaire</a></li>
+<li><a class="reference internal" href="#consultation">Consultation</a></li>
+<li><a class="reference internal" href="#existence-d-une-association-pour-une-cle-donnee">Existence d’une association pour une clé donnée</a></li>
+<li><a class="reference internal" href="#modification">Modification</a></li>
+<li><a class="reference internal" href="#ajout-d-une-association">Ajout d’une association</a></li>
+<li><a class="reference internal" href="#suppression-d-une-association">Suppression d’une association</a></li>
+<li><a class="reference internal" href="#iteration">Itération</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quelques-applications">Quelques applications</a><ul>
+<li><a class="reference internal" href="#representation-de-dates">Représentation de dates</a></li>
+<li><a class="reference internal" href="#tabulation-d-une-fonction">Tabulation d’une fonction</a></li>
+<li><a class="reference internal" href="#compter">Compter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/_sources/ensembles_et_dictionnaires.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="Ensembles%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/88x31.png"></a>. <a href="http://www.fil.univ-lille1.fr/">2016-2020, Léopold Weinberg, Éric Wegrzynowski, FIL - FST - Univ. Lille</a>.
+      Mis à jour le 20/01/2021.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+</body></html>

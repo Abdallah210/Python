@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Tuples et dictionnaires — Documentation Algorithmes et Programmation 1 1.0</title>
+    
+    <link rel="stylesheet" href="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/nature.css" type="text/css">
+    <link rel="stylesheet" href="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/pygments.css" type="text/css">
+    <link rel="stylesheet" href="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/default.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/language_data.js"></script>
+    <script type="text/javascript" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/latest.js"></script>
+    <link rel="index" title="Index" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html">
+    <link rel="search" title="Recherche" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/search.html">
+    <link rel="top" title="Documentation Algorithmes et Programmation 1 1.0" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html"> 
+  <script type="text/javascript" async="" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.5') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.5') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.5') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.5') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body role="document"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tuples-et-dictionnaires">
+<h1>Tuples et dictionnaires<a class="headerlink" href="#tuples-et-dictionnaires" title="Lien permanent vers ce titre">¶</a></h1>
+<p><strong>Objectifs</strong></p>
+<ul class="simple">
+<li>Découvrir deux nouvelles structures de données : les tuples et les
+dictionnaires.</li>
+</ul>
+<div class="section" id="structures-sequentielles">
+<h2>Structures Séquentielles<a class="headerlink" href="#structures-sequentielles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Un structure de données <code class="docutils literal notranslate"><span class="pre">struct</span></code> est dite <em>séquentielle</em> si tous ses
+éléments ont une unique place numérotée <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 0.466em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.347em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.364em, 1000.3em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.945em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>i</mi></math></span></span><script type="math/tex" id="MathJax-Element-1">i</script></span>, appelée indice,
+vérifiant <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo&gt;&amp;#x2264;&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;&amp;lt;&lt;/mo&gt;&lt;mstyle displaystyle=&quot;false&quot; scriptlevel=&quot;0&quot;&gt;&lt;mtext&gt;len(struct)&lt;/mtext&gt;&lt;/mstyle&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-4" style="width: 9.841em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.16em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.391em, 1008.07em, 2.738em, -1000em); top: -2.315em; left: 0em;"><span class="mrow" id="MathJax-Span-5"><span class="mn" id="MathJax-Span-6" style="font-family: MathJax_Main;">0</span><span class="mo" id="MathJax-Span-7" style="font-family: MathJax_Main; padding-left: 0.278em;">≤</span><span class="mi" id="MathJax-Span-8" style="font-family: MathJax_Math; font-style: italic; padding-left: 0.278em;">i</span><span class="mo" id="MathJax-Span-9" style="font-family: MathJax_Main; padding-left: 0.278em;">&lt;</span><span class="mstyle" id="MathJax-Span-10" style="padding-left: 0.278em;"><span class="mrow" id="MathJax-Span-11"><span class="mtext" id="MathJax-Span-12" style="font-family: MathJax_Main;">len(struct)</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.315em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.369em; border-left: 0px solid; width: 0px; height: 1.339em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn><mo>≤</mo><mi>i</mi><mo>&lt;</mo><mstyle scriptlevel="0" displaystyle="false"><mtext>len(struct)</mtext></mstyle></math></span></span><script type="math/tex" id="MathJax-Element-2">0\leq i<\mbox{len(struct)}</script></span>.</p>
+<p>En python, les structures séquentielles disposent (entre autre) des
+méthodes :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">len</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">index</span></code></li>
+</ul>
+<p>et leurs éléments peuvent être obtenu grace à leurs indice :</p>
+<p><code class="docutils literal notranslate"><span class="pre">struct[i]</span></code></p>
+<p>Vous connaissez pour l’instant deux structures séquentielles :</p>
+<ul class="simple">
+<li>les chaînes de caractères <code class="docutils literal notranslate"><span class="pre">str</span></code>;</li>
+<li>les listes <code class="docutils literal notranslate"><span class="pre">list</span></code>.</li>
+</ul>
+<p>Les chaînes de caractères sont des structures séquentielles de données
+<em>non mutables</em> de caractères, les listes sont des structures
+séquentielles de données <em>mutables</em> d’éléments de type quelconque (en
+Python).</p>
+<div class="section" id="tuples">
+<h3>Tuples<a class="headerlink" href="#tuples" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les <em>tuples</em> sont un nouveau type de structure de données séquentielle.
+Comme les listes, les données de ce type peuvent contenir des éléments
+de type quelconque. Comme les chaînes de caractères, ces données ne sont
+pas mutables.</p>
+</div>
+<div class="section" id="construction-en-extension">
+<h3>Construction en extension<a class="headerlink" href="#construction-en-extension" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On peut construire un tuple en extension, c’est-à-dire littéralement par
+énumération de ses éléments :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">2.52</span><span class="p">,</span> <span class="s2">"Timoleon"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">t</span></code> est un tuple de longueur quatre. Les indices de ses élèments sont
+compris entre 0 et 3 :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">'Timoleon'</span>
+</pre></div>
+</div>
+<p>Un tuple vide se crée avec une paire de parenthèses :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">()</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>Il y a un problème pour construire un tuple à un élément, en effet les
+parenthèses servent également aux expressions arithmétiques. Pour ne pas
+confondre, on utilise une virgule :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="construction-avec-tuple">
+<h3>Construction avec <code class="docutils literal notranslate"><span class="pre">tuple</span></code><a class="headerlink" href="#construction-avec-tuple" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On peut également construire un tuple grace au constructeur <code class="docutils literal notranslate"><span class="pre">tuple</span></code>.
+Il s’agit d’une fonction prenant en paramètre une structure de données
+<em>itérable</em>, et qui renvoie un nouveau tuple contenant les éléments de
+l’itérable.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="s2">"Timoléon"</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">'i'</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">'n'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mutabilite-des-tuples">
+<h3>Mutabilité des tuples<a class="headerlink" href="#mutabilite-des-tuples" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme les chaînes de caractères, les tuples ne sont pas mutables : une
+fois un tuple créé, ne peut modifier ses éléments :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">1</span><span class="n">c3c5480cc1a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">'tuple'</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operations-entre-tuples">
+<h3>Opérations entre tuples<a class="headerlink" href="#operations-entre-tuples" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme les chaînes de caractères, les tuples disposent des opérations :</p>
+<ul class="simple">
+<li>concaténation <code class="docutils literal notranslate"><span class="pre">+</span></code>;</li>
+<li>répétition <code class="docutils literal notranslate"><span class="pre">*</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="methodes-sur-les-tuples">
+<h3>Méthodes sur les tuples<a class="headerlink" href="#methodes-sur-les-tuples" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les tuples disposent des méthodes suivantes :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">t.index(a)</span></code> : renvoie l’indice du premier élément égal à <code class="docutils literal notranslate"><span class="pre">a</span></code> ;</li>
+<li><code class="docutils literal notranslate"><span class="pre">t.count(a)</span></code> : renvoie le nombre d’occurrence de <code class="docutils literal notranslate"><span class="pre">a</span></code> dans <code class="docutils literal notranslate"><span class="pre">t</span></code></li>
+</ul>
+<div class="section" id="affectation-multiple">
+<h4>Affectation multiple<a class="headerlink" href="#affectation-multiple" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Une utilisation intéressante des tuples est l’affectation multiple.</p>
+<p>Supposons que l’on dispose d’un tuple <code class="docutils literal notranslate"><span class="pre">t</span></code> à deux éléments</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Il est possible de déclarer et d’initialiser deux variables <code class="docutils literal notranslate"><span class="pre">a</span></code> et
+<code class="docutils literal notranslate"><span class="pre">b</span></code> avec le contenu de <code class="docutils literal notranslate"><span class="pre">t</span></code>, en une seule opération :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">t</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>
+</pre></div>
+</div>
+<p>On peut même se dispenser des parenthèses :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">t</span>
+<span class="n">c</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span>
+</pre></div>
+</div>
+<p>Cette construction est utile dans les fonctions lorsque l’on souhaite
+renvoyer plusieurs valeurs. Il suffit de renvoyer un <code class="docutils literal notranslate"><span class="pre">tuple</span></code> contenant
+ces valeurs, puis d’utiliser l’affectation multiple.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mon_divmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    :param a: (int) un entier naturel</span>
+<span class="sd">    :param b: (int) un entier naturel</span>
+<span class="sd">    :return: (tuple) le couple (q, r) contenant le quotient et le</span>
+<span class="sd">            reste de la division euclidienne de a par b</span>
+<span class="sd">    :CU: a &gt;= 0, b &gt; 0</span>
+<span class="sd">    :Exemples:</span>
+
+<span class="sd">    &gt;&gt;&gt; mon_divmod(0,1)</span>
+<span class="sd">    (0, 0)</span>
+<span class="sd">    &gt;&gt;&gt; mon_divmod(26, 7)</span>
+<span class="sd">    (3, 5)</span>
+<span class="sd">    """</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">q</span>
+    <span class="k">while</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">r</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">:</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">q</span>
+    <span class="k">return</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mon_divmod</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">q</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">mon_divmod</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">q</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structures-iterables">
+<h4>Structures itérables<a class="headerlink" href="#structures-iterables" title="Lien permanent vers ce titre">¶</a></h4>
+<p>En Python, une structure de données <code class="docutils literal notranslate"><span class="pre">struct</span></code> est dite <em>itérable</em> si on
+peut écrire une instruction de la forme :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">struct</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">NameError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">86</span><span class="n">a6f2cfbafd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">struct</span><span class="p">:</span>
+      <span class="mi">2</span>     <span class="o">...</span>
+
+
+<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">'struct'</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p>Toutes les structures séquentielles sont itérables. Mais il existe des
+structures itérables qui ne sont pas séquentielles. Nous allons
+découvrir une telle structure implantée dans python : les
+<em>dictionnaires</em>.</p>
+</div>
+<div class="section" id="les-dictionnaires">
+<h4>Les dictionnaires<a class="headerlink" href="#les-dictionnaires" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les <em>dictionnaires</em> sont des structures de données permettant d’associer
+une <em>valeur</em> à une <em>clé</em>.</p>
+<p>Ainsi une liste de couples comme
+<code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">[('banane',</span> <span class="pre">2.59),</span> <span class="pre">('pomme',1.95),</span> <span class="pre">('orange',1.95)]</span></code> qui
+<em>associe</em> un prix au kg à des fruits, peut être considérée comme une
+liste d’association dans laquelle les fruits sont les <em>clés</em> et les prix
+les <em>valeurs</em> associées.</p>
+<p>Dans un dictionnaire, il ne peut y avoir qu’une seule association pour
+une clé donnée. Dit autrement, dans un dictionnaire les clés sont
+<strong>uniques</strong>.</p>
+</div>
+</div>
+<div class="section" id="constructions">
+<h3>Constructions<a class="headerlink" href="#constructions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les constructions littérales de dictionnaires sont obtenues par
+énumération explicite des associations clé-valeur sous la forme
+<code class="docutils literal notranslate"><span class="pre">cle</span> <span class="pre">:</span> <span class="pre">valeur</span></code>, associations séparées par des virgules, le tout entre
+accolades.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'banane'</span><span class="p">:</span><span class="mf">2.59</span><span class="p">,</span> <span class="s1">'pomme'</span><span class="p">:</span><span class="mf">1.95</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">:</span><span class="mf">1.95</span><span class="p">}</span>
+<span class="n">tarifs</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'banane'</span><span class="p">:</span> <span class="mf">2.59</span><span class="p">,</span> <span class="s1">'pomme'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tarifs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span>
+</pre></div>
+</div>
+<p>Une autre construction possible du même dictionnaire utilise la fonction
+<code class="docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">'banane'</span><span class="p">,</span> <span class="mf">2.59</span><span class="p">),</span> <span class="p">(</span><span class="s1">'pomme'</span><span class="p">,</span><span class="mf">1.95</span><span class="p">),</span> <span class="p">(</span><span class="s1">'orange'</span><span class="p">,</span><span class="mf">1.95</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p><strong>Attention</strong></p>
+<p>toute valeur ne peut pas servir de clé. Seules les valeurs non mutables
+peuvent servir de clé dans une association.</p>
+<p>Par exemple, la construction suivante échoue car on tente de construire
+un dictionnaire avec une association dont la clé est une liste qui est
+une structure mutable.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{[]</span> <span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">26</span><span class="o">-</span><span class="mi">1</span><span class="n">cc35c74f9b5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="p">{[]</span> <span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">unhashable</span> <span class="nb">type</span><span class="p">:</span> <span class="s1">'list'</span>
+</pre></div>
+</div>
+<p>Un dictionnaire qui ne contient aucune association est un dictionnaire
+<em>vide</em>.</p>
+<p>Pour obtenir un dictionnaire vide, on peut donner l’expression</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>ou bien</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">dict</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="taille-dun-dictionnaire">
+<h3>Taille d’un dictionnaire<a class="headerlink" href="#taille-dun-dictionnaire" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La taille d’un dictionnaire, c’est-à-dire le nombre d’associations qu’il
+contient, est donnée par la fonction <code class="docutils literal notranslate"><span class="pre">len</span></code>.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">tarifs</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="consultation">
+<h3>Consultation<a class="headerlink" href="#consultation" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme les ensembles, les dictionnaires ne sont pas des structures
+séquentielles, et leurs éléments ne sont donc pas indexés par des
+nombres entiers.</p>
+<p>En revanche, on accède à la valeur associée à une clé <code class="docutils literal notranslate"><span class="pre">k</span></code> dans un
+dictionnaire <code class="docutils literal notranslate"><span class="pre">d</span></code> grâce à l’expression <code class="docutils literal notranslate"><span class="pre">d[k]</span></code>.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'banane'</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2.59</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'orange'</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.95</span>
+</pre></div>
+</div>
+<p>Toute tentative d’accéder à la valeur associée à une clé qui n’existe
+pas se solde par une exception <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+
+<span class="ne">KeyError</span>                                  <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">32</span><span class="o">-</span><span class="mi">33</span><span class="n">ca56f7891a</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span>
+
+
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">'fraise'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="existence-dune-association-pour-une-cle-donnee">
+<h3>Existence d’une association pour une clé donnée<a class="headerlink" href="#existence-dune-association-pour-une-cle-donnee" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On vient de voir que l’accès à la valeur associée à une clé n’existant
+pas déclenche une exception. Il peut donc être utile de vérifier
+l’existence de la clé dans un dictionnaire. C’est l’opérateur <code class="docutils literal notranslate"><span class="pre">in</span></code> qui
+permet cette vérification.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">'banane'</span> <span class="ow">in</span> <span class="n">tarifs</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">'fraise'</span> <span class="ow">in</span> <span class="n">tarifs</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modification">
+<h3>Modification<a class="headerlink" href="#modification" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les dictionnaires sont des structures mutables. On peut modifier la
+valeur associée à une clé.</p>
+<p>Par exemple le prix des bananes baisse.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'banane'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.30</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'banane'</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">'pomme'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ajout-dune-association">
+<h3>Ajout d’une association<a class="headerlink" href="#ajout-dune-association" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On peut aussi modifier un dictionnaire en ajoutant une association.</p>
+<p>Les fraises arrivent (et sont cheres).</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">7.5</span>
+</pre></div>
+</div>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tarifs</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'banane'</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">'pomme'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">,</span> <span class="s1">'fraise'</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="suppression-dune-association">
+<h3>Suppression d’une association<a class="headerlink" href="#suppression-dune-association" title="Lien permanent vers ce titre">¶</a></h3>
+<p>On peut enfin supprimer une association dans un dictionnaire. On le fait
+avec l’instruction <code class="docutils literal notranslate"><span class="pre">del</span></code>.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">del</span> <span class="n">tarifs</span><span class="p">[</span><span class="s1">'fraise'</span><span class="p">]</span>
+<span class="n">tarifs</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'banane'</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s1">'pomme'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">,</span> <span class="s1">'orange'</span><span class="p">:</span> <span class="mf">1.95</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iteration">
+<h3>Itération<a class="headerlink" href="#iteration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Tout commme les listes, les chaînes de caractères, les intervalles et
+les ensembles, les dictionnaires sont des structures itérables. Il est
+donc très facile d’effectuer un traitement sur toutes les associations
+d’un dictionnaire à l’aide d’une boucle pour.</p>
+<p>Voici une itération pour imprimer toutes les clés d’un dictionnaire :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tarifs</span><span class="p">:</span>
+<span class="go">       print(k)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">banane</span>
+<span class="n">pomme</span>
+<span class="n">orange</span>
+</pre></div>
+</div>
+<p>et une autre pour imprimer toutes les valeurs associées :</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tarifs</span><span class="p">:</span>
+<span class="go">       print (tarifs[k])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2.3</span>
+<span class="mf">1.95</span>
+<span class="mf">1.95</span>
+</pre></div>
+</div>
+<p><strong>Attention</strong></p>
+<p>Les dictionnaires ne sont pas des structures séquentielles. Il n’est
+donc pas possible dans un traitement itératif des données contenues dans
+un dictionnaire de s’appuyer sur un quelconque ordre de ces données.</p>
+<div class="section" id="quelques-applications">
+<h4>Quelques applications<a class="headerlink" href="#quelques-applications" title="Lien permanent vers ce titre">¶</a></h4>
+</div>
+</div>
+<div class="section" id="representation-de-dates">
+<h3>Représentation de dates<a class="headerlink" href="#representation-de-dates" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une date peut être représentée de différentes façons. L’une d’elles est
+la donnée de trois nombres entiers donnant le jour, le mois et l’année.
+Ces trois nombres peuvent être rassemblés dans une liste ou un tuple.
+Mais y a-t-il un ordre canonique dans lequel ranger ces trois nombres
+dans une liste ou un tuple ? Et une fois cet ordre choisi comment
+interpréter une liste ou un tuple de trois entiers ? Par exemple, le
+tuple <code class="docutils literal notranslate"><span class="pre">(1,2,3)</span></code> représente-t-il le 1er février de l’an 3, ou le 3
+février de l’an 1, ou encore l’une des quatre autres interprétations
+possibles ?</p>
+<p>L’utilisation de dictionnaire permet de nommer les valeurs avec des clés
+significatives enlevant toute ambiguïté. Pour représenter la date
+d’aujourd’hui, on peut construire un dictionnaire à trois associations
+de clés <code class="docutils literal notranslate"><span class="pre">'jour'</span></code>, <code class="docutils literal notranslate"><span class="pre">'mois'</span></code> et <code class="docutils literal notranslate"><span class="pre">'annee'</span></code>.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aujourdhui</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'jour'</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">'mois'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'annee'</span><span class="p">:</span> <span class="mi">2016</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Une fois choisie une telle représentation des dates, on peut réaliser
+des fonctions pour obtenir diverses opérations sur les dates. Par
+exemple une fonction qui calcule la date du lendemain.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lendemain</span><span class="p">(</span><span class="n">aujourdhui</span><span class="p">)</span>
+<span class="go">{ 'jour' : 26, 'mois' : 2, 'annee' : 2016 }</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tabulation-dune-fonction">
+<h3>Tabulation d’une fonction<a class="headerlink" href="#tabulation-dune-fonction" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les dictionnaires peuvent être utilisés pour tabuler des fonctions.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">carres</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">*</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>On peut désormais utiliser le dictionnaire <code class="docutils literal notranslate"><span class="pre">carres</span></code> pour obtenir le
+carré de n’importe quel nombre entier compris entre 0 et 99 inclus, sans
+avoir à calculer ce carré.</p>
+</div>
+<div class="section" id="compter">
+<h3>Compter<a class="headerlink" href="#compter" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Voici comment il est possible de compter le nombre d’occurrences de
+chacun des caractères contenus dans une chaîne à l’aide d’un
+dictionnaire.</p>
+<div class="code ipython3 highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"la gardienne du campus dessine"</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+     <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="s1">':'</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">a</span> <span class="p">:</span> <span class="mi">3</span>
+  <span class="p">:</span> <span class="mi">4</span>
+<span class="n">g</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">r</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">d</span> <span class="p">:</span> <span class="mi">3</span>
+<span class="n">i</span> <span class="p">:</span> <span class="mi">2</span>
+<span class="n">e</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">n</span> <span class="p">:</span> <span class="mi">3</span>
+<span class="n">u</span> <span class="p">:</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">m</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">p</span> <span class="p">:</span> <span class="mi">1</span>
+<span class="n">s</span> <span class="p">:</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://www.fil.univ-lille1.fr/"> <!-- <a href="index.html"> -->
+              <img class="logo" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/UL-FST-informatique-rvb.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tuples et dictionnaires</a><ul>
+<li><a class="reference internal" href="#structures-sequentielles">Structures Séquentielles</a><ul>
+<li><a class="reference internal" href="#tuples">Tuples</a></li>
+<li><a class="reference internal" href="#construction-en-extension">Construction en extension</a></li>
+<li><a class="reference internal" href="#construction-avec-tuple">Construction avec <code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></li>
+<li><a class="reference internal" href="#mutabilite-des-tuples">Mutabilité des tuples</a></li>
+<li><a class="reference internal" href="#operations-entre-tuples">Opérations entre tuples</a></li>
+<li><a class="reference internal" href="#methodes-sur-les-tuples">Méthodes sur les tuples</a><ul>
+<li><a class="reference internal" href="#affectation-multiple">Affectation multiple</a></li>
+<li><a class="reference internal" href="#structures-iterables">Structures itérables</a></li>
+<li><a class="reference internal" href="#les-dictionnaires">Les dictionnaires</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#constructions">Constructions</a></li>
+<li><a class="reference internal" href="#taille-dun-dictionnaire">Taille d’un dictionnaire</a></li>
+<li><a class="reference internal" href="#consultation">Consultation</a></li>
+<li><a class="reference internal" href="#existence-dune-association-pour-une-cle-donnee">Existence d’une association pour une clé donnée</a></li>
+<li><a class="reference internal" href="#modification">Modification</a></li>
+<li><a class="reference internal" href="#ajout-dune-association">Ajout d’une association</a></li>
+<li><a class="reference internal" href="#suppression-dune-association">Suppression d’une association</a></li>
+<li><a class="reference internal" href="#iteration">Itération</a><ul>
+<li><a class="reference internal" href="#quelques-applications">Quelques applications</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#representation-de-dates">Représentation de dates</a></li>
+<li><a class="reference internal" href="#tabulation-dune-fonction">Tabulation d’une fonction</a></li>
+<li><a class="reference internal" href="#compter">Compter</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/_sources/tuples_et_dictionnaires_ipynb.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="Tuples%20et%20dictionnaires%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/88x31.png"></a>. <a href="http://www.fil.univ-lille1.fr/">2016-2020, Léopold Weinberg, Éric Wegrzynowski, FIL - FST - Univ. Lille</a>.
+      Mis à jour le 25/01/2021.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Main, sans-serif;"></div></div></body></html>

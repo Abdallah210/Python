@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Structures de données séquentielles — Documentation Algorithmes et Programmation 1 1.0</title>
+    
+    <link rel="stylesheet" href="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/nature.css" type="text/css">
+    <link rel="stylesheet" href="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/pygments.css" type="text/css">
+    <link rel="stylesheet" href="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/default.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/jquery.js"></script>
+    <script type="text/javascript" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/underscore.js"></script>
+    <script type="text/javascript" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/doctools.js"></script>
+    <script type="text/javascript" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/language_data.js"></script>
+    <script type="text/javascript" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/latest.js"></script>
+    <link rel="index" title="Index" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html">
+    <link rel="search" title="Recherche" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/search.html">
+    <link rel="top" title="Documentation Algorithmes et Programmation 1 1.0" href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html"> 
+  <script type="text/javascript" async="" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none; box-sizing: content-box}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_test {font-style: normal; font-weight: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow: hidden; height: 1px}
+.MathJax_test.mjx-test-display {display: table!important}
+.MathJax_test.mjx-test-inline {display: inline!important; margin-right: -1px}
+.MathJax_test.mjx-test-default {display: block!important; clear: both}
+.MathJax_ex_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60ex}
+.MathJax_em_box {display: inline-block!important; position: absolute; overflow: hidden; min-height: 0; max-height: none; padding: 0; border: 0; margin: 0; width: 1px; height: 60em}
+.mjx-test-inline .MathJax_left_box {display: inline-block; width: 0; float: left}
+.mjx-test-inline .MathJax_right_box {display: inline-block; width: 0; float: right}
+.mjx-test-display .MathJax_right_box {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.5') format('opentype'); font-weight: bold}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.5') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Math; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.5') format('opentype'); font-style: italic}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.5') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.5') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.5') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body role="document"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px none; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général" accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="structures-de-donnees-sequentielles">
+<h1>Structures de données séquentielles<a class="headerlink" href="#structures-de-donnees-sequentielles" title="Lien permanent vers ce titre">¶</a></h1>
+<p>20-01-2021</p>
+<p class="rubric">Objectifs</p>
+<ul class="simple">
+<li>Retour sur les types de données <cite>str</cite>, <cite>tuple</cite> et  <cite>range</cite></li>
+<li>Découverte d’un nouveau type de données <cite>list</cite></li>
+<li>Méthodes vs fonctions</li>
+<li>Similarités et différences</li>
+</ul>
+<div class="section" id="retour-sur-les-chaines-tuples-et-intervalles">
+<h2>Retour sur les chaînes, tuples et intervalles<a class="headerlink" href="#retour-sur-les-chaines-tuples-et-intervalles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les chaînes de caractères (<cite>str</cite>), les tuples (<cite>tuples</cite>) et les intervalles (<cite>range</cite>) sont des
+structures de données <em>séquentielles</em> déjà rencontrées lors du premier semestre.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">"timoleon"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ces trois structures de données partagent un certain nombre de points communs.</p>
+<ol class="arabic">
+<li><p class="first">Elles ont toutes une longueur, déterminée par le nombre d’éléments contenus dans la structure.
+C’est la fonction <cite>len</cite> qui donne la longueur d’une valeur de l’un de ces types.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Les éléments de ces structures peuvent être désignés par un indice. Cet indice est un
+nombre entier compris entre 0 et la longueur moins un.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">'t'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="go">'n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">L’opérateur <code class="docutils literal notranslate"><span class="pre">in</span></code> permet de tester l’appartenance d’une valeur dans chacune de
+ces structures.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'t'</span> <span class="ow">in</span> <span class="n">s</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'u'</span> <span class="ow">in</span> <span class="n">s</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="ow">in</span> <span class="n">t</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="n">t</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="ow">in</span> <span class="n">r</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="ow">in</span> <span class="n">r</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">On peut effectuer des traitements itératifs sur ces structures de données à l’aide de la boucle <code class="docutils literal notranslate"><span class="pre">for</span></code>. C’est pourquoi on dit de ces structures qu’elles sont <em>itérables</em>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+<span class="go">       print(c, end=', ')</span>
+<span class="go">t, i, m, o, l, e, o, n,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+<span class="go">       print(c, end=', ')</span>
+<span class="go">1, 2, 3,</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+<span class="go">       print(c, end=', ')</span>
+<span class="go">1, 3, 5, 7, 9,</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Mais elles sont aussi différentes.</p>
+<ol class="arabic">
+<li><p class="first">Seuls les tuples peuvent contenir des éléments de types hétérogènes.
+Les chaînes de caractères ne contiennent que des caractères, et les intervalles
+que des nombres entiers.</p>
+<p>Voici par exemple un tuple contenant des éléments de différents types.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+<span class="go">('timoleon', [1, 2, 3], range(1, 10, 2))</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Seuls les chaînes et les tuples peuvent être concaténées avec l’opérateur <cite>+</cite>.
+La concaténation n’a pas de sens pour les intervalles.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'Bonjour '</span> <span class="o">+</span> <span class="n">s</span>
+<span class="go">'Bonjour timoleon'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">+</span> <span class="n">t</span>
+<span class="go">(1, -3, 3, 1, -3, 3)</span>
+<span class="go">    &gt;&gt;&gt; r + r</span>
+<span class="go">    ...</span>
+<span class="go">TypeError: unsupported operand type(s) for +: 'range' and 'range'</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="methodes">
+<h2>Méthodes<a class="headerlink" href="#methodes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La notion de méthode provient de la programmation orientée objets.</p>
+<p>Les <em>méthodes</em> sont des sortes de fonctions qui sont attachées aux objets.
+Syntaxiquement, lorsqu’on veut faire appel à une méthode <code class="docutils literal notranslate"><span class="pre">m</span></code> attachée à un objet <code class="docutils literal notranslate"><span class="pre">o</span></code>,
+on utilise une notation pointée et on écrit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">o</span><span class="o">.</span><span class="n">m</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>alors qu’avec une fonction on aurait écrit</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="methodes-communes-aux-chaines-tuples-et-intervalles">
+<h3>Méthodes communes aux chaînes, tuples et intervalles<a class="headerlink" href="#methodes-communes-aux-chaines-tuples-et-intervalles" title="Lien permanent vers ce titre">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Méthode <code class="docutils literal notranslate"><span class="pre">index</span></code></p>
+<p>Cette méthode permet d’obtenir le plus petit indice où l’on peut trouver l’élément
+passé en paramètre dans l’objet sur lequel elle s’applique.
+Cette méthode déclenche une exception <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> si l’élément cherché n’est pas présent.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"timoleon"</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"o"</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"timoleon"</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
+<span class="go">    ...</span>
+<span class="go">ValueError: substring not found</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthode <code class="docutils literal notranslate"><span class="pre">count</span></code></p>
+<p>Cette méthode permet d’obtenir le <em>nombre d’occurences</em> du paramètre
+(C’est-à-dire le nombre de fois où le paramètre apparaît dans l’objet).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"timoleon"</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"o"</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"timoleon"</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Ces deux méthodes sont les deux seules que possèdent les intervalles et tuples. En revanche les
+chaînes en ont beaucoup d’autres.</p>
+</div>
+<div class="section" id="methodes-specifiques-aux-chaines">
+<h3>Méthodes spécifiques aux chaînes<a class="headerlink" href="#methodes-specifiques-aux-chaines" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les chaînes de caractères possèdent de très nombreuses méthodes qui 
+leur sont propres. Il n’est pas question de les passer toutes en revue 
+ici.</p>
+<ol class="arabic">
+<li><p class="first">Méthodes <code class="docutils literal notranslate"><span class="pre">isupper</span></code>, <code class="docutils literal notranslate"><span class="pre">islower</span></code>, <code class="docutils literal notranslate"><span class="pre">upper</span></code>, <code class="docutils literal notranslate"><span class="pre">lower</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">isupper</span></code> est un  prédicat sans paramètres, qui renvoie <code class="docutils literal notranslate"><span class="pre">True</span></code>,
+si la chaîne sur laquelle elle s’applique contient au moins une lettre, 
+et si parmi ces lettres il n’y a que des capitales, et renvoie <code class="docutils literal notranslate"><span class="pre">False</span></code> dans le cas contraire. La méthode <code class="docutils literal notranslate"><span class="pre">islower</span></code> est analogue pour les bas de casses.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"123"</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"TOTO1"</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"ToTO"</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">upper</span></code> n’a pas de paramètre, et renvoie une copie de la chaîne
+sur laquelle elle s’applique où les lettres sont remplacées par les lettres capitales correspondantes. La méthode <code class="docutils literal notranslate"><span class="pre">lower</span></code> est analogue pour la transformation des lettres en bas de casse.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"Timoleon"</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">"TIMOLEON"</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"Timo12"</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="go">"TIMO12"</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthodes <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>, <code class="docutils literal notranslate"><span class="pre">lstrip</span></code>, <code class="docutils literal notranslate"><span class="pre">strip</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">rstrip</span></code>,
+ utilisée sans paramètre, renvoie une copie de la chaîne à laquelle elle
+ s’applique en supprimant tous les caractères d’espacement situés à la 
+fin.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'Timoleon est un homme politique grec     '</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="go">'Timoleon est un homme politique grec'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'Timoleon est un homme politique grec'</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="go">'Timoleon est un homme politique grec'</span>
+</pre></div>
+</div>
+<p>Utilisée avec un paramètre qui est une chaîne de caractères, ce sont 
+tous les caractères de ce paramètre situés à droite qui sont supprimés 
+de la copie.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'Timoleon est un homme politique grec'</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'cegrz'</span><span class="p">)</span>
+<span class="go">'Timoleon est un homme politique '</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'Timoleon est un homme politique grec'</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>
+<span class="go">'Timoleon est un homme politique grec'</span>
+</pre></div>
+</div>
+<p>Les méthodes <code class="docutils literal notranslate"><span class="pre">lstrip</span></code> et <code class="docutils literal notranslate"><span class="pre">strip</span></code> sont analogues à <code class="docutils literal notranslate"><span class="pre">rstrip</span></code> mais pour la gauche de la chaîne (<code class="docutils literal notranslate"><span class="pre">lstrip</span></code>) et pour les deux côtés (<code class="docutils literal notranslate"><span class="pre">strip</span></code>).</p>
+</li>
+<li><p class="first">Méthodes <code class="docutils literal notranslate"><span class="pre">split</span></code> et <code class="docutils literal notranslate"><span class="pre">join</span></code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="les-listes">
+<h2>Les listes<a class="headerlink" href="#les-listes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Une <em>liste</em>  est une structure de données séquentielle permettant de regrouper en un seul objet
+plusieurs valeurs pouvant être de types différents.
+En ce sens, les listes sont semblables aux tuples. Nous verrons néanmoins un peu plus loin en quoi
+elles diffèrent des tuples.</p>
+<div class="section" id="constructions">
+<h3>Constructions<a class="headerlink" href="#constructions" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Nous allons voir plusieurs façons de construire des listes.</p>
+<div class="section" id="construction-litterale">
+<h4>Construction littérale<a class="headerlink" href="#construction-litterale" title="Lien permanent vers ce titre">¶</a></h4>
+<p>De façon semblable aux tuples, on construit une liste littérale en énumérant ses éléments séparés par
+des virgules, le tout entre crochets.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">]</span>
+<span class="go">[1, 'a']</span>
+</pre></div>
+</div>
+<p>Une liste peut être vide</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[]</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+<p>Les listes peuvent contenir toute sorte d’objets y compris des listes</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">]]</span>
+<span class="go">[(1, 2), ['a', 'b']]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="construction-avec-list">
+<h4>Construction avec <cite>list</cite><a class="headerlink" href="#construction-avec-list" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">list</span></code> est un autre moyen de construire des listes. Elle s’emploie avec zéro ou un
+argument, et dans ce cas l’argument doit être un itérable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">()</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="go">['t', 'i', 'm', 'o', 'l', 'e', 'o', 'n']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
+</pre></div>
+</div>
+<p>La fonction <code class="docutils literal notranslate"><span class="pre">list</span></code> peut même s’appliquer à une liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span>
+<span class="go">['t', 'i', 'm', 'o', 'l', 'e', 'o', 'n']</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>On peut penser que, dans l’exemple précédent, au lieu d’écrire l’instruction <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">=</span> <span class="pre">list(l1)</span></code> on
+pourrait écrire <code class="docutils literal notranslate"><span class="pre">l2</span> <span class="pre">=</span> <span class="pre">l1</span></code>. Mais si en apparence cela semble être équivalent, en réalité cela ne
+l’est pas, comme on peut le voir dans la session ci-dessous :</p>
+<br>
+<iframe src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/iframe-embed.html" width="800" height="500" frameborder="0">
+</iframe><p>On voit qu’en mémoire coexistent deux listes identiques en longueur et en contenu mais différentes
+en localisation. Les variables <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l2</span></code> <em>pointent</em> chacune vers une de ces deux listes.
+En revanche la variable <code class="docutils literal notranslate"><span class="pre">l3</span></code> <em>pointe</em> vers la même liste que <code class="docutils literal notranslate"><span class="pre">l1</span></code>.</p>
+<p class="last">On verra que cela peut poser des problèmes à cause de la mutabilité des listes.</p>
+</div>
+</div>
+<div class="section" id="construction-par-concatenation">
+<h4>Construction par concaténation<a class="headerlink" href="#construction-par-concatenation" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Les listes peuvent être concaténées entre elles avec l’opérateur <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="go">[3, 1, 4, 1, 5, 9, 2]</span>
+</pre></div>
+</div>
+<p>Cette opération itérée permet de construire des listes aussi longues qu’on veut. Voici par exemple
+comment obtenir la liste des caractères d’une chaîne sans utiliser la fonction <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">liste_car</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">'timoleon'</span><span class="p">:</span>
+<span class="go">        liste_car = list_car + [c]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">liste_car</span>
+<span class="go">['t', 'i', 'm', 'o', 'l', 'e', 'o', 'n']</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>Dans cet exemple, il faut bien prendre garde de ne pas écrire
+<code class="docutils literal notranslate"><span class="pre">list_car</span> <span class="pre">=</span> <span class="pre">list_car</span> <span class="pre">+</span> <span class="pre">c</span></code>. En effet <code class="docutils literal notranslate"><span class="pre">list_car</span></code> est une liste et <code class="docutils literal notranslate"><span class="pre">c</span></code> est une chaîne
+et Python ne sait pas concaténer une liste et une chaîne.</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="s1">'t'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'m'</span>
+<span class="gp">...</span>
+<span class="go">TypeError: can only concatenate list (not "str") to list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="construction-en-comprehension">
+<h4>Construction en compréhension<a class="headerlink" href="#construction-en-comprehension" title="Lien permanent vers ce titre">¶</a></h4>
+<p>La construction <em>en compréhension</em> est un moyen puissant, élégant et concis, que le langage Python
+permet pour les listes et les tuples.</p>
+<p>La syntaxe pour cette construction dans sa forme la plus simple est
+<code class="code docutils literal notranslate"><span class="pre">[&lt;expression&gt;</span> <span class="pre">for</span> <span class="pre">&lt;var&gt;</span> <span class="pre">in</span> <span class="pre">&lt;iterable&gt;]</span></code>.</p>
+<p>Voici par exemple la liste des carrés des entiers de 0 à 9</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="go">[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
+</pre></div>
+</div>
+<p>On peut combiner plusieurs itérations. Par exemple pour obtenir la liste de tous les couples d’entiers
+compris entre 0 et 2</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="go">[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0), (2, 1), (2, 2)]</span>
+</pre></div>
+</div>
+<p>On peut aussi filtrer les éléments qu’on veut avec une condition. Voici comment obtenir la liste des
+voyelles d’une chaine</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">'timoleon'</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">'aeiou'</span><span class="p">]</span>
+<span class="go">['i', 'o', 'e', 'o']</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="longueur-d-une-liste">
+<h3>Longueur d’une liste<a class="headerlink" href="#longueur-d-une-liste" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La longueur d’une liste est le nombre d’éléments de cette liste. Comme pour les autres structures,
+c’est la fonction <code class="docutils literal notranslate"><span class="pre">len</span></code> qui donne la longueur d’un tuple.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">))</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">]])</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="acces-aux-composantes">
+<h3>Accès aux composantes<a class="headerlink" href="#acces-aux-composantes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme les chaînes, les tuples et les intervalles, les listes sont des structures de données
+séquentielles. Les éléments des listes sont donc indexés de 0 à <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;&amp;#x2212;&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 2.781em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.315em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.417em, 1002.24em, 2.513em, -1000em); top: -2.257em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math; font-style: italic;">n</span><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Main; padding-left: 0.222em;">−</span><span class="mn" id="MathJax-Span-5" style="font-family: MathJax_Main; padding-left: 0.222em;">1</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.168em; border-left: 0px solid; width: 0px; height: 1.036em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>−</mo><mn>1</mn></math></span></span><script type="math/tex" id="MathJax-Element-1">n-1</script></span> si <span class="math notranslate nohighlight"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-6" style="width: 0.697em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.579em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.583em, 1000.56em, 2.384em, -1000em); top: -2.199em; left: 0em;"><span class="mrow" id="MathJax-Span-7"><span class="mi" id="MathJax-Span-8" style="font-family: MathJax_Math; font-style: italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.199em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.083em; border-left: 0px solid; width: 0px; height: 0.682em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-2">n</script></span> est la
+longueur de la liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">'t'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+<span class="go">'n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+<span class="gp">...</span>
+<span class="go">IndexError: tuple index out of range</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="egalite-de-listes">
+<h3>Égalité de listes<a class="headerlink" href="#egalite-de-listes" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Deux listes sont égales si elles ont les mêmes éléments dans le même ordre. En particulier deux listes
+égales ont même longueur.</p>
+<p>L’égalité de deux listes peut être testée avec l’opérateur usuel de comparaison en Python <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span> <span class="o">==</span> <span class="n">l2</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Comme déjà signalé plus haut deux listes peuvent être égales sans être situées au même endroit en
+mémoire. C’est le cas des deux listes de l’exemple ci-dessus.</p>
+<p>Si on veut savoir si deux variables <em>pointent</em> vers la même liste on peut utiliser l’opérateur <code class="docutils literal notranslate"><span class="pre">is</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span> <span class="ow">is</span> <span class="n">l1</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l3</span> <span class="o">=</span> <span class="n">l1</span>
+<span class="go">l3 is l1</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="operateur-in">
+<h3>Opérateur <cite>in</cite><a class="headerlink" href="#operateur-in" title="Lien permanent vers ce titre">¶</a></h3>
+<p>L’appartenance d’une valeur à une liste peut être testée à l’aide de l’opérateur <code class="docutils literal notranslate"><span class="pre">in</span></code> :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'t'</span> <span class="ow">in</span> <span class="n">l</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'u'</span> <span class="ow">in</span> <span class="n">l</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iteration">
+<h3>Itération<a class="headerlink" href="#iteration" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Comme les autres structures séquentielles, on peut itérer sur les éléments d’une liste</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">]:</span>
+<span class="go">        print(x, end='')</span>
+<span class="go">abcd</span>
+</pre></div>
+</div>
+<p>Si le traitement itératif nécessite l’usage des indices des éléments de la liste, alors on itère
+sur les indices.</p>
+</div>
+<div class="section" id="mutablilite">
+<h3>Mutablilité<a class="headerlink" href="#mutablilite" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Voici ce qui en Python distingue les listes des tuples (et aussi des chaines et intervalles) : la
+<em>mutabilité</em>.</p>
+<p>Dire qu’en Python les listes sont mutables signifie qu’il est possible de modifier la longueur et le
+contenu des listes sans avoir à les reconstruire.</p>
+<p>On peut modifier un élément d’une liste <code class="docutils literal notranslate"><span class="pre">l</span></code> par une instruction d’affectation de la forme
+<code class="code docutils literal notranslate"><span class="pre">l[i]</span> <span class="pre">=</span> <span class="pre">&lt;expression&gt;</span></code>. Le membre gauche de cette affectation (<code class="docutils literal notranslate"><span class="pre">l[i]</span></code>) désigne la position
+d’indice <code class="docutils literal notranslate"><span class="pre">i</span></code> de la liste <code class="docutils literal notranslate"><span class="pre">l</span></code>. Cette instruction a pour effet de changer la valeur de l’élément
+d’indice <code class="docutils literal notranslate"><span class="pre">i</span></code> de <code class="docutils literal notranslate"><span class="pre">l</span></code> par la valeur de <code class="docutils literal notranslate"><span class="pre">&lt;expression&gt;</span></code>. Par exemple:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'timuleon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span>
+<span class="go">['t', 'i', 'm', 'u', 'l', 'e', 'o', 'n']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'o'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span>
+<span class="go">['t', 'i', 'm', 'o', 'l', 'e', 'o', 'n']</span>
+</pre></div>
+</div>
+<p>Pour être valide, l’indice utilisé dans une telle instruction doit être un indice dans un intervalle
+acceptable. En particulier, il n’est pas possible par ce moyen d’augmenter la longueur d’une liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'z'</span>
+<span class="gp">...</span>
+<span class="go">IndexError: list assignment index out of range</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Avertissement</p>
+<p>Partage de valeur (ou phénomène d’aliasing)</p>
+<p>Dans la session ci-dessous, trois variables sont définies : <code class="docutils literal notranslate"><span class="pre">l1</span></code> et <code class="docutils literal notranslate"><span class="pre">l3</span></code> sont deux listes
+physiquement égales, tandis que <code class="docutils literal notranslate"><span class="pre">l2</span></code> est initialement une copie de <code class="docutils literal notranslate"><span class="pre">l1</span></code>.</p>
+<p>Une modification de l’élément d’indice 3 dans la liste pointée par <code class="docutils literal notranslate"><span class="pre">l3</span></code> a pour conséquence que
+la valeur de <code class="docutils literal notranslate"><span class="pre">l1[3]</span></code> a changé elle aussi. En revanche la valeur de <code class="docutils literal notranslate"><span class="pre">l2[3]</span></code> n’a pas changé.</p>
+<div class="last"><br>
+<iframe src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/iframe-embed_002.html" width="800" height="500" frameborder="0"> </iframe></div></div>
+<p>La mutation d’un élément d’une liste ne modifie pas la longueur de 
+cette liste. Dans la section qui suit sont présentées deux méthodes qui 
+ont pour effet de modifier la longueur (<code class="docutils literal notranslate"><span class="pre">append</span></code> et <code class="docutils literal notranslate"><span class="pre">pop</span></code>).</p>
+</div>
+<div class="section" id="id1">
+<h3>Méthodes<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Les listes possèdent onze méthodes : deux communes avec les autres structures séquentielles et
+neuf méthodes spécifiques.</p>
+<ol class="arabic">
+<li><p class="first">Méthodes communes <code class="docutils literal notranslate"><span class="pre">index</span></code> et <code class="docutils literal notranslate"><span class="pre">count</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'o'</span><span class="p">)</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">ValueError: 'z' is not in list</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthode spécifique <code class="docutils literal notranslate"><span class="pre">copy</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">copy</span></code>, sans paramètre, construit une copie de la liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">'timoleon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span> <span class="o">==</span> <span class="n">l1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l2</span> <span class="ow">is</span> <span class="n">l1</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>L’expression <code class="docutils literal notranslate"><span class="pre">l1.copy()</span></code> est équivalente à <code class="docutils literal notranslate"><span class="pre">list(l1)</span></code>.</p>
+</li>
+<li><p class="first">Méthode spécifique <code class="docutils literal notranslate"><span class="pre">append</span></code></p>
+<p><strong>Remarque :</strong> Toutes les méthodes que nous présentons désormais sont des méthodes qui modifient
+la liste à laquelle elles s’appliquent.</p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">append</span></code> ajoute l’élément passé en paramètre à la fin de la liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<span class="go">[1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<span class="go">[1, 2, 3, 4, 2]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Ajouter un élément par concaténation ou par la méthode <code class="docutils literal notranslate"><span class="pre">append</span></code> ?</p>
+<p>S’il faut ajouter un élément en fin d’une liste existante, vaut-il mieux utiliser la  concaténation ou la méthode <code class="docutils literal notranslate"><span class="pre">append</span></code> ?</p>
+<p>Observons d’abord la concaténation sur un exemple.</p>
+<iframe src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/iframe-embed_003.html" width="800" height="500" frameborder="0"> </iframe><p>On peut remarquer :</p>
+<ol class="arabic simple">
+<li>que la liste (<code class="docutils literal notranslate"><span class="pre">l1</span></code>) d’origine n’est pas changée,</li>
+<li>qu’une copie de la liste d’origine a été construite avant de lui ajouter un élément supplémentaire.</li>
+</ol>
+<p>Observons maintenant la méthode <code class="docutils literal notranslate"><span class="pre">append</span></code>.</p>
+<iframe src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/iframe-embed_004.html" width="800" height="500" frameborder="1"> </iframe><p>On peut remarquer :</p>
+<ol class="arabic simple">
+<li>que la liste d’origine (<code class="docutils literal notranslate"><span class="pre">l1</span></code>) a été modifiée</li>
+<li>et qu’en conséquence, il n’a pas fallu faire de copie.</li>
+</ol>
+<p class="last">Alors que vaut-il mieux ?
+Cela dépend du contexte d’utilisation. S’il n’est pas nécessaire de conserver la liste de d’origine, l’usage de la méthode <code class="docutils literal notranslate"><span class="pre">append</span></code> est très certainement plus efficace, en temps et en espace, que la concaténation.</p>
+</div>
+</li>
+<li><p class="first">Méthode spécifique <code class="docutils literal notranslate"><span class="pre">pop</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">pop</span></code> permet de supprimer le dernier élément d’une liste et renvoie ce dernier
+élément.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">&gt;&gt;&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">l</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="mi">4</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">l</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthode spécifique <code class="docutils literal notranslate"><span class="pre">reverse</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">reverse</span></code> ne prend pas de paramètre, et ne renvoie pas de résultat. Elle possède un <em>effet de bord</em> sur la liste sur laquelle elle s’applique : elle renverse l’ordre des éléments de la liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="go">    &gt;&gt;&gt; l</span>
+<span class="go">    [3, 2, 1]</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthode spécifique <code class="docutils literal notranslate"><span class="pre">sort</span></code></p>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">sort</span></code> ne renvoie pas de résultat. Elle modifie la liste sur laquelle on l’applique.
+Elle range (ou trie) ses éléments dans l’ordre croissant.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<span class="go">[3, 2, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">l</span>
+<span class="go">[1, 2, 3]</span>
+</pre></div>
+</div>
+<p>Nous étudierons deux algorithmes de tri dans un chapitre ultérieur.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="retour-sur-les-methodes-split-et-join-des-chaines-de-caracteres">
+<h3>Retour sur les méthodes split et join des chaînes de caractères<a class="headerlink" href="#retour-sur-les-methodes-split-et-join-des-chaines-de-caracteres" title="Lien permanent vers ce titre">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Méthode <code class="docutils literal notranslate"><span class="pre">split</span></code></p>
+<p>Cette méthode utilisée sans paramètre découpe la chaîne de caractères sur laquelle elle s’applique
+en une liste de chaînes obtenues en supprimant tous les caractères d’espacement : espace (<code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code>),
+tabulation (<code class="docutils literal notranslate"><span class="pre">'\t'</span></code>), passage à la ligne (<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"Timoleon est un homme</span><span class="se">\n</span><span class="s2">politique</span><span class="se">\t</span><span class="s2">grec"</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">['Timoleon', 'est', 'un', 'homme', 'politique', 'grec']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"Timoleon"</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="go">['timoleon']</span>
+</pre></div>
+</div>
+<p>Utilisée avec un paramètre, cette méthode découpe la chaîne en une liste de chaînes obtenues en
+supprimant toutes les occurrences du paramètre.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"Timoleon est un homme politique grec"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'e'</span><span class="p">)</span>
+<span class="go">['Timol', 'on ', 'st un homm', ' politiqu', ' gr', 'c']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">"Timoleon est un homme politique grec"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'ol'</span><span class="p">)</span>
+<span class="go">['Tim', 'eon est un homme p', 'itique grec']</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Méthode <code class="docutils literal notranslate"><span class="pre">join</span></code></p>
+<p>D’un certain point de vue on peut considérer que la méthode <code class="docutils literal notranslate"><span class="pre">join</span></code> effectue le travail inverse
+de <code class="docutils literal notranslate"><span class="pre">split</span></code> : elle prend une liste de chaînes de caractères en paramètre et construit une
+nouvelle chaîne de caractères obtenue en intercalant la chaîne à laquelle elle s’applique
+toutes les chaînes de la liste.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">'e'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">'Timol'</span><span class="p">,</span> <span class="s1">'on '</span><span class="p">,</span> <span class="s1">'st un homm'</span><span class="p">,</span> <span class="s1">' politiqu'</span><span class="p">,</span> <span class="s1">' gr'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">])</span>
+<span class="go">'Timoleon est un homme politique grec'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'ol'</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">'Tim'</span><span class="p">,</span> <span class="s1">'eon est un homme p'</span><span class="p">,</span> <span class="s1">'itique grec'</span><span class="p">])</span>
+<span class="go">'Timoleon est un homme politique grec'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">'Timoleon'</span><span class="p">,</span> <span class="s1">'est'</span><span class="p">,</span> <span class="s1">'un'</span><span class="p">,</span> <span class="s1">'homme'</span><span class="p">,</span> <span class="s1">'politique'</span><span class="p">,</span> <span class="s1">'grec'</span><span class="p">])</span>
+<span class="go">'Timoleon est un homme politique grec'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">'Timoleon'</span><span class="p">,</span> <span class="s1">'est'</span><span class="p">,</span> <span class="s1">'un'</span><span class="p">,</span> <span class="s1">'homme'</span><span class="p">,</span> <span class="s1">'politique'</span><span class="p">,</span> <span class="s1">'grec'</span><span class="p">])</span>
+<span class="go">'Timoleonestunhommepolitiquegrec'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">'timoleon'</span><span class="o">.</span><span class="n">join</span><span class="p">([])</span>
+<span class="go">''</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="similarites-et-differences-entre-ces-types-de-donnees">
+<h2>Similarités et différences entre ces types de données<a class="headerlink" href="#similarites-et-differences-entre-ces-types-de-donnees" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Terminons avec un tableau résumant les principaux points communs et principales
+différences entre les chaînes, les listes, les intervalles, les tuples et les ensembles.</p>
+<table class="docutils" border="1">
+<colgroup>
+<col width="25%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head"><cite>str</cite></th>
+<th class="head"><cite>list</cite></th>
+<th class="head"><cite>range</cite></th>
+<th class="head"><cite>tuple</cite></th>
+<th class="head"><cite>dict</cite></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mutabilité</td>
+<td>Non</td>
+<td>Oui</td>
+<td>Non</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+<tr class="row-odd"><td>Not. indicielle</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr class="row-even"><td>Fonction <cite>len</cite></td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="row-odd"><td>Opérateur <cite>in</cite></td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+</tr>
+<tr class="row-even"><td>Opérateur <cite>+</cite></td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Non</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr class="row-odd"><td>Itération <cite>for</cite></td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr class="row-even"><td>Méthode <cite>index</cite></td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr class="row-odd"><td>Méthode <cite>count</cite></td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Oui</td>
+<td>Non</td>
+</tr>
+<tr class="row-even"><td>Méthode <cite>copy</cite></td>
+<td>Non</td>
+<td>Oui</td>
+<td>Non</td>
+<td>Non</td>
+<td>Oui</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pour-aller-plus-loin">
+<h2>Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#sequence-types-list-tuple-range">Le site officiel de Python</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://www.fil.univ-lille1.fr/"> <!-- <a href="index.html"> -->
+              <img class="logo" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/UL-FST-informatique-rvb.png" alt="Logo">
+            </a></p>
+  <h3><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structures de données séquentielles</a><ul>
+<li><a class="reference internal" href="#retour-sur-les-chaines-tuples-et-intervalles">Retour sur les chaînes, tuples et intervalles</a></li>
+<li><a class="reference internal" href="#methodes">Méthodes</a><ul>
+<li><a class="reference internal" href="#methodes-communes-aux-chaines-tuples-et-intervalles">Méthodes communes aux chaînes, tuples et intervalles</a></li>
+<li><a class="reference internal" href="#methodes-specifiques-aux-chaines">Méthodes spécifiques aux chaînes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#les-listes">Les listes</a><ul>
+<li><a class="reference internal" href="#constructions">Constructions</a><ul>
+<li><a class="reference internal" href="#construction-litterale">Construction littérale</a></li>
+<li><a class="reference internal" href="#construction-avec-list">Construction avec <cite>list</cite></a></li>
+<li><a class="reference internal" href="#construction-par-concatenation">Construction par concaténation</a></li>
+<li><a class="reference internal" href="#construction-en-comprehension">Construction en compréhension</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#longueur-d-une-liste">Longueur d’une liste</a></li>
+<li><a class="reference internal" href="#acces-aux-composantes">Accès aux composantes</a></li>
+<li><a class="reference internal" href="#egalite-de-listes">Égalité de listes</a></li>
+<li><a class="reference internal" href="#operateur-in">Opérateur <cite>in</cite></a></li>
+<li><a class="reference internal" href="#iteration">Itération</a></li>
+<li><a class="reference internal" href="#mutablilite">Mutablilité</a></li>
+<li><a class="reference internal" href="#id1">Méthodes</a></li>
+<li><a class="reference internal" href="#retour-sur-les-methodes-split-et-join-des-chaines-de-caracteres">Retour sur les méthodes split et join des chaînes de caractères</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#similarites-et-differences-entre-ces-types-de-donnees">Similarités et différences entre ces types de données</a></li>
+<li><a class="reference internal" href="#pour-aller-plus-loin">Pour aller plus loin</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/_sources/structures_sequentielles.rst.txt" rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q">
+      <input type="submit" value="Go">
+      <input type="hidden" name="check_keywords" value="yes">
+      <input type="hidden" name="area" value="default">
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/genindex.html" title="Index général">index</a></li>
+        <li class="nav-item nav-item-0"><a href="https://www.fil.univ-lille1.fr/~L1S2API/CoursTP/index.html">Documentation Algorithmes et Programmation 1 1.0</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        ;<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/"> <img alt="Licence Creative Commons" style="border-width:0" src="Structures%20de%20donn%C3%A9es%20s%C3%A9quentielles%20%E2%80%94%20Documentation%20Algorithmes%20et%20Programmation%201%201.0_fichiers/88x31.png"></a>. <a href="http://www.fil.univ-lille1.fr/">2016-2020, Léopold Weinberg, Éric Wegrzynowski, FIL - FST - Univ. Lille</a>.
+      Mis à jour le 20/01/2021.
+      Créé avec <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px none; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; min-width: 0px; max-width: none; padding: 0px; border: 0px none; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-size-adjust: none; font-family: MathJax_Main, sans-serif;"></div></div></body></html>
+
